@@ -294,7 +294,9 @@ class ReportWorkspace(QWidget):
         layout.addWidget(technical)
 
         controls = QHBoxLayout()
-        self.export_pdf_button = QPushButton("Export PDF"); self.export_pdf_button.setEnabled(bool(self.report) and self.status not in {"MALFORMED", "UNAVAILABLE"})
+        self.export_pdf_button = QPushButton("Export Full Report PDF")
+        self.export_pdf_button.setObjectName("primary")
+        self.export_pdf_button.setEnabled(bool(self.report) and self.status not in {"MALFORMED", "UNAVAILABLE"})
         self.export_pdf_button.clicked.connect(self.choose_pdf_path); controls.addWidget(self.export_pdf_button)
         self.export_json_button = QPushButton("Export JSON"); self.export_json_button.setEnabled(bool(self.report)); self.export_json_button.clicked.connect(self.choose_json_path); controls.addWidget(self.export_json_button)
         self.export_text_button = QPushButton("Export Text"); self.export_text_button.setEnabled(bool(self.text_report_path and self.text_report_path.is_file())); self.export_text_button.clicked.connect(self.choose_text_path); controls.addWidget(self.export_text_button)

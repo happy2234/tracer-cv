@@ -356,9 +356,15 @@ class FindingsWorkspace(QWidget):
         self.finding_table.setEditTriggers(QTableWidget.EditTrigger.NoEditTriggers); self.finding_table.verticalHeader().setVisible(False)
         list_card.content.addWidget(self.finding_table)
         self.finding_table.cellDoubleClicked.connect(self.open_finding_row)
+        finding_actions = QHBoxLayout()
         investigation = QPushButton("Investigate Selected Finding")
         investigation.clicked.connect(lambda: self.open_finding_row(self.finding_table.currentRow(), 0))
-        list_card.content.addWidget(investigation)
+        export_pdf_btn = QPushButton("Export Findings PDF")
+        export_pdf_btn.clicked.connect(self._export_findings_pdf)
+        finding_actions.addWidget(investigation)
+        finding_actions.addWidget(export_pdf_btn)
+        finding_actions.addStretch()
+        list_card.content.addLayout(finding_actions)
         if not self.findings:
             if self.state in {"COMPLETED", "COMPLETED WITH WARNINGS"} and self.findings_available:
                 message = "No persisted assurance findings were recorded for this assessment."
@@ -464,3 +470,38 @@ class FindingsWorkspace(QWidget):
             FindingInvestigationDialog(self.findings[index], dataset_root=self.dataset_root,
                 on_navigate=self.on_navigate, on_review=self.on_review,
                 disposition_manager=self.disposition_manager, parent=self).exec()
+
+    def _export_findings_pdf(self):
+        from desktop.reporting import write_section_pdf
+        from PySide6.QtWidgets import QFileDialog, QMessageBox
+        from pathlib import Path
+        target, _ = QFileDialog.getSaveFileName(
+            self, "Export Findings PDF", "findings_report.pdf", "PDF (*.pdf)"
+        )
+        if not target:
+            return
+        try:
+            rows = []
+            for f in self.findings if isinstance(self.findings, list) else []:
+                if isinstance(f, dict):
+                    rows.append((
+                        f"{f.get('finding_id', '—')} · {f.get('severity', '—').upper()}",
+                        f"{f.get('title', '—')}: {f.get('explanation', '')}",
+                    ))
+            assessment_id = str(self.assessment.get("assessment_id", "")) if self.assessment else ""
+            result = write_section_pdf(
+                "Findings & Evidence Report",
+                {
+                    "description": f"C3 structured findings from assessment {assessment_id}.",
+                    "rows": rows[:60],
+                    "findings": self.findings[:20] if isinstance(self.findings, list) else [],
+                },
+                target,
+                assessment_id=assessment_id,
+            )
+            QMessageBox.information(
+                self, "Export complete",
+                f"PDF saved: {Path(result['path']).name}\nSHA-256: {result['sha256'][:32]}…",
+            )
+        except Exception as exc:
+            QMessageBox.warning(self, "PDF export failed", str(exc))

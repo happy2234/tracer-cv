@@ -354,7 +354,11 @@ class AuditWorkspace(QWidget):
         self.entry_table = QTableWidget(0, 7); self.entry_table.setHorizontalHeaderLabels(["Sequence", "Timestamp", "Event type", "Source engine", "Affected asset", "Event ID", "Chain status"])
         self.entry_table.setAlternatingRowColors(True); self.entry_table.setSelectionBehavior(QTableWidget.SelectionBehavior.SelectRows); self.entry_table.setEditTriggers(QTableWidget.EditTrigger.NoEditTriggers); self.entry_table.verticalHeader().setVisible(False)
         timeline.content.addWidget(self.entry_table); self.entry_table.cellDoubleClicked.connect(self.open_entry_row)
-        self.inspect_entry_button = QPushButton("Inspect Selected Entry"); self.inspect_entry_button.clicked.connect(lambda: self.open_entry_row(self.entry_table.currentRow(), 0)); timeline.content.addWidget(self.inspect_entry_button)
+        audit_actions = QHBoxLayout()
+        self.inspect_entry_button = QPushButton("Inspect Selected Entry"); self.inspect_entry_button.clicked.connect(lambda: self.open_entry_row(self.entry_table.currentRow(), 0))
+        export_audit_pdf_btn = QPushButton("Export Audit Trail PDF"); export_audit_pdf_btn.clicked.connect(self._export_audit_pdf)
+        audit_actions.addWidget(self.inspect_entry_button); audit_actions.addWidget(export_audit_pdf_btn); audit_actions.addStretch()
+        timeline.content.addLayout(audit_actions)
         if not self.entries:
             timeline.content.addWidget(QLabel("No persisted audit entries are available. This does not establish that activity outside this stored chain was absent."))
         layout.addWidget(timeline)
@@ -494,3 +498,41 @@ class AuditWorkspace(QWidget):
         index = item.data(Qt.ItemDataRole.UserRole) if item else None
         if isinstance(index, int) and 0 <= index < len(self.findings):
             AuditFindingDialog(self.findings[index], on_navigate=self.on_navigate, parent=self).exec()
+
+    def _export_audit_pdf(self):
+        from desktop.reporting import write_section_pdf
+        from PySide6.QtWidgets import QFileDialog, QMessageBox
+        from pathlib import Path
+        target, _ = QFileDialog.getSaveFileName(
+            self, "Export Audit Trail PDF", "audit_trail_report.pdf", "PDF (*.pdf)"
+        )
+        if not target:
+            return
+        try:
+            assessment_id = str(self.assessment.get("assessment_id", "")) if self.assessment else ""
+            rows = [
+                ("Chain status", self.state),
+                ("Entry count", str(len(self.entries))),
+                ("Integrity", "Valid" if self.result.get("valid") is True else
+                              "Invalid" if self.result.get("valid") is False else "Unavailable"),
+            ]
+            for entry in self.entries[:30]:
+                if isinstance(entry, dict):
+                    rows.append((
+                        f"#{entry.get('sequence', '?')} · {entry.get('timestamp', '—')}",
+                        f"{entry.get('event_type', '—')} · {entry.get('source_engine', '—')} · "
+                        f"{entry.get('affected_asset', '—')}",
+                    ))
+            result = write_section_pdf(
+                "Audit Trail Report",
+                {"description": f"C4 tamper-evident audit chain from assessment {assessment_id}.",
+                 "rows": rows},
+                target,
+                assessment_id=assessment_id,
+            )
+            QMessageBox.information(
+                self, "Export complete",
+                f"PDF saved: {Path(result['path']).name}\nSHA-256: {result['sha256'][:32]}…",
+            )
+        except Exception as exc:
+            QMessageBox.warning(self, "PDF export failed", str(exc))

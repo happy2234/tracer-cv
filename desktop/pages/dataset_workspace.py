@@ -430,7 +430,8 @@ class DatasetIntegrityWorkspace(QWidget):
         rerun = QPushButton("Re-run Assessment"); rerun.setEnabled(on_rerun is not None)
         if on_rerun: rerun.clicked.connect(on_rerun)
         export = QPushButton("Export Evidence"); export.clicked.connect(self.export_evidence)
-        actions.addWidget(rerun); actions.addWidget(export); header.content.addLayout(actions)
+        export_pdf = QPushButton("Export Dataset PDF"); export_pdf.clicked.connect(self.export_section_pdf)
+        actions.addWidget(rerun); actions.addWidget(export); actions.addWidget(export_pdf); header.content.addLayout(actions)
         layout.addWidget(header)
         assessment_state = str(self.assessment.get("status", "")).strip().upper()
         if assessment_state in {"RUNNING", "QUEUED", "CREATED"}:
@@ -689,3 +690,34 @@ class DatasetIntegrityWorkspace(QWidget):
                         archive.write(resolved, resolved.name)
         except (OSError, zipfile.BadZipFile) as exc:
             QMessageBox.warning(self, "Evidence export failed", f"Could not export persisted dataset evidence: {exc}")
+
+    def export_section_pdf(self):
+        from desktop.reporting import write_section_pdf
+        target, _ = QFileDialog.getSaveFileName(
+            self, "Export Dataset Integrity PDF", "dataset_integrity_report.pdf", "PDF (*.pdf)"
+        )
+        if not target:
+            return
+        try:
+            rows = []
+            if isinstance(self.results, dict):
+                for key, value in self.results.items():
+                    if isinstance(value, dict):
+                        status = value.get("status", "—")
+                        rows.append((key.replace("_", " ").upper(), str(status)))
+                    elif isinstance(value, (str, int, float)):
+                        rows.append((key.replace("_", " ").title(), str(value)))
+            assessment_id = str(self.assessment.get("assessment_id", "")) if self.assessment else ""
+            result = write_section_pdf(
+                "Dataset Integrity Report",
+                {"description": "A1–A8 dataset integrity analysis results.",
+                 "rows": rows[:40]},
+                target,
+                assessment_id=assessment_id,
+            )
+            QMessageBox.information(
+                self, "Export complete",
+                f"PDF saved: {Path(result['path']).name}\nSHA-256: {result['sha256'][:32]}…",
+            )
+        except Exception as exc:
+            QMessageBox.warning(self, "PDF export failed", str(exc))

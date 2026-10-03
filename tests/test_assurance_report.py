@@ -235,8 +235,6 @@ def test_complete_report() -> None:
         len(report["report_digest"]) == 64,
     )
 
-    return report
-
 
 def test_determinism() -> None:
     kwargs = {
@@ -406,7 +404,18 @@ def main() -> int:
     test_severity_helpers()
     test_findings_section()
 
-    report = test_complete_report()
+    test_complete_report()
+
+    # Rebuild report locally for tests that depend on it
+    report = build_assurance_report(
+        assessment_id="demo-assessment-001",
+        dataset={"engine": "A1-A8", "status": "assessed", "dataset_digest": "dataset-digest-123"},
+        model={"engine": "B1-B4", "status": "assessed", "model_id": "sha256:" + "a" * 64},
+        provenance={"valid": True, "entry_count": 3},
+        shift={"shift_detected": True, "severity": "medium", "overall_shift_score": 0.42},
+        findings=sample_findings(),
+        audit={"valid": True, "entry_count": 5, "findings": []},
+    )
 
     test_determinism()
     test_not_assessed()

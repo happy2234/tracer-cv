@@ -1,0 +1,21 @@
+# TRACER-CV runtime dependencies
+# Provision matching wheels from a locally approved wheelhouse before offline deployment.
+# The application never installs dependencies at runtime.
+#
+# Core runtime
+PySide6==6.11.2
+numpy==2.5.3
+Pillow==12.3.0
+cryptography==50.0.1
+torch==2.11.0+cu128
+torchvision==0.26.0+cu128
+torchaudio==2.11.0+cu128
+
+# Optional ONNX inference — see requirements-onnx.txt for version constraints.
+# Tested with: onnx==1.23.1, onnxruntime==1.30.0
+# Uncomment to include in offline wheelhouse manifest:
+# onnx==1.23.1
+# onnxruntime==1.30.0
+
+# Development / testing (not required for application runtime)
+# pytest==9.1.1

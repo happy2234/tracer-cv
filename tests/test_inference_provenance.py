@@ -147,7 +147,7 @@ def test_preprocessing_digest() -> None:
     )
 
 
-def test_record_creation() -> ProvenanceRecord:
+def test_record_creation() -> None:
     record = create_record(
         sequence=1,
         nonce="nonce-0001",
@@ -173,8 +173,6 @@ def test_record_creation() -> ProvenanceRecord:
         "08 record hash length",
         len(record.record_hash) == 64,
     )
-
-    return record
 
 
 def test_record_verification(record: ProvenanceRecord) -> None:
@@ -250,7 +248,7 @@ def test_record_hash_binding() -> None:
     )
 
 
-def test_inference_convenience_api() -> ProvenanceRecord:
+def test_inference_convenience_api() -> None:
     record = create_inference_record(
         sequence=1,
         input_bytes=b"image-data",
@@ -280,10 +278,8 @@ def test_inference_convenience_api() -> ProvenanceRecord:
         ),
     )
 
-    return record
 
-
-def test_chain() -> list[ProvenanceRecord]:
+def test_chain() -> None:
     first = create_record(
         sequence=1,
         nonce="chain-nonce-1",
@@ -330,8 +326,6 @@ def test_chain() -> list[ProvenanceRecord]:
         "18 chain record count",
         result["record_count"] == 3,
     )
-
-    return [first, second, third]
 
 
 def test_broken_chain(records: list[ProvenanceRecord]) -> None:
@@ -468,7 +462,7 @@ def test_non_replay(records: list[ProvenanceRecord]) -> None:
     )
 
 
-def test_ed25519() -> ProvenanceRecord:
+def test_ed25519() -> None:
     private_key, public_key = generate_signing_keypair()
 
     record = create_record(
@@ -502,8 +496,6 @@ def test_ed25519() -> ProvenanceRecord:
         "28 signature valid",
         result["signature_valid"] is True,
     )
-
-    return record
 
 
 def test_invalid_signature(record: ProvenanceRecord) -> None:
@@ -559,21 +551,69 @@ def main() -> int:
     print("TRACER-CV C1 — INFERENCE PROVENANCE TESTS")
     print("=" * 72)
 
-    record = test_record_creation()
+    # Reconstruct objects needed by dependent tests directly — test functions
+    # no longer return values so that pytest does not emit PytestReturnNotNoneWarning.
+    record = create_record(
+        sequence=1,
+        nonce="nonce-0001",
+        input_digest=digest_input(b"image-1"),
+        model_id="sha256:" + "a" * 64,
+        preprocessing_digest=digest_preprocessing({"resize": [224, 224]}),
+        output_digest=digest_output(b"output-1"),
+    )
+    test_record_creation()
     test_record_verification(record)
     test_tamper_detection(record)
     test_record_hash_binding()
 
-    inference_record = test_inference_convenience_api()
+    inference_record = create_inference_record(
+        sequence=1,
+        input_bytes=b"image-data",
+        model_id="sha256:" + "c" * 64,
+        preprocessing_config={"resize": [224, 224], "normalize": True},
+        output_bytes=b"prediction-output",
+        nonce="inference-nonce-1",
+    )
+    test_inference_convenience_api()
 
-    records = test_chain()
+    first = create_record(
+        sequence=1, nonce="chain-nonce-1",
+        input_digest=digest_input(b"image-1"), model_id="sha256:" + "d" * 64,
+        preprocessing_digest=digest_preprocessing({"resize": [224, 224]}),
+        output_digest=digest_output(b"output-1"),
+    )
+    second = create_record(
+        sequence=2, nonce="chain-nonce-2",
+        input_digest=digest_input(b"image-2"), model_id="sha256:" + "d" * 64,
+        preprocessing_digest=digest_preprocessing({"resize": [224, 224]}),
+        output_digest=digest_output(b"output-2"),
+        previous_record_hash=first.record_hash,
+    )
+    third = create_record(
+        sequence=3, nonce="chain-nonce-3",
+        input_digest=digest_input(b"image-3"), model_id="sha256:" + "d" * 64,
+        preprocessing_digest=digest_preprocessing({"resize": [224, 224]}),
+        output_digest=digest_output(b"output-3"),
+        previous_record_hash=second.record_hash,
+    )
+    records = [first, second, third]
+    test_chain()
     test_broken_chain(records)
     test_sequence_discontinuity(records)
     test_nonce_reuse(records)
     test_replay_detection(records)
     test_non_replay(records)
 
-    signed_record = test_ed25519()
+    private_key, public_key = generate_signing_keypair()
+    signed_record = create_record(
+        sequence=1, nonce="signed-nonce",
+        input_digest=digest_input(b"signed-image"),
+        model_id="sha256:" + "f" * 64,
+        preprocessing_digest=digest_preprocessing({"resize": [224, 224]}),
+        output_digest=digest_output(b"signed-output"),
+        private_key_base64=private_key,
+    )
+    test_ed25519()
     test_invalid_signature(signed_record)
 
     test_serialization(inference_record)

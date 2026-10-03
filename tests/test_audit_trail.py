@@ -111,8 +111,6 @@ def test_chain() -> list:
         result["entry_count"] == 3,
     )
 
-    return [first, second, third]
-
 
 def test_tampering(entries) -> None:
     first, second, third = entries
@@ -350,7 +348,13 @@ def main() -> int:
 
     test_creation()
 
-    entries = test_chain()
+    test_chain()
+
+    # Rebuild entries locally for tests that depend on them
+    _first = make_entry(1)
+    _second = make_entry(2, _first.entry_hash)
+    _third = make_entry(3, _second.entry_hash)
+    entries = [_first, _second, _third]
 
     test_tampering(entries)
     test_broken_chain(entries)
