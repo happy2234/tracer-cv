@@ -35,6 +35,8 @@ from desktop.pages.audit_workspace import AuditWorkspace
 from desktop.pages.evidence_workspace import EvidenceWorkspace, load_engine_evidence
 from desktop.pages.settings_workspace import SettingsWorkspace
 from desktop.pages.report_workspace import ReportWorkspace
+from desktop.pages.coverage_workspace import CoverageWorkspace
+from desktop.pages.self_test_workspace import SelfTestWorkspace
 
 CONFIG = LocalConfig.load()
 APP_VERSION = "0.1.0"
@@ -68,6 +70,8 @@ NAV_PAGES = {
     "Distribution": ("engine", 4), "FINDINGS": ("engine", 5),
     "EVIDENCE": ("utility", "evidence"), "AUDIT TRAIL": ("engine", 6),
     "REPORTS": ("engine", 7), "SETTINGS": ("utility", "settings"),
+    "Coverage & Limitations": ("utility", "coverage"),
+    "Self-Test & Readiness": ("utility", "selftest"),
 }
 
 
@@ -829,7 +833,7 @@ class MainWindow(QMainWindow):
         return page,layout
 
     def show_utility(self, key):
-        title={"mission":"Mission Control","overview":"Assessment Overview","assessments":"Assessments","assets":"Assets","evidence":"Evidence","settings":"Settings"}[key]
+        title={"mission":"Mission Control","overview":"Assessment Overview","assessments":"Assessments","assets":"Assets","evidence":"Evidence","settings":"Settings","coverage":"Coverage & Limitations","selftest":"Self-Test & Deployment Readiness"}[key]
         self.page_context.setText(title.upper())
         current_report=read_result(0)
         self.assessment_label.setText(f"Assessment  ·  {field(current_report,'assessment_id',default='No assessment loaded')}")
@@ -845,6 +849,12 @@ class MainWindow(QMainWindow):
                 parent=self,
             )
             self._replace_view(workspace)
+            return
+        if key == "coverage":
+            self._replace_view(CoverageWorkspace(parent=self))
+            return
+        if key == "selftest":
+            self._replace_view(SelfTestWorkspace(CONFIG, ACTIVE_COMPUTE, on_navigate=self.open_settings_related, parent=self))
             return
         page,layout=self._utility_page(title)
         if key in ("mission", "overview"):
@@ -907,7 +917,11 @@ class MainWindow(QMainWindow):
         layout.addStretch(); self._replace_view(page)
 
     def open_settings_related(self, route):
-        if route == "evidence":
+        if route == "coverage":
+            self.show_utility("coverage")
+        elif route in {"selftest", "readiness"}:
+            self.show_utility("selftest")
+        elif route == "evidence":
             self.show_utility("evidence")
         elif route == "findings":
             self.navigate(5)
@@ -917,6 +931,9 @@ class MainWindow(QMainWindow):
             self.navigate(7)
 
     def open_report_related(self, route):
+        if route == "coverage":
+            self.show_utility("coverage")
+            return
         routes = {"findings": 5, "evidence": "evidence", "audit": 6}
         target = routes.get(route)
         if target == "evidence":

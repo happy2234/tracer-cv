@@ -16,6 +16,7 @@ from PySide6.QtWidgets import (
 )
 
 from desktop.widgets.components import AnalystTable, MetricCard, SectionCard, SeverityBadge
+from backend.core.capabilities import ACCESS_MODES, CAPABILITIES as CAPABILITY_REGISTRY, DATASET_FORMATS, LIMITATIONS as LIMITATION_REGISTRY, MODEL_FORMATS
 
 
 def _value(value: Any) -> str:
@@ -121,39 +122,10 @@ def readonly_checks(config: Any, active_compute: Any) -> list[list[str]]:
     return rows
 
 
-CAPABILITIES = [
-    ["Offline operation", "Available", "Core assessment workflows use local files and local computation."],
-    ["Dataset integrity A1–A8", "Available", "Implemented dataset evidence engines; results depend on inputs and engine limits."],
-    ["B1 model identity", "Available", "SHA-256 identity and format hints; identity is not trustworthiness."],
-    ["B2 behavioral fingerprint", "Partial", "Classification-oriented probe comparison; trusted model execution is required."],
-    ["B3 parameter / activation statistics", "Partial", "Supported white-box models; access/representation may limit activations."],
-    ["B4 trigger-like search", "Partial", "Configured candidate search; not definitive backdoor detection."],
-    ["C1 inference provenance", "Available", "Local hash chain; Ed25519 signatures are optional."],
-    ["C2 distribution shift", "Available", "Appearance/statistical differences; does not establish manipulation or semantics."],
-    ["C3 findings / evidence", "Available", "Persisted engine-derived findings; absence does not prove absence of attacks."],
-    ["C4 audit trail", "Available", "Local tamper-evident chain; not an external trust anchor."],
-    ["C5 report generation", "Available", "Local evidence-oriented report generation."],
-    ["TorchScript", "Partial", "Supported adapter paths execute code; B3 loader requires trusted=True; not sandboxed."],
-    ["ONNX", "Partial", "B1 recognizes an ONNX format hint; general ONNX inference is not established."],
-    ["PyTorch checkpoint (.pt/.pth)", "Unavailable", "General safe checkpoint execution is not established; pickle deserialization can execute code."],
-    ["COCO / YOLO", "Partial", "Some label validation/inputs exist; no complete COCO/YOLO dataset adapter."],
-    ["Segmentation assurance", "Unavailable", "Not implemented in the current classification-focused model assurance scope."],
-    ["Black-box model access", "Partial", "Behavioral interfaces support limited outputs; parameter/activation inspection is unavailable."],
-]
+CAPABILITIES = [[f"{item['id']} · {item['name']}", item['status'], item['limitations']] for item in CAPABILITY_REGISTRY]
 
 
-LIMITATIONS = [
-    "Model assurance is classification-oriented; detection and segmentation model assurance are not established.",
-    "COCO/YOLO label handling is partial and does not constitute complete object-detection model assurance.",
-    "TorchScript execution is not sandboxed and must be limited to trusted model artifacts. Pickle-based checkpoints are unsafe for untrusted inputs.",
-    "B4 trigger-like candidate evidence does not prove a backdoor; zero candidates do not prove absence.",
-    "Distribution shift is a statistical/appearance difference and does not establish malicious manipulation or semantic correctness.",
-    "Contributor risk is heuristic and does not establish malicious intent; metadata anomalies do not prove tampering.",
-    "Absence of findings does not prove absence of attacks or manipulation.",
-    "Local evidence, reports, and audit state remain mutable to a privileged local user; hashes are not a remote trust anchor.",
-    "Operation is designed for offline use with public/synthetic data and local storage; this UI does not verify physical network isolation.",
-    "Compute and memory limits depend on the host; no hardware performance guarantee is made.",
-]
+LIMITATIONS = [f"{engine}: {limitation}" for engine, values in LIMITATION_REGISTRY.items() for limitation in values]
 
 
 class SettingsWorkspace(QWidget):
@@ -225,7 +197,15 @@ class SettingsWorkspace(QWidget):
         ])); layout.addWidget(crypto)
 
         capability = SectionCard("Security Capability Matrix")
-        capability.content.addWidget(AnalystTable(["Capability", "Availability", "Scope"], CAPABILITIES)); layout.addWidget(capability)
+        capability.content.addWidget(AnalystTable(["Capability", "Availability", "Scope"], CAPABILITIES))
+        capability.content.addWidget(QLabel("Model formats and engine applicability"))
+        capability.content.addWidget(AnalystTable(["Model format", "B1", "B2", "B3", "B4", "Reason"], [[x["format"],x["B1"],x["B2"],x["B3"],x["B4"],x["reason"]] for x in MODEL_FORMATS]))
+        capability.content.addWidget(QLabel("Dataset formats"))
+        capability.content.addWidget(QLabel("COCO / YOLO ingestion is partial; no complete COCO/YOLO dataset adapter or full detection-model assurance is established."))
+        capability.content.addWidget(AnalystTable(["Dataset format", "State", "Scope"], [[x["format"],x["status"],x["scope"]] for x in DATASET_FORMATS]))
+        capability.content.addWidget(QLabel("White-box / black-box access"))
+        capability.content.addWidget(AnalystTable(["Capability", "White-box", "Black-box", "Required access"], [[x["capability"],x["white_box"],x["black_box"],x["required_access"]] for x in ACCESS_MODES]))
+        layout.addWidget(capability)
 
         limits = SectionCard("Coverage & Limitations")
         for limitation in LIMITATIONS:
@@ -240,7 +220,7 @@ class SettingsWorkspace(QWidget):
 
         nav = SectionCard("Related Workspaces")
         links = QHBoxLayout()
-        for label, route in (("Evidence Explorer", "evidence"), ("Findings", "findings"), ("Audit Trail", "audit"), ("Reports", "reports")):
+        for label, route in (("Coverage & Limitations", "coverage"), ("Self-Test", "selftest"), ("Deployment Readiness", "readiness"), ("Evidence Explorer", "evidence"), ("Findings", "findings"), ("Audit Trail", "audit"), ("Reports", "reports")):
             button = QPushButton(label); button.clicked.connect(lambda checked=False, target=route: self.on_navigate(target) if self.on_navigate else None); links.addWidget(button)
         nav.content.addLayout(links); layout.addWidget(nav)
         layout.addStretch()

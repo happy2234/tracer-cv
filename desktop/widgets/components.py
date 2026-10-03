@@ -22,9 +22,9 @@ class StatusBadge(QLabel):
 class SeverityBadge(StatusBadge):
     """Semantic status/severity badge shared by analyst-facing views."""
     TONES = {
-        "verified": "verified", "valid": "verified", "normal": "verified", "completed": "verified", "assessed": "verified", "available": "info",
+        "verified": "verified", "valid": "verified", "normal": "verified", "completed": "verified", "assessed": "verified", "available": "info", "supported": "verified",
         "information": "info", "informational": "info", "info": "info",
-        "review": "review", "review_required": "review", "medium": "review", "warning": "review", "low": "verified",
+        "review": "review", "review_required": "review", "medium": "review", "warning": "review", "low": "verified", "partial": "review", "conditional": "review", "not_applicable": "unavailable",
         "high": "high", "critical": "critical", "unavailable": "unavailable",
         "disabled": "unavailable", "failed": "unavailable", "error": "unavailable", "invalid": "critical",
     }
@@ -126,6 +126,9 @@ class NavigationSidebar(QFrame):
                 child = QTreeWidgetItem(["Current Assessment"]); child.setData(0, Qt.UserRole, "CURRENT ASSESSMENT"); node.addChild(child); self.nav_items["CURRENT ASSESSMENT"] = child
             if name == "ASSURANCE":
                 for label in self.ASSURANCE:
+                    child = QTreeWidgetItem([label]); child.setData(0, Qt.UserRole, label); node.addChild(child); self.nav_items[label] = child
+            if name == "SETTINGS":
+                for label in ("Coverage & Limitations", "Self-Test & Readiness"):
                     child = QTreeWidgetItem([label]); child.setData(0, Qt.UserRole, label); node.addChild(child); self.nav_items[label] = child
         self.nav_items["ASSURANCE"].setExpanded(True); self.nav_items["ASSESSMENTS"].setExpanded(True); side.addWidget(self.tree, 1)
         footer = QLabel("OFFLINE / AIR-GAPPED\nDeveloped by Team DevZ"); footer.setObjectName("sidebarFooter"); side.addWidget(footer)

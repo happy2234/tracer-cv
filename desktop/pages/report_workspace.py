@@ -12,6 +12,7 @@ from PySide6.QtWidgets import (
 
 from desktop.reporting.report_pdf import display, write_assurance_pdf
 from desktop.widgets.components import AnalystTable, EvidenceViewerDialog, SectionCard, SeverityBadge
+from backend.core.capabilities import LIMITATIONS as PRODUCT_LIMITATIONS
 
 
 UNAVAILABLE = "Unavailable"
@@ -278,6 +279,13 @@ class ReportWorkspace(QWidget):
             limitation_card.content.addWidget(QLabel("Limitations unavailable in the persisted C5 report."))
         layout.addWidget(limitation_card)
 
+        product_scope = SectionCard("Current Product Coverage · Not an Assessment Finding")
+        product_scope.content.addWidget(QLabel("The statements below describe TRACER-CV product scope. They are separate from the persisted C5 assessment and do not alter or supplement its findings."))
+        for engine, values in PRODUCT_LIMITATIONS.items():
+            for value in values:
+                line = QLabel(f"{engine}: {value}"); line.setWordWrap(True); product_scope.content.addWidget(line)
+        layout.addWidget(product_scope)
+
         technical = SectionCard("Technical Details · C5")
         technical.content.addWidget(QLabel(f"Engine status: {_text(engine_map.get('C5_assurance_report', {}).get('status') if isinstance(engine_map.get('C5_assurance_report'), dict) else None)}"))
         technical.content.addWidget(QLabel(f"C5 task: {_text(self.report.get('task'))} · method: {_text(self.report.get('method'))}"))
@@ -294,7 +302,7 @@ class ReportWorkspace(QWidget):
         layout.addLayout(controls)
 
         navigation = QHBoxLayout()
-        for label, route in (("Open Findings", "findings"), ("Open Evidence Explorer", "evidence"), ("Open Audit Trail", "audit")):
+        for label, route in (("Open Findings", "findings"), ("Open Evidence Explorer", "evidence"), ("Open Audit Trail", "audit"), ("View Product Coverage", "coverage")):
             button = QPushButton(label); button.clicked.connect(lambda checked=False, target=route: self.on_navigate(target) if self.on_navigate else None); navigation.addWidget(button)
         layout.addLayout(navigation)
         layout.addWidget(QLabel("This report describes persisted observations and their recorded limits. It does not independently establish safety, malicious intent, attacker identity, or absence of attacks."))
