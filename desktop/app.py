@@ -33,6 +33,7 @@ from desktop.pages.shift_workspace import ShiftWorkspace
 from desktop.pages.findings_workspace import FindingsWorkspace
 from desktop.pages.audit_workspace import AuditWorkspace
 from desktop.pages.evidence_workspace import EvidenceWorkspace, load_engine_evidence
+from desktop.pages.settings_workspace import SettingsWorkspace
 
 CONFIG = LocalConfig.load()
 APP_VERSION = "0.1.0"
@@ -790,6 +791,18 @@ class MainWindow(QMainWindow):
         current_report=read_result(0)
         self.assessment_label.setText(f"Assessment  ·  {field(current_report,'assessment_id',default='No assessment loaded')}")
         self.activity.setText(f"Activity · {self._activity_count()}")
+        if key == "settings":
+            assessment_store = SERVICES.get("assessment_store") if SERVICES else None
+            workspace = SettingsWorkspace(
+                CONFIG, ACTIVE_COMPUTE,
+                device_selector=self.device_selector,
+                theme_button=self.theme_button,
+                on_navigate=self.open_settings_related,
+                assessment_store_path=getattr(assessment_store, "database", None),
+                parent=self,
+            )
+            self._replace_view(workspace)
+            return
         page,layout=self._utility_page(title)
         if key in ("mission", "overview"):
             self.build_assessment_view(key, layout)
@@ -849,6 +862,16 @@ class MainWindow(QMainWindow):
             layout.addWidget(MetricCard("Theme",CONFIG.theme.title(),"Use the header control to switch themes."))
             layout.addWidget(QLabel("Settings are stored locally in the configured TRACER-CV TOML file."))
         layout.addStretch(); self._replace_view(page)
+
+    def open_settings_related(self, route):
+        if route == "evidence":
+            self.show_utility("evidence")
+        elif route == "findings":
+            self.navigate(5)
+        elif route == "audit":
+            self.navigate(6)
+        elif route == "reports":
+            self.navigate(7)
 
     def build_assessment_view(self, key, layout):
         """Show an operator summary based on the local report and engine files."""
