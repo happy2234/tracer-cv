@@ -23,6 +23,7 @@ from backend.core.local_logging import configure_local_logging
 from backend.core.local_resources import load_stylesheet
 from backend.core.local_storage import ReportStore, import_demo_outputs, initialize_local_storage
 from backend.application.assessment_manager import AssessmentManager
+from backend.application.disposition_manager import DispositionManager
 from backend.core.offline_status import offline_capability_check
 from desktop.widgets.components import AnalystTable, EvidenceViewerDialog, MetricBarChart, MetricCard, NavigationSidebar, SectionCard, SeverityBadge, StatusBadge
 from desktop.pages.new_assessment import NewAssessmentWizard
@@ -93,7 +94,25 @@ def read_result(index):
             return {}
         if not path.is_relative_to(REPORTS.resolve()):
             return {"status": "unavailable", "message": "Evidence path is outside reports."}
-        return json.loads(path.read_text(encoding="utf-8"))
+        result = json.loads(path.read_text(encoding="utf-8"))
+        if index == 6 and isinstance(result, dict):
+            try:
+                pointer=json.loads((REPORTS/"active_assessment.json").read_text(encoding="utf-8"))
+                assessment_id=str(pointer.get("assessment_id", ""))
+                if assessment_id and Path(assessment_id).name == assessment_id:
+                    governance=(REPORTS/"assessments"/assessment_id/"analyst_dispositions.json").resolve()
+                    if governance.is_relative_to((REPORTS/"assessments").resolve()) and governance.is_file():
+                        extra=json.loads(governance.read_text(encoding="utf-8"))
+                        if extra.get("assessment_id") == assessment_id and isinstance(extra.get("audit_entries"), list):
+                            result["base_result_digest"] = result.get("result_digest")
+                            result["entries"] = list(result.get("entries", [])) + extra["audit_entries"]
+                            result["entry_count"] = len(result["entries"])
+                            result["audit_digest_scope"] = "Base C4 assessment result; analyst disposition events are a separate local extension."
+                            if isinstance(extra.get("audit_verification"), dict): result["verification"] = extra["audit_verification"]
+                            result["analyst_disposition_events"] = len(extra["audit_entries"])
+            except (OSError, ValueError, TypeError):
+                pass
+        return result
     except (OSError, ValueError) as exc:
         return {"status": "unavailable", "message": str(exc)}
 
@@ -747,6 +766,21 @@ class MainWindow(QMainWindow):
         if index == 5:
             assessment = read_current_assessment()
             result = read_result(5) if assessment else {}
+            disposition_manager = None
+            assessment_id = str(assessment.get("assessment_id", ""))
+            if assessment_id and Path(assessment_id).name == assessment_id:
+                assessment_root = (REPORTS / "assessments" / assessment_id).resolve()
+                if assessment_root.is_relative_to((REPORTS / "assessments").resolve()):
+                    base_entries = []
+                    base_path = (assessment_root / "audit_chain.json").resolve()
+                    try:
+                        if base_path.is_relative_to(assessment_root) and base_path.is_file():
+                            base_audit = json.loads(base_path.read_text(encoding="utf-8"))
+                            base_entries = base_audit.get("entries", []) if isinstance(base_audit, dict) else []
+                    except (OSError, ValueError):
+                        base_entries = []
+                    disposition_manager = DispositionManager(assessment_root, assessment_id,
+                        base_entries if isinstance(base_entries, list) else [])
             def review_in_session(finding):
                 finding_id = str(finding.get("finding_id", ""))
                 before = finding_id in REVIEWED_FINDINGS
@@ -757,6 +791,7 @@ class MainWindow(QMainWindow):
                 result,
                 on_navigate=self.navigate,
                 on_review=review_in_session,
+                disposition_manager=disposition_manager,
                 parent=self,
             )
             self._replace_view(workspace)

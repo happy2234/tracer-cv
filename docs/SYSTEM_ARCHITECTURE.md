@@ -58,7 +58,7 @@ Findings retain engine-authored IDs, category, severity, confidence, explanation
 
 ### 7. Analyst decision model
 
-Analyst decisions record a reviewer identity or local pseudonymous operator ID, action, rationale, timestamp, target finding, optional disposition and superseded decision reference. Allowed actions include acknowledge, request further investigation, mark reviewed, escalate and close with rationale. Decisions are separate from engine findings and append-only; correcting a decision creates a new event that supersedes the earlier one.
+The implemented finding workflow supports ACCEPT, REVIEW, and QUARANTINE. Each save appends a decision record under the selected assessment's `analyst_dispositions.json`, binding assessment/finding IDs, old/new disposition, optional note, timestamp, and a digest of the source C3 finding. A corresponding C4-shaped audit event is stored with that decision and exposed by the Audit Trail reader. The C3 finding remains unchanged. No analyst authentication or external trust anchor is provided.
 
 ### 8. Audit layer
 
@@ -103,4 +103,4 @@ Existing dependencies remain meaningful: A/B/C1/C2 results feed C3; events are r
 4. Add analyst decision and audit persistence as additive data.
 5. Migrate reports through C5 snapshots, preserving legacy exports and evidence digests.
 
-Each step should be reviewable against the [baseline](MVP_BASELINE.md) and [SIH traceability](SIH26228_TRACEABILITY.md).
+Each step should be reviewable against the [baseline](MVP_BASELINE.md) and [PS-26228 traceability](PS26228_TRACEABILITY.md).

@@ -65,11 +65,10 @@ Use stable IDs for relationships; do not duplicate large image/model bytes in re
 
 ### AnalystDecision
 
-- **Purpose:** Record a human review action separately from engine evidence.
-- **Fields:** `decision_id`; `assessment_id`; `finding_id`; `actor_id` (local operator or pseudonymous identity); `action` (`acknowledge`, `reviewed`, `investigate`, `escalate`, `close`, `reopen`, `disposition`); `disposition` nullable (`retain`, `quarantine`, `exclude`, `accept`, `unknown`); `rationale`; `created_at`; `evidence_ids[]` optional; `supersedes_decision_id` optional; `schema_version`.
-- **Relationships:** Targets a finding and may cite evidence; emits an audit event; latest non-superseded decision is the current view.
-- **Lifecycle:** Append-only creation; correction creates a superseding decision. “Reviewed” means reviewed by an operator, not validated benign.
-- **Persistence:** SQLite plus matching C4 AuditEvent. Persist actor and rationale under local access/retention policy.
+- **Purpose:** Persist an analyst disposition separately from its immutable C3 finding and bind each change to local C4 audit evidence.
+- **Fields:** `assessment_id`; `finding_id`; `old_disposition`; `disposition` (`ACCEPT`, `REVIEW`, `QUARANTINE`); `analyst_note`; UTC `timestamp`; SHA-256 `finding_digest`; `audit_event_id`; `audit_entry_hash`; `schema_version`.
+- **Persistence:** `analyst_dispositions.json` beside the assessment result artifacts. It stores decision history and C4-shaped chained audit entries; the original C3 finding and `audit_chain.json` are not overwritten.
+- **Invariants:** Every save appends a decision and audit event. The local chain is not an external trust anchor; analyst authentication/identity is not currently recorded.
 
 ### AuditEvent
 

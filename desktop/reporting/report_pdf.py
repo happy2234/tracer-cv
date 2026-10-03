@@ -107,6 +107,10 @@ def section_content(report: dict[str, Any]) -> list[tuple[str, list[tuple[str, s
             verification = engine.get("verification") if isinstance(engine.get("verification"), dict) else {}
             replay = next((verification[name] for name in ("replay_status", "replay_detected", "replay_findings") if name in verification), None)
             rows.append(("Persisted replay evidence", display(replay) if replay is not None else "Unavailable (not recorded in the C5 result)"))
+        if key == "distribution_shift" and isinstance(block, dict):
+            engine = block.get("engine_result") if isinstance(block.get("engine_result"), dict) else block
+            if engine.get("overall_shift") is not None:
+                rows.append(("Calibration status", "NOT CALIBRATED; this heuristic shift magnitude is not an attack or maliciousness probability."))
         sections.append((title, rows))
 
     findings_block = report.get("findings_and_evidence")

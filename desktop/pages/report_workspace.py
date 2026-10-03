@@ -349,6 +349,8 @@ class ReportWorkspace(QWidget):
                 salient.append("Replay evidence: unavailable (not recorded in the C5 result)")
         elif key == "distribution_shift":
             salient.extend(f"{name.replace('_',' ').title()}: {_text(engine.get(name))}" for name in ("reference_image_count", "candidate_image_count", "overall_shift", "severity", "shift_detected") if name in engine)
+            if engine.get("overall_shift") is not None:
+                salient.append("Calibration status: NOT CALIBRATED; the persisted shift magnitude is not an attack or maliciousness probability.")
             shifted = engine.get("shifted_features")
             if isinstance(shifted, list):
                 salient.append("Shifted features: " + (", ".join(str(item.get("feature", item.get("name", UNAVAILABLE))) for item in shifted if isinstance(item, dict) and item.get("shifted") is True) or "None recorded as shifted"))

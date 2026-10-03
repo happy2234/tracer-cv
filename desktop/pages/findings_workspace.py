@@ -1,4 +1,4 @@
-"""Central read-only analyst workspace over persisted C3 findings."""
+"""Central analyst workspace over immutable persisted C3 findings."""
 from __future__ import annotations
 
 import json
@@ -8,7 +8,7 @@ from typing import Any, Callable
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (
     QComboBox, QDialog, QHBoxLayout, QLabel, QPushButton, QScrollArea,
-    QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget,
+    QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget, QLineEdit,
 )
 
 from desktop.pages.dataset_workspace import DatasetSampleDialog, _resolve_sample, _walk_samples
@@ -116,12 +116,14 @@ def _evidence_rows(evidence: Any) -> list[list[str]]:
 class FindingInvestigationDialog(QDialog):
     def __init__(self, finding: dict[str, Any], *, dataset_root: Path | None = None,
                  on_navigate: Callable[[int], None] | None = None,
-                 on_review: Callable[[dict[str, Any]], bool] | None = None, parent=None):
+                 on_review: Callable[[dict[str, Any]], bool] | None = None,
+                 disposition_manager: Any = None, parent=None):
         super().__init__(parent)
         self.finding = finding
         self.dataset_root = dataset_root
         self.on_navigate = on_navigate
         self.on_review = on_review
+        self.disposition_manager = disposition_manager
         self.setWindowTitle(f"Finding investigation · {_text(finding.get('finding_id'))}")
         self.resize(900, 760)
         outer = QVBoxLayout(self)
@@ -136,6 +138,13 @@ class FindingInvestigationDialog(QDialog):
             ("Affected asset", "affected_asset"), ("Confidence", "confidence"),
         ):
             identity.content.addWidget(QLabel(f"{label}: {_text(finding.get(key))}"))
+        if self.disposition_manager is not None:
+            current = self.disposition_manager.decision_for(str(finding.get("finding_id", "")))
+            store_state = self.disposition_manager.load()
+            if store_state.get("error"):
+                identity.content.addWidget(QLabel("Persisted analyst disposition: Unavailable; stored disposition evidence could not be interpreted."))
+            else:
+                identity.content.addWidget(QLabel(f"Persisted analyst disposition: {_text(current.get('disposition') if current else None, 'No disposition recorded')}"))
         layout.addWidget(identity)
         explanation = SectionCard("What was observed")
         explanation.content.addWidget(QLabel(_text(finding.get("explanation"))))
@@ -183,11 +192,25 @@ class FindingInvestigationDialog(QDialog):
             "\n".join(f"{row[0]}: {row[1]}" for row in rows) or "No structured evidence was recorded.",
             finding, self).exec())
         actions.addWidget(self.evidence_button)
-        self.review_button = QPushButton("Review in This Session")
-        self.review_button.setEnabled(on_review is not None)
-        self.review_button.clicked.connect(self.review_in_session)
-        actions.addWidget(self.review_button)
-        self.review_state = QLabel("Session-only review; not saved to the assessment or audit trail.")
+        if self.disposition_manager is not None:
+            self.disposition = QComboBox(); self.disposition.addItems(["ACCEPT", "REVIEW", "QUARANTINE"])
+            existing = self.disposition_manager.decision_for(str(finding.get("finding_id", "")))
+            if existing and existing.get("disposition") in {"ACCEPT", "REVIEW", "QUARANTINE"}:
+                self.disposition.setCurrentText(existing["disposition"])
+            self.disposition_note = QLineEdit(); self.disposition_note.setPlaceholderText("Optional analyst note")
+            self.save_disposition_button = QPushButton("Save Audited Disposition")
+            self.save_disposition_button.setEnabled(not bool(self.disposition_manager.load().get("error")))
+            self.save_disposition_button.clicked.connect(self.save_disposition)
+            layout.addWidget(QLabel("Analyst disposition (saved separately from the immutable C3 finding)"))
+            actions.addWidget(self.disposition); actions.addWidget(self.disposition_note)
+            actions.addWidget(self.save_disposition_button)
+            self.review_state = QLabel("Disposition changes are recorded as local C4 audit events.")
+        else:
+            self.review_button = QPushButton("Review in This Session")
+            self.review_button.setEnabled(on_review is not None)
+            self.review_button.clicked.connect(self.review_in_session)
+            actions.addWidget(self.review_button)
+            self.review_state = QLabel("Session-only review; not saved to the assessment or audit trail.")
         layout.addLayout(actions); layout.addWidget(self.review_state)
         close = QPushButton("Back to Findings"); close.clicked.connect(self.accept); outer.addWidget(close)
 
@@ -211,6 +234,13 @@ class FindingInvestigationDialog(QDialog):
         if self.on_review and self.on_review(self.finding):
             self.review_state.setText("Reviewed in this session only; the assessment and audit trail were not changed.")
 
+    def save_disposition(self):
+        try:
+            decision = self.disposition_manager.save(self.finding, self.disposition.currentText(), self.disposition_note.text())
+            self.review_state.setText(f"Saved {decision['disposition']} · C4 event {decision['audit_event_id']} · finding evidence unchanged.")
+        except Exception as exc:
+            self.review_state.setText(f"Disposition was not saved: {type(exc).__name__}: {exc}")
+
     def open_sample_row(self, row: int, _column: int):
         path = self.sample_paths.get(row)
         if path is None or path.suffix.lower() not in {".png", ".jpg", ".jpeg", ".bmp", ".webp", ".tif", ".tiff"}:
@@ -219,10 +249,11 @@ class FindingInvestigationDialog(QDialog):
 
 
 class FindingsWorkspace(QWidget):
-    """Central analyst interface over a persisted C3 result document."""
+    """Central analyst interface over persisted findings and separate decisions."""
     def __init__(self, assessment: dict[str, Any] | None, result: Any,
                  *, on_navigate: Callable[[int], None] | None = None,
-                 on_review: Callable[[dict[str, Any]], bool] | None = None, parent=None):
+                 on_review: Callable[[dict[str, Any]], bool] | None = None,
+                 disposition_manager: Any = None, parent=None):
         super().__init__(parent)
         self.assessment = assessment if isinstance(assessment, dict) else {}
         self.malformed_result = result is not None and not isinstance(result, dict)
@@ -233,6 +264,7 @@ class FindingsWorkspace(QWidget):
         self.findings = [item for item in raw if isinstance(item, dict)] if isinstance(raw, list) else []
         self.on_navigate = on_navigate
         self.on_review = on_review
+        self.disposition_manager = disposition_manager
         self.dataset_root = self._dataset_root()
         self.state = "PARTIAL" if self.malformed_result else c3_status(self.result, self.assessment.get("engines"))
         self._build()
@@ -430,4 +462,5 @@ class FindingsWorkspace(QWidget):
         index = cell.data(Qt.ItemDataRole.UserRole) if cell else None
         if isinstance(index, int) and 0 <= index < len(self.findings):
             FindingInvestigationDialog(self.findings[index], dataset_root=self.dataset_root,
-                on_navigate=self.on_navigate, on_review=self.on_review, parent=self).exec()
+                on_navigate=self.on_navigate, on_review=self.on_review,
+                disposition_manager=self.disposition_manager, parent=self).exec()

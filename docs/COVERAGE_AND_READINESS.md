@@ -4,7 +4,7 @@ TRACER-CV is an offline, local evidence-generation and analyst-review tool. Capa
 
 ## Supported and conditional scope
 
-The desktop Coverage & Limitations page is backed by `backend/core/capabilities.py`. It documents A1–A8 dataset checks, B1–B4 model checks, and C1–C5 provenance/assurance functions, together with model formats, dataset inputs, and white-box/black-box requirements. Conditional support depends on actual local inputs, adapters, model access, configuration, and engine result status. In particular, extension recognition by B1 is not format validation; general ONNX inference and general checkpoint execution are not established.
+The desktop Coverage & Limitations page is backed by `backend/core/capabilities.py`. It documents A1–A8 dataset checks, B1–B4 model checks, C1–C5 provenance/assurance functions, and product-level capabilities. Conditional support depends on actual local inputs, adapters, model access, configuration, and engine result status. B1 extension recognition is not format validation. Optional ONNX inference is limited to local CPU image-classification graphs meeting the adapter's fixed input/output, embedded-weight, and operator constraints; it is not general ONNX task support.
 
 Generic image collections and reference/candidate image populations are supported within the engines' documented scope. COCO/YOLO support is partial input/label handling and does not mean full object-detection model assurance. Segmentation assurance is not implemented. Model behavior checks focus on supported image-classification paths.
 
@@ -16,7 +16,17 @@ Arbitrary semantic/adaptive backdoors, training infrastructure, host/kernel and 
 
 ## Model loading
 
-B1 hashes files without loading them. Selected TorchScript adapters exist, but TorchScript execution is not sandboxed; the B3 loader requires explicit `trusted=True`. Pickle-based checkpoint formats must not be loaded from untrusted sources. The self-test checks the documented source-level loading gate and does not load any model.
+B1 hashes files without loading them. Selected TorchScript adapters exist, but TorchScript execution is not sandboxed; the B3 loader requires explicit `trusted=True`. Pickle-based checkpoint formats must not be loaded from untrusted sources. The ONNX adapter does not execute embedded Python or register custom operators, rejects external weight data, and requests ONNX Runtime's local CPU provider; ONNX Runtime native graph execution is not a general-purpose sandbox. The self-test checks the documented source-level loading gate and does not load any model.
+
+## C2 calibration
+
+C2's overall shift magnitude and threshold classification are heuristic and **not probabilistically calibrated**. The value is a measured distribution-deviation metric under the persisted method/configuration, not a probability of attack or maliciousness. The product currently has no validated calibration population or calibration curve.
+
+## Analyst dispositions and synthetic validation
+
+ACCEPT, REVIEW, and QUARANTINE decisions are stored separately from C3 findings and linked to a local C4 audit-chain event. This local chain is tamper-evident under its verifier, not an external trust anchor. `demos/benchmark/` and the C1 provenance demonstration contain synthetic validation inputs/results only; they are not operational assessment findings or measured general detection performance.
+
+See [PS-26228 traceability](PS26228_TRACEABILITY.md) for the current capability map and boundaries.
 
 ## Self-test interpretation
 

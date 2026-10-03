@@ -322,7 +322,10 @@ class AuditWorkspace(QWidget):
         overview.content.addWidget(MetricCard("Persisted audit entries", str(len(self.entries)), "Entries stored with this assessment"))
         overview.content.addWidget(SeverityBadge(f"Chain verification: {integrity_state}", "valid" if valid is True else "invalid" if valid is False else "unavailable"))
         overview.content.addWidget(SeverityBadge(f"Verification details: {len(issues)} persisted issue record(s)" if issues else ("Verification details: no inconsistency reported" if valid is True else "Verification details: unavailable"), "info"))
-        overview.content.addWidget(SeverityBadge(f"Result digest: {result_digest or 'Unavailable'}", "info"))
+        digest_label = "Base C4 result digest" if self.result.get("audit_digest_scope") else "Result digest"
+        overview.content.addWidget(SeverityBadge(f"{digest_label}: {result_digest or 'Unavailable'}", "info"))
+        if self.result.get("audit_digest_scope"):
+            overview.content.addWidget(QLabel(str(self.result["audit_digest_scope"])))
         layout.addWidget(overview)
 
         integrity = SectionCard("Chain integrity checks")
@@ -388,6 +391,7 @@ class AuditWorkspace(QWidget):
             f"Persisted entry count: {_text(self.result.get('entry_count'))}\n"
             f"Verification result: {_text(valid)}\n"
             f"Result digest: {_text(result_digest)}\n"
+            f"Digest scope: {_text(self.result.get('audit_digest_scope'))}\n"
             f"Verification error: {_text(self.result.get('reason') or verification.get('error'))}"
         ))
         self.technical_button = QPushButton("Open C4 Evidence")

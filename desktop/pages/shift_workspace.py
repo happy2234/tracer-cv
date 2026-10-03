@@ -321,6 +321,9 @@ class ShiftWorkspace(QWidget):
                 f"Overall distribution shift: {overall} · persisted severity: {severity_label}. "
                 "C2 classifies measured population differences using configured heuristic thresholds; this is not an attack probability."
             ))
+            overview.content.addWidget(QLabel(
+                "Calibration: NOT CALIBRATED. This heuristic magnitude is not a probability of attack, compromise, or maliciousness."
+            ))
         if digest:
             overview.content.addWidget(QLabel(f"Result digest: {digest}"))
         if state == "COMPLETED":

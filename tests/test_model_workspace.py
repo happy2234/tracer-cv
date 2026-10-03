@@ -115,6 +115,22 @@ def test_b2_probe_comparison_and_b3_metric_availability(qt_app):
     assert "do not establish malicious modification" in labels
 
 
+def test_b3_onnx_initializer_summary_is_visible_and_limited(qt_app):
+    data = results()["B3_model_statistics"]
+    data["model"] = {"access": "white_box", "model_type": "ONNX"}
+    data["parameters"] = {"status": "available", "onnx_initializer_statistics": {
+        "status": "available", "initializer_tensor_count": 4, "initializer_element_count": 128,
+        "mean": 0.125, "std": 0.5, "min": -1.0, "max": 1.0, "non_finite_count": 0,
+    }, "tensors": []}
+    dialog = ModelEngineDialog(ENGINE_SPECS[2], data, {"status": "completed_with_warnings"}, [], None)
+    text = " ".join(label.text() for label in dialog.findChildren(QLabel))
+    tables = " ".join(table.item(row, col).text() for table in dialog.findChildren(QTableWidget)
+                      for row in range(table.rowCount()) for col in range(table.columnCount()) if table.item(row, col))
+    assert "onnx initializer" in tables.lower()
+    assert "trainable parameters" in tables.lower() and "stored graph constants" in tables.lower()
+    assert "Activation statistics unavailable" in text
+
+
 def test_b4_candidate_wording_is_limited(qt_app):
     dialog = ModelEngineDialog(ENGINE_SPECS[3], results()["B4_trigger_search"], {"status": "completed"}, model_findings())
     text = " ".join(label.text() for label in dialog.findChildren(QLabel)).lower()

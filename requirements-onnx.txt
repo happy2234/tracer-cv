@@ -1,0 +1,4 @@
+# Optional ONNX classification adapter dependencies.
+# Provision matching wheels locally before offline deployment; the app never installs packages.
+onnx>=1.16,<2
+onnxruntime>=1.18,<2

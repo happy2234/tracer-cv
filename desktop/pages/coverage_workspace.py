@@ -5,7 +5,7 @@ from typing import Any
 
 from PySide6.QtWidgets import QLabel, QScrollArea, QTableWidget, QVBoxLayout, QWidget
 
-from backend.core.capabilities import ACCESS_MODES, CAPABILITIES, DATASET_FORMATS, LIMITATIONS, MODEL_FORMATS, STATES, UNSUPPORTED_ATTACK_CLASSES
+from backend.core.capabilities import ACCESS_MODES, CAPABILITIES, DATASET_FORMATS, LIMITATIONS, MODEL_FORMATS, PRODUCT_CAPABILITIES, STATES, UNSUPPORTED_ATTACK_CLASSES
 from desktop.widgets.components import AnalystTable, MetricCard, SectionCard, SeverityBadge
 
 
@@ -45,6 +45,8 @@ class CoverageWorkspace(QWidget):
         card.content.addWidget(AnalystTable(["Format", "B1", "B2", "B3", "B4", "Reason"], [[x["format"], x["B1"], x["B2"], x["B3"], x["B4"], x["reason"]] for x in MODEL_FORMATS])); layout.addWidget(card)
         card = SectionCard("White-box and Black-box Access")
         card.content.addWidget(AnalystTable(["Capability", "White-box", "Black-box", "Required access"], [[x["capability"], x["white_box"], x["black_box"], x["required_access"]] for x in ACCESS_MODES])); layout.addWidget(card)
+        card = SectionCard("Additional assurance capabilities")
+        card.content.addWidget(AnalystTable(["Capability", "State", "Scope"], [[x["name"], x["status"], x["scope"]] for x in PRODUCT_CAPABILITIES])); layout.addWidget(card)
         card = SectionCard("Unsupported / Incompletely Addressed Attack Classes")
         for item in UNSUPPORTED_ATTACK_CLASSES:
             label = QLabel("• " + item); label.setWordWrap(True); card.content.addWidget(label)

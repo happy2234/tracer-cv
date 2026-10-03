@@ -285,15 +285,23 @@ class ModelEngineDialog(QDialog):
         if self.code == "B3":
             parameters = data.get("parameters") if isinstance(data.get("parameters"), dict) else {}
             totals = parameters.get("totals") if isinstance(parameters.get("totals"), dict) else {}
+            onnx_initializers = parameters.get("onnx_initializer_statistics") if isinstance(parameters.get("onnx_initializer_statistics"), dict) else {}
             structure = data.get("structure") if isinstance(data.get("structure"), dict) else {}
             activations = data.get("activations") if isinstance(data.get("activations"), dict) else {}
             card = SectionCard("Parameters and structure")
             metric_rows = [[_humanize(key), value] for key, value in totals.items() if not isinstance(value, (dict, list))]
+            if onnx_initializers:
+                for key in ("initializer_tensor_count", "initializer_element_count", "finite_value_count", "mean", "std", "min", "max", "non_finite_count"):
+                    if onnx_initializers.get(key) is not None:
+                        metric_rows.append([f"ONNX initializer {_humanize(key)}", onnx_initializers[key]])
+                metric_rows.append(["Trainable parameters", "Unavailable; ONNX initializers are stored graph constants"])
             for key in ("mean", "std", "min", "max", "nan_count", "posinf_count", "neginf_count"):
                 if key in parameters:
                     metric_rows.append([_humanize(key), parameters[key]])
             card.content.addWidget(AnalystTable(["Metric", "Recorded value"], metric_rows or [["Parameter metrics", "Not available in this result"]]))
-            card.content.addWidget(QLabel(f"Structure: {_display(structure.get('module_count'), 'Not available')} module(s); leaf modules: {_display(structure.get('leaf_module_count'))}; access: {_display(data.get('model', {}).get('access') if isinstance(data.get('model'), dict) else None)}"))
+            structure_summary = ("ONNX module/hook structure unavailable in this adapter" if onnx_initializers and not structure.get("module_count")
+                                 else f"Structure: {_display(structure.get('module_count'), 'Not available')} module(s); leaf modules: {_display(structure.get('leaf_module_count'))}")
+            card.content.addWidget(QLabel(f"{structure_summary}; access: {_display(data.get('model', {}).get('access') if isinstance(data.get('model'), dict) else None)}"))
             module_types = structure.get("module_type_counts") if isinstance(structure.get("module_type_counts"), dict) else {}
             if module_types:
                 card.content.addWidget(AnalystTable(["Module type", "Count"], [[name, count] for name, count in module_types.items()]))
@@ -309,7 +317,8 @@ class ModelEngineDialog(QDialog):
                                     stats.get("mean", "Not available"), stats.get("std", "Not available"), stats.get("min", "Not available"), stats.get("max", "Not available"),
                                     stats.get("nan_count", "Not available"), stats.get("posinf_count", "Not available"), stats.get("neginf_count", "Not available")])
                 if len(tensor_rows) >= 200: break
-            card.content.addWidget(AnalystTable(["Tensor", "Kind", "Elements", "Mean", "Std", "Min", "Max", "NaN", "+Inf", "−Inf"], tensor_rows or [["Per-tensor statistics unavailable"] + [""] * 9]))
+            fallback_tensor = "Per-initializer detail not persisted; bounded aggregate only" if onnx_initializers else "Per-tensor statistics unavailable"
+            card.content.addWidget(AnalystTable(["Tensor", "Kind", "Elements", "Mean", "Std", "Min", "Max", "NaN", "+Inf", "−Inf"], tensor_rows or [[fallback_tensor] + [""] * 9]))
             layout.addWidget(card)
             activation = SectionCard("Activation statistics")
             if activations.get("status") in {"completed", "available"}:

@@ -168,6 +168,9 @@ class ProvenanceWorkspace(QWidget):
         scroll = QScrollArea(); scroll.setWidgetResizable(True); outer.addWidget(scroll)
         body = QWidget(); layout = QVBoxLayout(body); layout.setSpacing(12); scroll.setWidget(body)
         heading = QLabel("Inference Provenance"); heading.setObjectName("pageTitle"); layout.addWidget(heading)
+        demo_button = QPushButton("Open Synthetic Signed-Provenance Demonstration")
+        demo_button.clicked.connect(self.open_synthetic_demonstration)
+        layout.addWidget(demo_button)
         if not self.assessment:
             card = SectionCard("No assessment selected"); card.content.addWidget(QLabel("Open a saved assessment to inspect its persisted C1 provenance evidence.")); layout.addWidget(card); return
 
@@ -260,6 +263,10 @@ class ProvenanceWorkspace(QWidget):
         self.severity_filter.currentTextChanged.connect(self.apply_finding_filters)
         self.sort_by.currentTextChanged.connect(self._render_findings)
         layout.addStretch()
+
+    def open_synthetic_demonstration(self):
+        from desktop.pages.provenance_demo import ProvenanceDemonstrationDialog
+        ProvenanceDemonstrationDialog(self).exec()
 
     def open_record_row(self, row: int, _column: int):
         if not 0 <= row < len(self.records): return

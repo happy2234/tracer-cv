@@ -121,7 +121,7 @@ def test_secret_values_are_not_rendered(qt_app, config):
 def test_capability_matrix_and_limitations_are_visible(qt_app, config):
     text = labels(SettingsWorkspace(config, Compute()))
     assert "Security Capability Matrix" in text
-    assert "ONNX" in text and "general ONNX inference is not established" in text
+    assert "ONNX" in text and "CPU execution" in text
     assert "COCO / YOLO" in text and "no complete COCO/YOLO dataset adapter" in text
     assert "B4 trigger-like candidate evidence does not prove a backdoor" in text
     assert CAPABILITIES and LIMITATIONS

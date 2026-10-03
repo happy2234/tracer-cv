@@ -22,7 +22,7 @@ Provide offline local integrity-assurance workflows and tamper-evident evidence 
 - TorchScript loading requires explicit `trusted=True` in B3; TorchScript execution is not sandboxed.
 - Pickle-based formats such as `.pt`, `.pth`, `.ckpt`, `.pkl` or `.joblib` can execute code when deserialized. Do not load untrusted checkpoints.
 - The new compute selector chooses device; it does not increase model trust. CUDA and CPU execute the same trusted local model code under different runtimes.
-- ONNX is not advertised as an execution capability by this foundation.
+- Optional ONNX Runtime execution is conditional and limited to the local CPU image-classification adapter described in the coverage registry; it is not a general-purpose sandbox or universal graph/task loader.
 
 ## Path, file and archive handling
 

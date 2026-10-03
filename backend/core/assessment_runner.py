@@ -206,7 +206,7 @@ def run_assessment(
     dataset_result={"A1_manifest":a1,"A2_exact_duplicates":a2,"A3_near_duplicates":a3,"A4_ood":a4,"A5_label_consistency":a5,"A6_contributor_risk":a6,"A7_metadata_consistency":a7,"A8_poison_trigger_forensics":a8}
     _save_json(reports,base,"dataset_integrity.json",dataset_result)
 
-    # B1 always hashes the chosen model; B2-B4 need a usable local TorchScript adapter.
+    # B1 hashes bytes without loading; execution capabilities are adapter-bound.
     from backend.engines.model.identity import inspect_model
     b1=stage("B1_identity",lambda:inspect_model(model_path),enabled_stage=True)
     selected_model_digest=assessment.model.get("selection_sha256")
@@ -226,37 +226,69 @@ def run_assessment(
     sample_images=_images(candidate,max_images)
     model_enabled=enabled.get("model_checks",True)
     torchscript=model_path.suffix.lower() in {".pt",".pth",".torchscript"}
+    onnx_model=model_path.suffix.lower()==".onnx"
+    onnx_loaded: dict[str, Any] | None = None
+    def get_onnx_adapter():
+        nonlocal onnx_loaded
+        if onnx_loaded is None:
+            from backend.engines.model.onnx_adapter import try_load_onnx_adapter
+            onnx_loaded=try_load_onnx_adapter(model_path,input_size=(32,32),mean=(0,0,0),std=(1,1,1),output_type="logits")
+        return onnx_loaded
     def b2_run():
+        if onnx_model:
+            loaded=get_onnx_adapter()
+            if loaded.get("status")!="loaded": return {"status":loaded.get("status","unavailable"),"reason":loaded.get("reason","Local ONNX adapter unavailable."),"adapter":loaded}
+            if not sample_images: return {"status":"unavailable","reason":"No readable images were found in the selected dataset."}
+            return compute_behavioral_fingerprint(sample_images,loaded["adapter"],model_identity=b1,model_id=b1.get("model_id"))
         adapter=try_load_torchscript_adapter(str(model_path),output_type="logits",input_size=(32,32),mean=(0,0,0),std=(1,1,1),device=assessment.compute.get("device","cpu"))
         if adapter.get("status")!="loaded": return {"status":adapter.get("status","unavailable"),"reason":"Local TorchScript adapter could not load the selected model.","adapter":adapter}
         if not sample_images: return {"status":"unavailable","reason":"No readable images were found in the selected dataset."}
         return compute_behavioral_fingerprint(sample_images,adapter["adapter"],model_identity=b1,model_id=b1.get("model_id"))
     def b3_run():
+        if onnx_model:
+            from backend.engines.model.model_statistics import build_unavailable_report
+            loaded=get_onnx_adapter()
+            if loaded.get("status")!="loaded": return build_unavailable_report(loaded.get("reason","Local ONNX adapter unavailable."),model_id=b1.get("model_id"),status="unavailable",access="white_box",model_type="ONNX")
+            initializer=loaded["metadata"].get("initializer_statistics",{})
+            report=build_unavailable_report("ONNX activation hooks and trainable-parameter semantics are unavailable; bounded initializer summary is recorded separately.",model_id=b1.get("model_id"),status="completed_with_warnings",access="white_box",model_type="ONNX")
+            report["parameters"]={"status":initializer.get("status","unavailable"),"onnx_initializer_statistics":initializer,"tensors":[]}
+            report["warnings"]=["ONNX initializers are graph constants; trainability is not established.","Activation statistics are unavailable for ONNX in this adapter."]
+            return report
         loaded=load_torchscript_model(model_path,trusted=True,device=assessment.compute.get("device","cpu"))
         return analyze_model(model=loaded,images=sample_images,model_id=b1.get("model_id"),access="white_box",probe_set_id=assessment.assessment_id)
     def b4_run():
+        if onnx_model:
+            from backend.engines.model.trigger_search import CallableClassificationAdapter
+            loaded=get_onnx_adapter()
+            if loaded.get("status")!="loaded": return {"status":loaded.get("status","unavailable"),"reason":loaded.get("reason","Local ONNX adapter unavailable.")}
+            if not sample_images: return {"status":"unavailable","reason":"No readable images were found in the selected dataset."}
+            adapter=CallableClassificationAdapter(loaded["adapter"].predict_scores,output_type="logits")
+            return search_triggers(sample_images,adapter,config=TriggerSearchConfig(max_images=max_images),model_id=b1.get("model_id"))
         loaded=load_torchscript_model(model_path,trusted=True,device=assessment.compute.get("device","cpu"))
         adapter=TorchClassificationAdapter(loaded,device=assessment.compute.get("device","cpu"),output_type="logits",scale_inputs=True,mean=(0,0,0),std=(1,1,1))
         return search_triggers(sample_images,adapter,config=TriggerSearchConfig(max_images=max_images),model_id=b1.get("model_id"))
-    b2=stage("B2_behavioral_fingerprint",b2_run,enabled_stage=model_enabled and model_identity_valid and torchscript and bool(sample_images),dependency=b1)
-    b3=stage("B3_model_statistics",b3_run,enabled_stage=model_enabled and model_identity_valid and torchscript and bool(sample_images),dependency=b1)
-    b4=stage("B4_trigger_search",b4_run,enabled_stage=model_enabled and model_identity_valid and torchscript and bool(sample_images) and enabled.get("trigger_search",True),dependency=b1)
+    b2=stage("B2_behavioral_fingerprint",b2_run,enabled_stage=model_enabled and model_identity_valid and (torchscript or onnx_model) and bool(sample_images),dependency=b1)
+    b3=stage("B3_model_statistics",b3_run,enabled_stage=model_enabled and model_identity_valid and (torchscript or onnx_model),dependency=b1)
+    b4=stage("B4_trigger_search",b4_run,enabled_stage=model_enabled and model_identity_valid and (torchscript or onnx_model) and bool(sample_images) and enabled.get("trigger_search",True),dependency=b1)
     model_result={"B1_identity":b1,"B2_behavioral_fingerprint":b2,"B3_model_statistics":b3,"B4_trigger_search":b4}
     _save_json(reports,base,"model_assurance.json",model_result)
 
     from backend.engines.provenance.inference_provenance import create_inference_record,verify_chain
     provenance_inputs=_image_sources(candidate,max_images)
     def c1_run():
-        if not torchscript or not provenance_inputs:
-            return {"status":"unavailable","reason":"C1 requires readable local images and a supported TorchScript classification adapter."}
+        if not (torchscript or onnx_model) or not provenance_inputs:
+            return {"status":"unavailable","reason":"C1 requires readable local images and a supported classification adapter."}
         model_id=b1.get("model_id") or b1.get("sha256")
         if not model_id:
             return {"status":"unavailable","reason":"B1 did not provide a model identity to bind to inference records."}
-        loaded=try_load_torchscript_adapter(str(model_path),output_type="logits",input_size=(32,32),mean=(0,0,0),std=(1,1,1),device=assessment.compute.get("device","cpu"))
+        if onnx_model:
+            loaded=get_onnx_adapter()
+        else:
+            loaded=try_load_torchscript_adapter(str(model_path),output_type="logits",input_size=(32,32),mean=(0,0,0),std=(1,1,1),device=assessment.compute.get("device","cpu"))
         if loaded.get("status")!="loaded":
             return {"status":"unavailable","reason":loaded.get("reason","Local inference adapter is unavailable."),"limitations":["No inference provenance record was created because the model could not be run safely by the supported adapter."]}
         adapter=loaded["adapter"]
-        preprocess={"decoder":"Pillow RGB","decoded_resize":[32,32],"adapter":"TorchScriptClassificationAdapter","input_size":[32,32],"input_range":"uint8 0-255 scaled to 0-1","normalization_mean":[0,0,0],"normalization_std":[1,1,1],"output_type":"logits interpreted as probabilities by the existing adapter"}
+        preprocess={"decoder":"Pillow RGB","decoded_resize":[32,32],"adapter":"ONNXClassificationAdapter" if onnx_model else "TorchScriptClassificationAdapter","input_size":[32,32],"input_range":"uint8 0-255 scaled to 0-1","normalization_mean":[0,0,0],"normalization_std":[1,1,1],"output_type":"logits interpreted as probabilities by the existing adapter"}
         records=[]; previous="0"*64
         for sequence,(input_bytes,pixels) in enumerate(provenance_inputs,start=1):
             prediction=adapter.predict(pixels[None,...])

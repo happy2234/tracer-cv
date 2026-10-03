@@ -125,7 +125,7 @@ An analyst may open prior results without rerunning engines. Rerun is a delibera
 
 ## Analyst decision workflow
 
-Opening a finding does not change its state. The analyst can acknowledge, mark reviewed, request investigation, escalate, or record a disposition with rationale. Every action records who, when, which finding and optionally which evidence supported the action. “Reviewed” records a workflow state only; it is not an engine verdict that the finding is correct or benign. A later action supersedes but does not erase the earlier decision.
+Opening a finding does not change it. The investigation dialog offers explicit ACCEPT, REVIEW, or QUARANTINE disposition saving with an optional note. A saved change records the current/previous disposition, timestamp, source finding digest, and a C4 audit event in a separate local governance artifact. No analyst identity is collected. The decision is not an engine verdict that the finding is correct or benign, and it never rewrites C3 evidence.
 
 ## Offline and security UX
 

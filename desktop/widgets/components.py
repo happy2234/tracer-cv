@@ -131,7 +131,7 @@ class NavigationSidebar(QFrame):
                 for label in ("Coverage & Limitations", "Self-Test & Readiness"):
                     child = QTreeWidgetItem([label]); child.setData(0, Qt.UserRole, label); node.addChild(child); self.nav_items[label] = child
         self.nav_items["ASSURANCE"].setExpanded(True); self.nav_items["ASSESSMENTS"].setExpanded(True); side.addWidget(self.tree, 1)
-        footer = QLabel("OFFLINE / AIR-GAPPED\nDeveloped by Team DevZ"); footer.setObjectName("sidebarFooter"); side.addWidget(footer)
+        footer = QLabel("OFFLINE / AIR-GAPPED\nTRACER-CV · PS-26228"); footer.setObjectName("sidebarFooter"); side.addWidget(footer)
 
 
 class MetricCard(QFrame):

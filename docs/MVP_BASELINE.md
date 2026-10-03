@@ -22,7 +22,7 @@ demos/                  Synthetic asset creation and four demo runners
   assets/               Reference/candidate images, labels, manifest, model
 reports/                Engine results, audit chain, JSON and text reports
 tests/                  Engine/report tests and standalone test harnesses
-docs/                   Coverage, threat model, reproducibility and SIH traceability
+docs/                   Coverage, threat model, reproducibility and PS-26228 traceability
 frontend/               Present but empty; not used by the desktop application
 configs/                Present, currently empty
 datasets_store/         Present, currently empty

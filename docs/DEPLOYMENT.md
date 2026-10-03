@@ -11,7 +11,7 @@ Prepare the host and dependencies before isolation, or transfer them through app
 1. Provision Linux and Python 3.11 or newer according to the site image.
 2. Create a virtual environment and install the project’s required local dependencies from the approved internal wheelhouse/media. The repository currently has no complete lockfile/wheelhouse; resolve and verify dependencies during connected staging, then transfer them. The installed TRACER-CV runtime itself does not install or download packages.
 3. Copy the repository and approved demo/assessment assets onto local storage.
-4. Verify repository/package digests through the organization’s trusted process.
+4. Verify repository/package digests through the deployment site's established trusted process.
 5. Set local configuration and storage paths if needed. Do not place credentials/private keys in the repository or report folders.
 6. Isolate the host per site policy and run local checks below.
 
