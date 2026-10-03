@@ -46,47 +46,99 @@ Each stage is driven by local artifacts. Downstream stages consume only what ups
 
 TRACER-CV uses an adapter-based architecture in which assurance depth depends on the model format, task, adapter availability, and access mode.
 
-```
-┌─────────────────────────────────────────────────┐
-│  Desktop UI  (PySide6)                          │
-│  Analyst workspaces · Navigation · PDF export   │
-└────────────────────┬────────────────────────────┘
-                     │
-┌────────────────────▼────────────────────────────┐
-│  Application / Assessment Orchestration         │
-│  AssessmentManager · DispositionManager         │
-│  Assessment lifecycle · Evidence persistence    │
-└────────────────────┬────────────────────────────┘
-                     │
-┌────────────────────▼────────────────────────────┐
-│  Assurance Engines                              │
-│  ├── Dataset Integrity   A1–A8                  │
-│  ├── Model Integrity     B1–B4                  │
-│  ├── Inference Provenance  C1                   │
-│  └── Distribution Shift    C2                   │
-│                  ↓                              │
-│  Findings          C3                           │
-│  Audit Trail       C4                           │
-│  Assurance Report  C5                           │
-└────────────────────┬────────────────────────────┘
-                     │
-┌────────────────────▼────────────────────────────┐
-│  Adapters  (backend/adapters/)                  │
-│  Dataset adapters · Model adapters              │
-│  Format / task / access-level normalization     │
-└────────────────────┬────────────────────────────┘
-                     │
-┌────────────────────▼────────────────────────────┐
-│  Local Storage / Evidence                       │
-│  datasets_store/  ·  models_store/              │
-│  evidence_store/  ·  reports/                   │
-│  SQLite asset registry  ·  content-addressed    │
-│  evidence objects  ·  configs/                  │
-└─────────────────────────────────────────────────┘
+```mermaid
+flowchart TD
+    subgraph OFFLINE ["🔒  OFFLINE / LOCAL ONLY — No cloud API · No telemetry · No remote download"]
+        direction TB
 
-          All layers: OFFLINE / LOCAL ONLY
-          No cloud API · No telemetry · No remote model download
-          Local cryptographic operations · Local PDF generation
+        UI["**1 · PySide6 Desktop UI**
+        ───────────────────────────────
+        Mission Control · 14 Analyst Workspaces
+        Guided Assessment Wizard
+        Sidebar Navigation · Light / Dark Themes
+        PDF Export (Dataset · Findings · Audit · Report)
+        desktop/app.py · desktop/pages/ · desktop/reporting/"]
+
+        APP["**2 · Application / Assessment Orchestration**
+        ───────────────────────────────
+        AssessmentManager — lifecycle, engine sequencing, persistence
+        AssessmentRunner — coordinates A–C engine calls
+        DispositionManager — ACCEPT / REVIEW / QUARANTINE
+        backend/application/ · backend/core/assessment_runner.py"]
+
+        COMPUTE["**Compute Abstraction**
+        ─────────────────────
+        ComputeContext · resolve_compute()
+        CPU (default) · Optional CUDA
+        backend/core/compute.py"]
+
+        subgraph ENGINES ["3 · Assurance Engine Layer  —  backend/engines/"]
+            direction LR
+            DA["**Dataset Integrity**
+            A1 Manifest / Merkle
+            A2 Exact Duplicates
+            A3 Near Duplicates
+            A4 OOD / Reference
+            A5 Label Consistency
+            A6 Contributor Risk
+            A7 Metadata
+            A8 Poison / Trigger"]
+
+            MB["**Model Integrity**
+            B1 Identity / Hash
+            B2 Behavioral Fingerprint
+            B3 Parameter Statistics
+            B4 Trigger Search
+            (+ ONNX adapter)"]
+
+            PC["**Provenance · Shift**
+            C1 Inference Provenance
+            C2 Distribution Shift"]
+
+            FAS["**Findings · Audit · Report**
+            C3 Structured Findings
+            C4 Audit Trail
+            C5 Assurance Report"]
+        end
+
+        ADP["**4 · Adapters**
+        ───────────────────────────────
+        Dataset adapters · Model adapters
+        Format / Task / Access-level normalization
+        PyTorch · TorchScript · ONNX (conditional)
+        backend/adapters/"]
+
+        STORE["**5 · Local Storage / Evidence**
+        ───────────────────────────────
+        datasets_store/     — local dataset registry
+        models_store/       — local model registry
+        evidence_store/     — content-addressed evidence objects
+                              AssetRegistry (SQLite)
+                              AssessmentStore (SQLite)
+        reports/            — C5 JSON · text · PDF exports
+        configs/            — tracer_cv.toml
+        backend/core/local_storage.py"]
+    end
+
+    UI      -->|analyst commands / workspace navigation| APP
+    APP     -->|orchestrates engine execution| ENGINES
+    COMPUTE -->|device context to model adapters| ADP
+    ENGINES -->|format / task normalization| ADP
+    ADP     -->|read inputs · write evidence| STORE
+    APP     -->|persist assessments / evidence| STORE
+    ENGINES -->|read inputs / write results| STORE
+
+    style UI      fill:#1a3a5c,color:#e8f4ff,stroke:#3d9bd4,stroke-width:2px
+    style APP     fill:#1a3a5c,color:#e8f4ff,stroke:#3d9bd4,stroke-width:2px
+    style COMPUTE fill:#12303a,color:#c8e8f0,stroke:#2a7a52,stroke-width:1px,stroke-dasharray:4 4
+    style DA      fill:#0e2235,color:#d0e8f4,stroke:#2a5880,stroke-width:1px
+    style MB      fill:#0e2235,color:#d0e8f4,stroke:#2a5880,stroke-width:1px
+    style PC      fill:#0e2235,color:#d0e8f4,stroke:#2a5880,stroke-width:1px
+    style FAS     fill:#0e2235,color:#d0e8f4,stroke:#2a5880,stroke-width:1px
+    style ADP     fill:#1a3a5c,color:#e8f4ff,stroke:#3d9bd4,stroke-width:2px
+    style STORE   fill:#1a2a1e,color:#c8e8d0,stroke:#2a7a52,stroke-width:2px
+    style ENGINES fill:#0a1825,color:#e8f4ff,stroke:#2a5880,stroke-width:1px
+    style OFFLINE fill:#0a0f14,color:#c8d8e4,stroke:#3d9bd4,stroke-width:2px
 ```
 
 **Layer responsibilities:**
@@ -94,6 +146,8 @@ TRACER-CV uses an adapter-based architecture in which assurance depth depends on
 - **Desktop UI** (`desktop/`) — PySide6 analyst workbench. Fourteen workspaces present engine results, findings, evidence, audit entries, and the assurance report. The sidebar, workspaces, and PDF renderer consume persisted assessment artifacts; they do not re-run engines.
 
 - **Application / Orchestration** (`backend/application/`) — `AssessmentManager` coordinates the assessment lifecycle: planning, engine execution sequence, result persistence, and status transitions. `DispositionManager` records analyst ACCEPT / REVIEW / QUARANTINE decisions as separate audit-linked records without modifying C3 findings.
+
+- **Compute Abstraction** (`backend/core/compute.py`) — `ComputeContext` / `resolve_compute()` resolves the active device (CPU default, optional CUDA). Device context is passed to model adapters; dataset and cryptographic engines are CPU-oriented.
 
 - **Assurance Engines** (`backend/engines/`) — The A1–A8, B1–B4, C1–C5 engines are the authoritative source of assessment evidence. Each engine operates independently; a failed or unavailable engine result is preserved as `unavailable` or `partial` — it does not silently become success.
 
