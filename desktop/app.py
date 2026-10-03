@@ -31,6 +31,7 @@ from desktop.pages.model_workspace import ModelIntegrityWorkspace
 from desktop.pages.provenance_workspace import ProvenanceWorkspace
 from desktop.pages.shift_workspace import ShiftWorkspace
 from desktop.pages.findings_workspace import FindingsWorkspace
+from desktop.pages.audit_workspace import AuditWorkspace
 
 CONFIG = LocalConfig.load()
 APP_VERSION = "0.1.0"
@@ -749,6 +750,22 @@ class MainWindow(QMainWindow):
                 result,
                 on_navigate=self.navigate,
                 on_review=review_in_session,
+                parent=self,
+            )
+            self._replace_view(workspace)
+            self.assessment_label.setText(f"Assessment  ·  {field(assessment,'assessment_id',default='No assessment loaded')}")
+            self.activity.setText(f"Activity · {self._activity_count()}")
+            return
+        if index == 6:
+            assessment = read_current_assessment()
+            result = read_result(6) if assessment else {}
+            findings_result = read_result(5) if assessment else {}
+            findings = findings_result.get("findings") if isinstance(findings_result, dict) else None
+            workspace = AuditWorkspace(
+                assessment if assessment else None,
+                result,
+                findings if isinstance(findings, list) else None,
+                on_navigate=self.navigate,
                 parent=self,
             )
             self._replace_view(workspace)
