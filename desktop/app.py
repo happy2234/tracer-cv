@@ -27,6 +27,7 @@ from backend.core.offline_status import offline_capability_check
 from desktop.widgets.components import AnalystTable, EvidenceViewerDialog, MetricBarChart, MetricCard, NavigationSidebar, SectionCard, SeverityBadge, StatusBadge
 from desktop.pages.new_assessment import NewAssessmentWizard
 from desktop.pages.dataset_workspace import DatasetIntegrityWorkspace
+from desktop.pages.model_workspace import ModelIntegrityWorkspace
 
 CONFIG = LocalConfig.load()
 APP_VERSION = "0.1.0"
@@ -674,6 +675,24 @@ class MainWindow(QMainWindow):
                 findings if isinstance(findings,list) else [],
                 results_root=results_root,
                 on_rerun=(lambda record=assessment:self.run_assessment_from_shell(record)) if assessment else None,
+                parent=self,
+            )
+            self._replace_view(workspace)
+            self.assessment_label.setText(f"Assessment  ·  {field(assessment,'assessment_id',default='No assessment loaded')}")
+            self.activity.setText(f"Activity · {self._activity_count()}")
+            return
+        if index == 2:
+            assessment = read_current_assessment()
+            results = read_result(2) if assessment else {}
+            findings_result = read_result(5) if assessment else {}
+            findings = findings_result.get("findings") if isinstance(findings_result, dict) else None
+            if isinstance(findings_result, dict) and findings_result.get("status") == "unavailable":
+                findings = None
+            workspace = ModelIntegrityWorkspace(
+                assessment if assessment else None,
+                results if isinstance(results, dict) and results.get("status") != "unavailable" else {},
+                findings if isinstance(findings, list) else None,
+                on_rerun=(lambda record=assessment: self.run_assessment_from_shell(record)) if assessment else None,
                 parent=self,
             )
             self._replace_view(workspace)
