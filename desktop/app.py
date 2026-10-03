@@ -32,6 +32,7 @@ from desktop.pages.provenance_workspace import ProvenanceWorkspace
 from desktop.pages.shift_workspace import ShiftWorkspace
 from desktop.pages.findings_workspace import FindingsWorkspace
 from desktop.pages.audit_workspace import AuditWorkspace
+from desktop.pages.evidence_workspace import EvidenceWorkspace, load_engine_evidence
 
 CONFIG = LocalConfig.load()
 APP_VERSION = "0.1.0"
@@ -815,7 +816,31 @@ class MainWindow(QMainWindow):
             table=AnalystTable(["Type","Name","Trust state","Size","SHA-256","Registered"],[[a["kind"],a["display_name"],a["trust_state"],a["size_bytes"] or "—",a["sha256"] or "Not hashed",a["registered_at"]] for a in assets]); layout.addWidget(table)
             if not assets: layout.addWidget(QLabel("No assets are registered in the local registry yet."))
         elif key=="evidence":
-            self.show_evidence_explorer(layout)
+            assessment = read_current_assessment()
+            engine_results = load_engine_evidence(assessment, REPORTS, CONFIG.evidence_dir)
+            findings_result = read_result(5) if assessment else None
+            findings = findings_result.get("findings") if isinstance(findings_result, dict) else None
+            def open_related_finding(finding_id):
+                self.navigate(5)
+                findings_page = self.stack.currentWidget()
+                if isinstance(findings_page, FindingsWorkspace):
+                    findings_page.search.setEditText(str(finding_id))
+                    for row in range(findings_page.finding_table.rowCount()):
+                        if not findings_page.finding_table.isRowHidden(row):
+                            findings_page.open_finding_row(row, 0)
+                            break
+            workspace = EvidenceWorkspace(
+                assessment if assessment else None,
+                engine_results,
+                findings if isinstance(findings, list) else None,
+                on_navigate=self.navigate,
+                on_open_finding=open_related_finding,
+                parent=self,
+            )
+            self._replace_view(workspace)
+            self.assessment_label.setText(f"Assessment  ·  {field(assessment,'assessment_id',default='No assessment loaded')}")
+            self.activity.setText(f"Activity · {self._activity_count()}")
+            return
         else:
             layout.addWidget(QLabel("Local runtime and display preferences."))
             form=QFormLayout(); form.addRow("Execution device",self.device_selector); form.addRow("Active execution",QLabel(f"{ACTIVE_COMPUTE.device.upper()} · {ACTIVE_COMPUTE.device_name}")); form.addRow("Network mode",StatusBadge("AIR-GAPPED · NO SERVICE DEPENDENCIES","verified")); layout.addLayout(form)
@@ -824,40 +849,6 @@ class MainWindow(QMainWindow):
             layout.addWidget(MetricCard("Theme",CONFIG.theme.title(),"Use the header control to switch themes."))
             layout.addWidget(QLabel("Settings are stored locally in the configured TRACER-CV TOML file."))
         layout.addStretch(); self._replace_view(page)
-
-    def show_evidence_explorer(self,layout):
-        layout.addWidget(QLabel("Search and inspect locally recorded evidence. Double-click a row for a readable summary and technical drill-down."))
-        evidence=[]
-        findings=read_result(5).get("findings",[])
-        for item in findings if isinstance(findings,list) else []:
-            for number,record in enumerate(item.get("evidence",[]) if isinstance(item.get("evidence"),list) else []):
-                evidence.append({"id":field(record,"evidence_id",default="Not assigned"),"type":field(record,"type",default="Finding evidence"),"source":field(item,"source_engine",default=field(item,"category")),"asset":field(item,"affected_asset"),"finding":field(item,"title"),"time":field(item,"timestamp",default="Not recorded"),"digest":field(record,"digest",default=field(item,"evidence_digest",default="Not recorded")),"verification":"Recorded; verification not asserted","summary":record,"raw":record})
-        for i,name in ((3,"Provenance"),(6,"Audit Trail")):
-            data=read_result(i); collection="records" if i==3 else "entries"
-            for item in data.get(collection,[]) if isinstance(data,dict) else []:
-                evidence.append({"id":field(item,"evidence_id",default=field(item,"event_id",default=field(item,"record_hash"))),"type":field(item,"event_type",default="Provenance record"),"source":name,"asset":field(item,"affected_asset",default=field(item,"model_id")),"finding":"—","time":field(item,"timestamp"),"digest":field(item,"payload_digest",default=field(item,"record_hash",default=field(item,"output_digest"))),"verification":"Verified" if data.get("valid") is True else "Review required","summary":item,"raw":item})
-        paths=[]
-        for folder in (REPORTS/"engine_results",REPORTS/"evidence"):
-            if folder.is_dir():paths.extend(p for p in folder.iterdir() if p.is_file())
-        assessment_artifacts=REPORTS/"assessments"
-        if assessment_artifacts.is_dir():paths.extend(p for p in assessment_artifacts.rglob("*") if p.is_file())
-        paths.extend(p for p in REPORTS.glob("tracer_cv_assurance_report.*") if p.is_file())
-        for p in sorted(set(paths)):
-            evidence.append({"id":p.stem,"type":p.suffix.lstrip(".").upper()+" artifact","source":p.parent.name,"asset":str(p.relative_to(REPORTS)),"finding":"—","time":datetime.fromtimestamp(p.stat().st_mtime).astimezone().isoformat(timespec="seconds"),"digest":"Not recorded","verification":"Local artifact; digest not asserted","summary":{"path":str(p.relative_to(REPORTS)),"size_bytes":p.stat().st_size},"raw":{"path":str(p),"size_bytes":p.stat().st_size}})
-        search=QLineEdit(); search.setPlaceholderText("Search IDs, filenames, assets, digest, engine…")
-        filter_box=QComboBox(); filter_box.addItems(["All types"]+sorted({str(row["type"]) for row in evidence}))
-        layout.addWidget(search); layout.addWidget(filter_box)
-        table=AnalystTable(["Evidence ID","Type","Source Engine","Affected Asset","Finding","Timestamp","Digest","Verification"],[[x[k] for k in ("id","type","source","asset","finding","time","digest","verification")] for x in evidence]); layout.addWidget(table)
-        def apply_filter(*_):
-            needle=search.text().casefold(); kind=filter_box.currentText()
-            for row,item in enumerate(evidence):
-                visible=(kind=="All types" or item["type"]==kind) and (not needle or needle in pretty(item).casefold())
-                table.setRowHidden(row,not visible)
-        search.textChanged.connect(apply_filter); filter_box.currentTextChanged.connect(apply_filter)
-        def open_item(row,col):
-            item=evidence[row]
-            EvidenceViewerDialog(f"{item['type']} · {item['id']}",f"Source: {item['source']}\nAffected asset: {item['asset']}\nFinding: {item['finding']}\nRecorded: {item['time']}\nDigest: {item['digest']}\nVerification: {item['verification']}","Evidence is shown as recorded; a missing digest or verification means no integrity claim is made here.",item["raw"],self).exec()
-        table.cellDoubleClicked.connect(open_item)
 
     def build_assessment_view(self, key, layout):
         """Show an operator summary based on the local report and engine files."""
