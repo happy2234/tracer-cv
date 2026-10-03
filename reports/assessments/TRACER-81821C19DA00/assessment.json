@@ -1,0 +1,684 @@
+{
+  "analyst": "Local validation",
+  "assessment_id": "TRACER-81821C19DA00",
+  "completed_at": "2026-10-03T04:41:52.515829+00:00",
+  "compute": {
+    "device": "cpu"
+  },
+  "configuration": {
+    "dataset_checks": true,
+    "distribution_check": true,
+    "max_images": 2,
+    "model_checks": false,
+    "trigger_search": false
+  },
+  "created_at": "2026-10-03T04:41:51.394673+00:00",
+  "dataset": {
+    "dataset_id": "79832f502f217f53a04b8d89cbe08301a454165ce1527428d2540be7e94e819f",
+    "file_count": 62,
+    "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset",
+    "sha256": "79832f502f217f53a04b8d89cbe08301a454165ce1527428d2540be7e94e819f"
+  },
+  "description": "Small repository synthetic dataset assessed through the Phase 6 pipeline.",
+  "duration_seconds": null,
+  "engines": {
+    "A1_manifest": {
+      "completed_at": "2026-10-03T04:41:51.478662+00:00",
+      "duration_seconds": 0.021,
+      "errors": [],
+      "evidence": {
+        "serialization": "canonical-json",
+        "sha256": "81cff70f4b702b03e2baefd00426b50d1078074211e9bf8f56e50e5a3fadfa99",
+        "size_bytes": 8421,
+        "uri": "/home/gauravkumar/tracer-cv/evidence_store/objects/81/81cff70f4b702b03e2baefd00426b50d1078074211e9bf8f56e50e5a3fadfa99.json"
+      },
+      "limitations": [],
+      "reason": null,
+      "result_path": "/home/gauravkumar/tracer-cv/reports/assessments/TRACER-81821C19DA00/A1_manifest.json",
+      "started_at": "2026-10-03T04:41:51.457724+00:00",
+      "status": "completed",
+      "technical_error": null,
+      "warnings": []
+    },
+    "A2_exact_duplicates": {
+      "completed_at": "2026-10-03T04:41:51.489308+00:00",
+      "duration_seconds": 0.004,
+      "errors": [],
+      "evidence": {
+        "serialization": "canonical-json",
+        "sha256": "a25a422ec4d7d8372cd6e28631d51e3996df260cb8c57c32d32aa11c6a3c2a9d",
+        "size_bytes": 986,
+        "uri": "/home/gauravkumar/tracer-cv/evidence_store/objects/a2/a25a422ec4d7d8372cd6e28631d51e3996df260cb8c57c32d32aa11c6a3c2a9d.json"
+      },
+      "limitations": [],
+      "reason": null,
+      "result_path": "/home/gauravkumar/tracer-cv/reports/assessments/TRACER-81821C19DA00/A2_exact_duplicates.json",
+      "started_at": "2026-10-03T04:41:51.485338+00:00",
+      "status": "completed",
+      "technical_error": null,
+      "warnings": []
+    },
+    "A3_near_duplicates": {
+      "completed_at": "2026-10-03T04:41:51.515599+00:00",
+      "duration_seconds": 0.021,
+      "errors": [],
+      "evidence": {
+        "serialization": "canonical-json",
+        "sha256": "ee518562b2c950232d5072a75d533b70f5f964d771f1ab922de3e2a2f206b064",
+        "size_bytes": 255,
+        "uri": "/home/gauravkumar/tracer-cv/evidence_store/objects/ee/ee518562b2c950232d5072a75d533b70f5f964d771f1ab922de3e2a2f206b064.json"
+      },
+      "limitations": [],
+      "reason": null,
+      "result_path": "/home/gauravkumar/tracer-cv/reports/assessments/TRACER-81821C19DA00/A3_near_duplicates.json",
+      "started_at": "2026-10-03T04:41:51.494737+00:00",
+      "status": "completed",
+      "technical_error": null,
+      "warnings": []
+    },
+    "A4_ood": {
+      "completed_at": "2026-10-03T04:41:51.591040+00:00",
+      "duration_seconds": 0.071,
+      "errors": [],
+      "evidence": {
+        "serialization": "canonical-json",
+        "sha256": "6a7d84941cafcea1e50e2e8d29cad449886ab125d0ef0bbc6d23afb161ad1ac4",
+        "size_bytes": 3428,
+        "uri": "/home/gauravkumar/tracer-cv/evidence_store/objects/6a/6a7d84941cafcea1e50e2e8d29cad449886ab125d0ef0bbc6d23afb161ad1ac4.json"
+      },
+      "limitations": [
+        "Appearance-space detector only.",
+        "Does not establish semantic OOD.",
+        "Does not establish malicious intent.",
+        "Reference quality affects detection quality."
+      ],
+      "reason": null,
+      "result_path": "/home/gauravkumar/tracer-cv/reports/assessments/TRACER-81821C19DA00/A4_ood.json",
+      "started_at": "2026-10-03T04:41:51.519645+00:00",
+      "status": "completed",
+      "technical_error": null,
+      "warnings": []
+    },
+    "A5_label_consistency": {
+      "completed_at": "2026-10-03T04:41:51.602422+00:00",
+      "duration_seconds": 0.008,
+      "errors": [],
+      "evidence": {
+        "serialization": "canonical-json",
+        "sha256": "9aa92baa4ac96c6b267ab5d6470489f99dfce87646d7986ce9b495d9eb75edb6",
+        "size_bytes": 732,
+        "uri": "/home/gauravkumar/tracer-cv/evidence_store/objects/9a/9aa92baa4ac96c6b267ab5d6470489f99dfce87646d7986ce9b495d9eb75edb6.json"
+      },
+      "limitations": [
+        "YOLO annotation format is assessed.",
+        "Near-duplicate similarity does not prove that a label is incorrect.",
+        "A conflict is reported as a potential label inconsistency requiring review.",
+        "Semantic correctness of an annotation is not established automatically."
+      ],
+      "reason": null,
+      "result_path": "/home/gauravkumar/tracer-cv/reports/assessments/TRACER-81821C19DA00/A5_label_consistency.json",
+      "started_at": "2026-10-03T04:41:51.594798+00:00",
+      "status": "completed",
+      "technical_error": null,
+      "warnings": []
+    },
+    "A6_contributor_risk": {
+      "completed_at": "2026-10-03T04:41:51.608569+00:00",
+      "duration_seconds": 0.003,
+      "errors": [],
+      "evidence": {
+        "serialization": "canonical-json",
+        "sha256": "5efbedbef6bea8c0f3aa9d1ab7b3033df358442691ead6fe730bb37d03e6cb9b",
+        "size_bytes": 1446,
+        "uri": "/home/gauravkumar/tracer-cv/evidence_store/objects/5e/5efbedbef6bea8c0f3aa9d1ab7b3033df358442691ead6fe730bb37d03e6cb9b.json"
+      },
+      "limitations": [
+        "Risk scores identify unusual contributor characteristics; they do not establish malicious intent.",
+        "The current engine uses manifest metadata and class distributions rather than image-content embeddings.",
+        "Source identity is assumed to be correctly represented in the manifest."
+      ],
+      "reason": null,
+      "result_path": "/home/gauravkumar/tracer-cv/reports/assessments/TRACER-81821C19DA00/A6_contributor_risk.json",
+      "started_at": "2026-10-03T04:41:51.605592+00:00",
+      "status": "completed",
+      "technical_error": null,
+      "warnings": []
+    },
+    "A7_metadata_consistency": {
+      "completed_at": "2026-10-03T04:41:51.617368+00:00",
+      "duration_seconds": 0.006,
+      "errors": [],
+      "evidence": {
+        "serialization": "canonical-json",
+        "sha256": "693303fff72a164b88af1e92679ab5b2cd850b191a021ad6b1f797d6c4f75f5c",
+        "size_bytes": 1628,
+        "uri": "/home/gauravkumar/tracer-cv/evidence_store/objects/69/693303fff72a164b88af1e92679ab5b2cd850b191a021ad6b1f797d6c4f75f5c.json"
+      },
+      "limitations": [
+        "Metadata is trivially editable or strippable; consistent metadata does not establish authenticity.",
+        "Missing EXIF is common and benign; it is reported as divergence, not tampering.",
+        "Contributor divergence is a statistical heuristic; legitimate sensor or campaign differences can also be flagged.",
+        "Small contributors below min_contributor_images are not profiled.",
+        "Timestamp checks rely on camera clocks, which may be wrong or unset.",
+        "Findings are evidence for analyst review and do not establish malicious intent, poisoning, or confirmed integrity violation."
+      ],
+      "reason": null,
+      "result_path": "/home/gauravkumar/tracer-cv/reports/assessments/TRACER-81821C19DA00/A7_metadata_consistency.json",
+      "started_at": "2026-10-03T04:41:51.611851+00:00",
+      "status": "completed",
+      "technical_error": null,
+      "warnings": []
+    },
+    "A8_poison_trigger_forensics": {
+      "completed_at": "2026-10-03T04:41:51.644950+00:00",
+      "duration_seconds": 0.024,
+      "errors": [],
+      "evidence": {
+        "serialization": "canonical-json",
+        "sha256": "db7ceeffc00f55e8c49444ba36adfdc693bf129e7cd850d774dc18badfb80cfa",
+        "size_bytes": 1963,
+        "uri": "/home/gauravkumar/tracer-cv/evidence_store/objects/db/db7ceeffc00f55e8c49444ba36adfdc693bf129e7cd850d774dc18badfb80cfa.json"
+      },
+      "limitations": [
+        "Cannot distinguish a trigger from legitimate repeated visual structure (watermarks, logos, borders, timestamps, sensor artefacts, repeated textures); such content can produce the same evidence.",
+        "Only compact, high-frequency localized patches are detected. Blended, low-contrast, very small, very large, semantic or frequency-domain triggers may be missed.",
+        "Repeat matching uses a 64-bit hash at reduced resolution; it is not robust to large shifts, rotation, scaling, inverted polarity or heavy recompression.",
+        "Images are converted to grayscale and resized to 128x128 before analysis; colour-only triggers and fine detail are not visible to this engine.",
+        "Class association is statistical association only and does not establish a backdoor.",
+        "Thresholds are heuristic defaults and have not been calibrated on real datasets; JPEG block artefacts may occasionally resemble patches.",
+        "No labels were supplied, so class-conditional analysis (A8.4) was not performed."
+      ],
+      "reason": null,
+      "result_path": "/home/gauravkumar/tracer-cv/reports/assessments/TRACER-81821C19DA00/A8_poison_trigger_forensics.json",
+      "started_at": "2026-10-03T04:41:51.620743+00:00",
+      "status": "completed",
+      "technical_error": null,
+      "warnings": []
+    },
+    "B1_identity": {
+      "completed_at": "2026-10-03T04:41:51.653177+00:00",
+      "duration_seconds": 0.003,
+      "errors": [],
+      "evidence": {
+        "serialization": "canonical-json",
+        "sha256": "a1b789cad5933f623ff5900e374749932f9ef15e6ccd0e6cb3450d5045b7763e",
+        "size_bytes": 1924,
+        "uri": "/home/gauravkumar/tracer-cv/evidence_store/objects/a1/a1b789cad5933f623ff5900e374749932f9ef15e6ccd0e6cb3450d5045b7763e.json"
+      },
+      "limitations": [
+        "Format is inferred from the filename extension only; it is not a confirmed internal format.",
+        "The content signature is a heuristic check of the first bytes; model internals are never parsed or validated. ONNX, TensorFlow protobuf and TensorRT engine files have no reliable universal magic header.",
+        "The SHA-256 digest proves byte identity only; it says nothing about model safety, correctness or provenance, and a verification result is only as trustworthy as the source of the expected digest.",
+        "Pickle-based formats (.pkl, .joblib, and often .pt/.pth/.ckpt/.bin) can execute code when loaded; B1 never loads models and does not assess them for malicious content.",
+        "Functionally equivalent models with different bytes (re-exports, re-serialisation) have different identities; sharded or multi-file models must be fingerprinted file by file.",
+        "file_name, path and absolute_path are observation metadata and are not part of the model identity."
+      ],
+      "reason": null,
+      "result_path": "/home/gauravkumar/tracer-cv/reports/assessments/TRACER-81821C19DA00/B1_identity.json",
+      "started_at": "2026-10-03T04:41:51.650649+00:00",
+      "status": "completed",
+      "technical_error": null,
+      "warnings": []
+    },
+    "B2_behavioral_fingerprint": {
+      "reason": "Disabled in assessment configuration.",
+      "status": "not_assessed"
+    },
+    "B3_model_statistics": {
+      "reason": "Disabled in assessment configuration.",
+      "status": "not_assessed"
+    },
+    "B4_trigger_search": {
+      "reason": "Disabled in assessment configuration.",
+      "status": "not_assessed"
+    },
+    "C1_provenance": {
+      "completed_at": "2026-10-03T04:41:52.442312+00:00",
+      "duration_seconds": 0.759,
+      "errors": [],
+      "evidence": {
+        "serialization": "canonical-json",
+        "sha256": "4d728b4e03444566f15b1c7e5636689cb2f8050e03acfb49213ba959c0d87b98",
+        "size_bytes": 1710,
+        "uri": "/home/gauravkumar/tracer-cv/evidence_store/objects/4d/4d728b4e03444566f15b1c7e5636689cb2f8050e03acfb49213ba959c0d87b98.json"
+      },
+      "limitations": [
+        "Provenance binds the selected source image bytes and this local inference output; it does not establish that the model is safe or benign."
+      ],
+      "reason": null,
+      "result_path": "/home/gauravkumar/tracer-cv/reports/assessments/TRACER-81821C19DA00/C1_provenance.json",
+      "started_at": "2026-10-03T04:41:51.683519+00:00",
+      "status": "completed",
+      "technical_error": null,
+      "warnings": []
+    },
+    "C2_distribution_shift": {
+      "completed_at": "2026-10-03T04:41:52.486359+00:00",
+      "duration_seconds": 0.039,
+      "errors": {
+        "candidate": [],
+        "reference": []
+      },
+      "evidence": {
+        "serialization": "canonical-json",
+        "sha256": "14b749678542e5123db6f5d324dd329c64567d9076f0d00006aebe95b4e63a4b",
+        "size_bytes": 10247,
+        "uri": "/home/gauravkumar/tracer-cv/evidence_store/objects/14/14b749678542e5123db6f5d324dd329c64567d9076f0d00006aebe95b4e63a4b.json"
+      },
+      "limitations": [
+        "Distribution shift does not prove malicious manipulation.",
+        "Appearance features do not establish semantic correctness.",
+        "A stable distribution does not prove absence of attacks.",
+        "Thresholds are configurable heuristics and require validation against representative reference data.",
+        "This MVP analyzes image populations rather than proving causal source of a detected shift."
+      ],
+      "reason": null,
+      "result_path": "/home/gauravkumar/tracer-cv/reports/assessments/TRACER-81821C19DA00/C2_distribution_shift.json",
+      "started_at": "2026-10-03T04:41:52.447783+00:00",
+      "status": "completed",
+      "technical_error": null,
+      "warnings": []
+    },
+    "C3_findings": {
+      "completed_at": "2026-10-03T04:41:52.496273+00:00",
+      "duration_seconds": 0.003,
+      "errors": [],
+      "evidence": {
+        "serialization": "canonical-json",
+        "sha256": "3cd327657183c3e402dcbe2ebf033b60fd4aaf291aa6bebf4d46ff4a1b602919",
+        "size_bytes": 8211,
+        "uri": "/home/gauravkumar/tracer-cv/evidence_store/objects/3c/3cd327657183c3e402dcbe2ebf033b60fd4aaf291aa6bebf4d46ff4a1b602919.json"
+      },
+      "limitations": [],
+      "reason": null,
+      "result_path": "/home/gauravkumar/tracer-cv/reports/assessments/TRACER-81821C19DA00/C3_findings.json",
+      "started_at": "2026-10-03T04:41:52.493495+00:00",
+      "status": "completed",
+      "technical_error": null,
+      "warnings": []
+    },
+    "C4_audit_trail": {
+      "reason": null,
+      "result_path": "/home/gauravkumar/tracer-cv/reports/assessments/TRACER-81821C19DA00/audit_chain.json",
+      "status": "completed"
+    },
+    "C5_assurance_report": {
+      "completed_at": "2026-10-03T04:41:52.507848+00:00",
+      "duration_seconds": 0.003,
+      "errors": [],
+      "evidence": {
+        "serialization": "canonical-json",
+        "sha256": "249d793fbcc21af98412497796da464805cfcab0bbbf64e583e74ac7cd816a56",
+        "size_bytes": 60787,
+        "uri": "/home/gauravkumar/tracer-cv/evidence_store/objects/24/249d793fbcc21af98412497796da464805cfcab0bbbf64e583e74ac7cd816a56.json"
+      },
+      "limitations": [
+        "TRACER-CV reports evidence observed by configured checks; it does not prove absence of every possible attack.",
+        "Distribution shift can have benign operational causes and does not by itself establish malicious manipulation.",
+        "Behavioral and trigger-like model findings are indicators for analyst review, not proof of a backdoor.",
+        "Parameter and activation anomalies can arise from legitimate model differences.",
+        "Appearance-based dataset checks do not establish semantic correctness for every image.",
+        "White-box model methods depend on access to the model structure and supported execution format.",
+        "Unsupported attack classes are outside the evidence presented by this assessment."
+      ],
+      "reason": null,
+      "result_path": "/home/gauravkumar/tracer-cv/reports/assessments/TRACER-81821C19DA00/C5_assurance_report.json",
+      "started_at": "2026-10-03T04:41:52.504673+00:00",
+      "status": "completed",
+      "technical_error": null,
+      "warnings": []
+    }
+  },
+  "error": null,
+  "findings": [
+    {
+      "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate",
+      "category": "distribution_shift",
+      "confidence": 0.9506483460244324,
+      "evidence": [
+        {
+          "type": "overall_shift",
+          "value": 0.4506483460244324
+        },
+        {
+          "type": "shifted_features",
+          "value": [
+            {
+              "distance": 0.33512389539253146,
+              "feature": "brightness",
+              "shifted": true,
+              "threshold": 0.08
+            },
+            {
+              "distance": 0.010939914218726608,
+              "feature": "contrast",
+              "shifted": false,
+              "threshold": 0.08
+            },
+            {
+              "distance": 0.02107994904120762,
+              "feature": "saturation",
+              "shifted": false,
+              "threshold": 0.08
+            },
+            {
+              "distance": 0.031467982700892856,
+              "feature": "edge_density",
+              "shifted": false,
+              "threshold": 0.08
+            }
+          ]
+        },
+        {
+          "type": "distances",
+          "value": {
+            "histogram": {
+              "blue_hist": 0.95634765625,
+              "gray_hist": 1.0,
+              "green_hist": 0.9990931919642857,
+              "red_hist": 0.953125
+            },
+            "scalar": {
+              "brightness": 0.33512389539253146,
+              "contrast": 0.010939914218726608,
+              "edge_density": 0.031467982700892856,
+              "saturation": 0.02107994904120762
+            }
+          }
+        }
+      ],
+      "explanation": "The candidate image population differs measurably from the configured reference population.",
+      "finding_id": "C3-06142070868e",
+      "limitations": [
+        "Distribution shift does not prove malicious manipulation.",
+        "Environmental or sensor changes can produce legitimate shift.",
+        "Appearance features do not establish semantic correctness."
+      ],
+      "recommended_action": "Review affected samples, acquisition conditions, and trusted reference data before relying on the candidate population.",
+      "severity": "high",
+      "source_engine": "C2",
+      "title": "Distribution shift detected"
+    },
+    {
+      "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate",
+      "category": "distribution_shift",
+      "confidence": 0.85,
+      "evidence": [
+        {
+          "count": 21,
+          "images": [
+            {
+              "features": {
+                "brightness": 281.35307495852834,
+                "contrast": 7.226792713313553,
+                "edge_density": 21.69822973545756,
+                "saturation": 2.6422892878906996
+              },
+              "file": "candidate_000.png",
+              "max_z_score": 281.35307495852834,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_000.png"
+            },
+            {
+              "features": {
+                "brightness": 281.9662344729554,
+                "contrast": 6.295079442415668,
+                "edge_density": 17.822309910304057,
+                "saturation": 2.779127979969468
+              },
+              "file": "candidate_001.png",
+              "max_z_score": 281.9662344729554,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_001.png"
+            },
+            {
+              "features": {
+                "brightness": 281.31266518168377,
+                "contrast": 7.185670279829954,
+                "edge_density": 22.528783983704738,
+                "saturation": 2.6571334135690976
+              },
+              "file": "candidate_002.png",
+              "max_z_score": 281.31266518168377,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_002.png"
+            },
+            {
+              "features": {
+                "brightness": 282.82543264081613,
+                "contrast": 6.273516939322046,
+                "edge_density": 16.43805282989209,
+                "saturation": 2.746983368904158
+              },
+              "file": "candidate_003.png",
+              "max_z_score": 282.82543264081613,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_003.png"
+            },
+            {
+              "features": {
+                "brightness": 281.15539072253256,
+                "contrast": 7.113037761840259,
+                "edge_density": 19.20656699071602,
+                "saturation": 2.523864607771091
+              },
+              "file": "candidate_004.png",
+              "max_z_score": 281.15539072253256,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_004.png"
+            },
+            {
+              "features": {
+                "brightness": 282.5155426166887,
+                "contrast": 6.242230931233009,
+                "edge_density": 20.313972655045593,
+                "saturation": 2.635703672858891
+              },
+              "file": "candidate_005.png",
+              "max_z_score": 282.5155426166887,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_005.png"
+            },
+            {
+              "features": {
+                "brightness": 272.12086313828786,
+                "contrast": 1.3000023587486325,
+                "edge_density": 17.68388420226286,
+                "saturation": 2.340370715769007
+              },
+              "file": "candidate_006.png",
+              "max_z_score": 272.12086313828786,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_006.png"
+            },
+            {
+              "features": {
+                "brightness": 273.13439330582077,
+                "contrast": 0.16409177774645906,
+                "edge_density": 16.991755662056875,
+                "saturation": 2.382894923198088
+              },
+              "file": "candidate_007.png",
+              "max_z_score": 273.13439330582077,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_007.png"
+            },
+            {
+              "features": {
+                "brightness": 271.99193437211744,
+                "contrast": 1.2935994192406743,
+                "edge_density": 20.729249779169184,
+                "saturation": 2.3667114387253023
+              },
+              "file": "candidate_008.png",
+              "max_z_score": 271.99193437211744,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_008.png"
+            },
+            {
+              "features": {
+                "brightness": 273.2000591931932,
+                "contrast": 0.3650450965089652,
+                "edge_density": 12.008430172573801,
+                "saturation": 2.3677155235283585
+              },
+              "file": "candidate_009.png",
+              "max_z_score": 273.2000591931932,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_009.png"
+            },
+            {
+              "features": {
+                "brightness": 272.4231027677699,
+                "contrast": 1.1971883353240707,
+                "edge_density": 19.483418406798414,
+                "saturation": 2.3093404998614138
+              },
+              "file": "candidate_010.png",
+              "max_z_score": 272.4231027677699,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_010.png"
+            },
+            {
+              "features": {
+                "brightness": 273.49494267397785,
+                "contrast": 0.3742878076173804,
+                "edge_density": 16.576478537933287,
+                "saturation": 2.264025527317956
+              },
+              "file": "candidate_011.png",
+              "max_z_score": 273.49494267397785,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_011.png"
+            },
+            {
+              "features": {
+                "brightness": 272.431488777285,
+                "contrast": 1.286706863939534,
+                "edge_density": 14.500092917315339,
+                "saturation": 2.3612410874366807
+              },
+              "file": "candidate_012.png",
+              "max_z_score": 272.431488777285,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_012.png"
+            },
+            {
+              "features": {
+                "brightness": 272.86314758285056,
+                "contrast": 0.11707542874168811,
+                "edge_density": 17.68388420226286,
+                "saturation": 2.22574088556683
+              },
+              "file": "candidate_013.png",
+              "max_z_score": 272.86314758285056,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_013.png"
+            },
+            {
+              "features": {
+                "brightness": 272.23140153271464,
+                "contrast": 1.154415323193546,
+                "edge_density": 18.51443845051004,
+                "saturation": 2.3182704270761363
+              },
+              "file": "candidate_014.png",
+              "max_z_score": 272.23140153271464,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_014.png"
+            },
+            {
+              "features": {
+                "brightness": 272.9894771764812,
+                "contrast": 0.22176587161147274,
+                "edge_density": 15.607498581644911,
+                "saturation": 2.5331289403916752
+              },
+              "file": "candidate_015.png",
+              "max_z_score": 272.9894771764812,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_015.png"
+            },
+            {
+              "features": {
+                "brightness": 272.0187597943674,
+                "contrast": 1.2709315313022638,
+                "edge_density": 15.469072873603714,
+                "saturation": 2.4250855938067772
+              },
+              "file": "candidate_016.png",
+              "max_z_score": 272.0187597943674,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_016.png"
+            },
+            {
+              "features": {
+                "brightness": 272.9379841355992,
+                "contrast": 0.2189393328702909,
+                "edge_density": 18.237587034427644,
+                "saturation": 2.3604610976848255
+              },
+              "file": "candidate_017.png",
+              "max_z_score": 272.9379841355992,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_017.png"
+            },
+            {
+              "features": {
+                "brightness": 272.3144279310131,
+                "contrast": 1.1312084167873258,
+                "edge_density": 19.62184411483961,
+                "saturation": 2.2723969540756155
+              },
+              "file": "candidate_018.png",
+              "max_z_score": 272.3144279310131,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_018.png"
+            },
+            {
+              "features": {
+                "brightness": 273.7034159280632,
+                "contrast": 0.3313798203222486,
+                "edge_density": 11.870004464532604,
+                "saturation": 2.4525433176771996
+              },
+              "file": "candidate_019.png",
+              "max_z_score": 273.7034159280632,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_019.png"
+            },
+            {
+              "features": {
+                "brightness": 281.35307495852834,
+                "contrast": 7.226792713313553,
+                "edge_density": 21.69822973545756,
+                "saturation": 2.6422892878906996
+              },
+              "file": "candidate_duplicate.png",
+              "max_z_score": 281.35307495852834,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_duplicate.png"
+            }
+          ],
+          "type": "anomalous_images"
+        }
+      ],
+      "explanation": "One or more candidate images are statistical outliers relative to the reference feature distribution.",
+      "finding_id": "C3-2f1f58dbbd35",
+      "limitations": [
+        "Statistical outliers may be legitimate observations.",
+        "Outlier detection does not establish malicious intent."
+      ],
+      "recommended_action": "Inspect the listed images for acquisition, format, sensor, illumination, or processing differences.",
+      "severity": "medium",
+      "source_engine": "C2",
+      "title": "Statistical image outliers detected"
+    }
+  ],
+  "lifecycle_events": [
+    {
+      "event_type": "ASSESSMENT_CREATED",
+      "timestamp": "2026-10-03T04:41:51.394673+00:00"
+    },
+    {
+      "event_type": "ASSESSMENT_QUEUED",
+      "timestamp": "2026-10-03T04:41:51.397334+00:00"
+    }
+  ],
+  "model": {
+    "path": "/home/gauravkumar/tracer-cv/demos/assets/model/demo_model.pt",
+    "sha256": "f00ace700c3610b5bfbd1a2ac819a472497af7e8c4117fb04a3e4420265ffa43"
+  },
+  "name": "Phase 7 persisted UI validation",
+  "reference_dataset": {
+    "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/reference"
+  },
+  "reference_id": null,
+  "report": {
+    "path": "/home/gauravkumar/tracer-cv/reports/assessments/TRACER-81821C19DA00/tracer_cv_assurance_report.json",
+    "status": "completed"
+  },
+  "results_path": "/home/gauravkumar/tracer-cv/reports/assessments/TRACER-81821C19DA00",
+  "started_at": "2026-10-03T04:41:51.403639+00:00",
+  "status": "completed",
+  "technical_error": null
+}

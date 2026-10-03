@@ -6,6 +6,9 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+logs/
+*.sqlite3
+configs/tracer_cv.toml
 
 datasets_store/*
 models_store/*

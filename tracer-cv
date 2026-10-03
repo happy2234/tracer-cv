@@ -1,0 +1,5 @@
+#!/usr/bin/env python3
+"""Checkout-local launcher; add this repository directory to PATH to use tracer-cv."""
+from backend.cli import main
+
+raise SystemExit(main())

@@ -1,0 +1,2276 @@
+{
+  "assessment_id": "TRACER-2DA8FA9F6F9D",
+  "asset_coverage": {
+    "audit_trail": {
+      "assessed": true,
+      "status": "available"
+    },
+    "dataset_integrity": {
+      "assessed": true,
+      "status": "available"
+    },
+    "distribution_shift": {
+      "assessed": true,
+      "status": "available"
+    },
+    "findings_and_evidence": {
+      "assessed": true,
+      "finding_count": 3,
+      "status": "available"
+    },
+    "inference_provenance": {
+      "assessed": true,
+      "status": "available"
+    },
+    "model_integrity": {
+      "assessed": true,
+      "status": "available"
+    }
+  },
+  "audit_trail": {
+    "entry_count": 34,
+    "finding_count": 0,
+    "status": "assessed",
+    "valid": true,
+    "verification": {
+      "entries": [
+        {
+          "affected_asset": "TRACER-2DA8FA9F6F9D",
+          "entry_hash": "b0f154113887ca27800c5fea14dff175b2f4b565c777ee46384b9f0478016b6c",
+          "event_id": "95d5d85eea8313aa0199fdabae8ec403",
+          "event_type": "ASSESSMENT_CREATED",
+          "payload_digest": "da3989cdebd78cfba08a5b5296c281788576a6f86355a75d464ea47f40eec0c4",
+          "previous_entry_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+          "sequence": 1,
+          "source_engine": "assessment",
+          "timestamp": "2026-10-03T04:43:16.158307+00:00"
+        },
+        {
+          "affected_asset": "TRACER-2DA8FA9F6F9D",
+          "entry_hash": "2672a7a68c8ec14b09c91c7d8af1084c03c6fd6317764c3ecd530b58705fd061",
+          "event_id": "3ae96dc58e80e2d85ca688f3514d77ca",
+          "event_type": "ASSESSMENT_QUEUED",
+          "payload_digest": "da3989cdebd78cfba08a5b5296c281788576a6f86355a75d464ea47f40eec0c4",
+          "previous_entry_hash": "b0f154113887ca27800c5fea14dff175b2f4b565c777ee46384b9f0478016b6c",
+          "sequence": 2,
+          "source_engine": "assessment",
+          "timestamp": "2026-10-03T04:43:16.160365+00:00"
+        },
+        {
+          "affected_asset": "TRACER-2DA8FA9F6F9D",
+          "entry_hash": "a355216a4fd5a56a25980779f23fe367ac06312228abed8ee6a0c2be89904a95",
+          "event_id": "e0b346f171281efb8060c46ae77c303c",
+          "event_type": "ASSESSMENT_STARTED",
+          "payload_digest": "dfe2f7326c3d7641b6ebacf69ed671abdb153611299b4a407dc9a01b96545e55",
+          "previous_entry_hash": "2672a7a68c8ec14b09c91c7d8af1084c03c6fd6317764c3ecd530b58705fd061",
+          "sequence": 3,
+          "source_engine": "assessment",
+          "timestamp": "2026-10-03T04:43:16.163812+00:00"
+        },
+        {
+          "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset",
+          "entry_hash": "98caad7bb25d4e0aa73749dde8b0074b07583c3e292dcd720c1ec6e63bfb0f37",
+          "event_id": "8d421650e674ff7189adfb2ee96e11d2",
+          "event_type": "ENGINE_STARTED",
+          "payload_digest": "dfe2f7326c3d7641b6ebacf69ed671abdb153611299b4a407dc9a01b96545e55",
+          "previous_entry_hash": "a355216a4fd5a56a25980779f23fe367ac06312228abed8ee6a0c2be89904a95",
+          "sequence": 4,
+          "source_engine": "A1_manifest",
+          "timestamp": "2026-10-03T04:43:16.215595+00:00"
+        },
+        {
+          "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset",
+          "entry_hash": "a7fa71c2c4865041c40fd1f3ac6c3850c8b3da58739c419c2e4c362905ea15f5",
+          "event_id": "f4d18f4d4f021d557e421bc2edc8a4e5",
+          "event_type": "ENGINE_COMPLETED",
+          "payload_digest": "7324381ab11dd5697822ec7dd7e77a1f460382ef73d64aa8710165905c190011",
+          "previous_entry_hash": "98caad7bb25d4e0aa73749dde8b0074b07583c3e292dcd720c1ec6e63bfb0f37",
+          "sequence": 5,
+          "source_engine": "A1_manifest",
+          "timestamp": "2026-10-03T04:43:16.220897+00:00"
+        },
+        {
+          "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset",
+          "entry_hash": "81970bf479b73c96baf24580b5b715a1fd07119010b00a60e1fe83d84610d488",
+          "event_id": "8f7af942f9832fc4de130cd9df82eb90",
+          "event_type": "ENGINE_STARTED",
+          "payload_digest": "dfe2f7326c3d7641b6ebacf69ed671abdb153611299b4a407dc9a01b96545e55",
+          "previous_entry_hash": "a7fa71c2c4865041c40fd1f3ac6c3850c8b3da58739c419c2e4c362905ea15f5",
+          "sequence": 6,
+          "source_engine": "A2_exact_duplicates",
+          "timestamp": "2026-10-03T04:43:16.224376+00:00"
+        },
+        {
+          "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset",
+          "entry_hash": "4af84b68695b7e836edec973669469a127f11a7040c04945685bfadd11f1f958",
+          "event_id": "87fbf7ee46d2fb469e6fea3bc3324a21",
+          "event_type": "ENGINE_COMPLETED",
+          "payload_digest": "7324381ab11dd5697822ec7dd7e77a1f460382ef73d64aa8710165905c190011",
+          "previous_entry_hash": "81970bf479b73c96baf24580b5b715a1fd07119010b00a60e1fe83d84610d488",
+          "sequence": 7,
+          "source_engine": "A2_exact_duplicates",
+          "timestamp": "2026-10-03T04:43:16.226164+00:00"
+        },
+        {
+          "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset",
+          "entry_hash": "3518d1eddb7655e8a5bd1b5c8d4f594f9d9d858fafa7a7140f28a1597d62c1ef",
+          "event_id": "8e7ac2c108afcbccd32abd789bc94f4b",
+          "event_type": "ENGINE_STARTED",
+          "payload_digest": "dfe2f7326c3d7641b6ebacf69ed671abdb153611299b4a407dc9a01b96545e55",
+          "previous_entry_hash": "4af84b68695b7e836edec973669469a127f11a7040c04945685bfadd11f1f958",
+          "sequence": 8,
+          "source_engine": "A3_near_duplicates",
+          "timestamp": "2026-10-03T04:43:16.229950+00:00"
+        },
+        {
+          "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset",
+          "entry_hash": "dc9e67fb6c40d776e6b13457543e563cd709d8bb1172b78a40ff3980ce0f2a43",
+          "event_id": "47823a3308cd49105c8d4ccecd9c63f2",
+          "event_type": "ENGINE_COMPLETED",
+          "payload_digest": "7324381ab11dd5697822ec7dd7e77a1f460382ef73d64aa8710165905c190011",
+          "previous_entry_hash": "3518d1eddb7655e8a5bd1b5c8d4f594f9d9d858fafa7a7140f28a1597d62c1ef",
+          "sequence": 9,
+          "source_engine": "A3_near_duplicates",
+          "timestamp": "2026-10-03T04:43:16.241388+00:00"
+        },
+        {
+          "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset",
+          "entry_hash": "1910b3e67b5f5808cb4f5879568db748a9c01d9b787f15a2592174a59d2d7482",
+          "event_id": "5574285349da92adf48530244cd7012d",
+          "event_type": "ENGINE_STARTED",
+          "payload_digest": "dfe2f7326c3d7641b6ebacf69ed671abdb153611299b4a407dc9a01b96545e55",
+          "previous_entry_hash": "dc9e67fb6c40d776e6b13457543e563cd709d8bb1172b78a40ff3980ce0f2a43",
+          "sequence": 10,
+          "source_engine": "A4_ood",
+          "timestamp": "2026-10-03T04:43:16.245685+00:00"
+        },
+        {
+          "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset",
+          "entry_hash": "1832331df82d70f80a930b35e94e6a3eed5345fa3bc2322117cd52ebae2ebb31",
+          "event_id": "6d26f153397ed42a4ced4d44524595df",
+          "event_type": "ENGINE_COMPLETED",
+          "payload_digest": "7324381ab11dd5697822ec7dd7e77a1f460382ef73d64aa8710165905c190011",
+          "previous_entry_hash": "1910b3e67b5f5808cb4f5879568db748a9c01d9b787f15a2592174a59d2d7482",
+          "sequence": 11,
+          "source_engine": "A4_ood",
+          "timestamp": "2026-10-03T04:43:16.329324+00:00"
+        },
+        {
+          "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset",
+          "entry_hash": "a0c741b9dd3b9f5703162380c7f0e20363853da462dda5ba2bf9092beaf41ace",
+          "event_id": "8290a98587e4864bd8b9ad1202257f32",
+          "event_type": "ENGINE_STARTED",
+          "payload_digest": "dfe2f7326c3d7641b6ebacf69ed671abdb153611299b4a407dc9a01b96545e55",
+          "previous_entry_hash": "1832331df82d70f80a930b35e94e6a3eed5345fa3bc2322117cd52ebae2ebb31",
+          "sequence": 12,
+          "source_engine": "A5_label_consistency",
+          "timestamp": "2026-10-03T04:43:16.332967+00:00"
+        },
+        {
+          "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset",
+          "entry_hash": "4ba5492d656d9e9ab9c392f965f2797cd25180ccf8532010166f9a5dc9d76e81",
+          "event_id": "fd02227a90eec24d296c17b11c01a5bf",
+          "event_type": "ENGINE_COMPLETED",
+          "payload_digest": "7324381ab11dd5697822ec7dd7e77a1f460382ef73d64aa8710165905c190011",
+          "previous_entry_hash": "a0c741b9dd3b9f5703162380c7f0e20363853da462dda5ba2bf9092beaf41ace",
+          "sequence": 13,
+          "source_engine": "A5_label_consistency",
+          "timestamp": "2026-10-03T04:43:16.339258+00:00"
+        },
+        {
+          "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset",
+          "entry_hash": "84e24c75b767f594011a4c5ddbcef2d1d4d6fc6ec459b2a11cf3d8d0968fe32d",
+          "event_id": "9448017b43f1de5358e0454e60df4ebe",
+          "event_type": "ENGINE_STARTED",
+          "payload_digest": "dfe2f7326c3d7641b6ebacf69ed671abdb153611299b4a407dc9a01b96545e55",
+          "previous_entry_hash": "4ba5492d656d9e9ab9c392f965f2797cd25180ccf8532010166f9a5dc9d76e81",
+          "sequence": 14,
+          "source_engine": "A6_contributor_risk",
+          "timestamp": "2026-10-03T04:43:16.341752+00:00"
+        },
+        {
+          "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset",
+          "entry_hash": "1dcbb6ac682b126bbf9aad31949988f6dad178efb1dede76d91f1a31c8083391",
+          "event_id": "d04cfdcc513e446c21a4167dc3ef16bb",
+          "event_type": "ENGINE_COMPLETED",
+          "payload_digest": "7324381ab11dd5697822ec7dd7e77a1f460382ef73d64aa8710165905c190011",
+          "previous_entry_hash": "84e24c75b767f594011a4c5ddbcef2d1d4d6fc6ec459b2a11cf3d8d0968fe32d",
+          "sequence": 15,
+          "source_engine": "A6_contributor_risk",
+          "timestamp": "2026-10-03T04:43:16.344768+00:00"
+        },
+        {
+          "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset",
+          "entry_hash": "0350746ea5e281fc8743969f252abb67ea76c8c1b9b0f1491902403c11d801e7",
+          "event_id": "ce1ff04623d637e54cfe1fd0dfd4ef91",
+          "event_type": "ENGINE_STARTED",
+          "payload_digest": "dfe2f7326c3d7641b6ebacf69ed671abdb153611299b4a407dc9a01b96545e55",
+          "previous_entry_hash": "1dcbb6ac682b126bbf9aad31949988f6dad178efb1dede76d91f1a31c8083391",
+          "sequence": 16,
+          "source_engine": "A7_metadata_consistency",
+          "timestamp": "2026-10-03T04:43:16.347282+00:00"
+        },
+        {
+          "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset",
+          "entry_hash": "a5a9671cc1cda71711795cdd02a8dad0c7be3bd21190cd03b79465db6595a89e",
+          "event_id": "82865ffb4418c36e4a3f4e8b3b4a7fcc",
+          "event_type": "ENGINE_COMPLETED",
+          "payload_digest": "7324381ab11dd5697822ec7dd7e77a1f460382ef73d64aa8710165905c190011",
+          "previous_entry_hash": "0350746ea5e281fc8743969f252abb67ea76c8c1b9b0f1491902403c11d801e7",
+          "sequence": 17,
+          "source_engine": "A7_metadata_consistency",
+          "timestamp": "2026-10-03T04:43:16.352699+00:00"
+        },
+        {
+          "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset",
+          "entry_hash": "56638594e6eca91d0874500349eb96e408b9673893b8d6a4dd65b2c5e5d9d7bc",
+          "event_id": "592bafade8de365bffb64115cbf03023",
+          "event_type": "ENGINE_STARTED",
+          "payload_digest": "dfe2f7326c3d7641b6ebacf69ed671abdb153611299b4a407dc9a01b96545e55",
+          "previous_entry_hash": "a5a9671cc1cda71711795cdd02a8dad0c7be3bd21190cd03b79465db6595a89e",
+          "sequence": 18,
+          "source_engine": "A8_poison_trigger_forensics",
+          "timestamp": "2026-10-03T04:43:16.355335+00:00"
+        },
+        {
+          "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset",
+          "entry_hash": "794de5249378dcd8231392b54f6701f4fed5a46ecb9992423dbc62e8aee4fd7b",
+          "event_id": "ea0b552f4304ca7bd44667e9cfe84b03",
+          "event_type": "ENGINE_COMPLETED",
+          "payload_digest": "7324381ab11dd5697822ec7dd7e77a1f460382ef73d64aa8710165905c190011",
+          "previous_entry_hash": "56638594e6eca91d0874500349eb96e408b9673893b8d6a4dd65b2c5e5d9d7bc",
+          "sequence": 19,
+          "source_engine": "A8_poison_trigger_forensics",
+          "timestamp": "2026-10-03T04:43:16.379076+00:00"
+        },
+        {
+          "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/model/demo_model.pt",
+          "entry_hash": "7ba887b0a3fc173b533dbd4e1b6dee2ec0f1cee7cd85e0e16e2ceaaedb731c81",
+          "event_id": "8d2e7a00dab49bb8c1fa95c13b48e294",
+          "event_type": "ENGINE_STARTED",
+          "payload_digest": "dfe2f7326c3d7641b6ebacf69ed671abdb153611299b4a407dc9a01b96545e55",
+          "previous_entry_hash": "794de5249378dcd8231392b54f6701f4fed5a46ecb9992423dbc62e8aee4fd7b",
+          "sequence": 20,
+          "source_engine": "B1_identity",
+          "timestamp": "2026-10-03T04:43:16.383786+00:00"
+        },
+        {
+          "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/model/demo_model.pt",
+          "entry_hash": "03279b302876b7b1759989f6dc552755931a08956cefc526f783222977a1bd99",
+          "event_id": "a3b2c7137eddd6f2f1873001e0d2208b",
+          "event_type": "ENGINE_COMPLETED",
+          "payload_digest": "7324381ab11dd5697822ec7dd7e77a1f460382ef73d64aa8710165905c190011",
+          "previous_entry_hash": "7ba887b0a3fc173b533dbd4e1b6dee2ec0f1cee7cd85e0e16e2ceaaedb731c81",
+          "sequence": 21,
+          "source_engine": "B1_identity",
+          "timestamp": "2026-10-03T04:43:16.385937+00:00"
+        },
+        {
+          "affected_asset": "TRACER-2DA8FA9F6F9D",
+          "entry_hash": "918927489728622fe186cea30ad22cf457ce0578ad1ea7828df50e346818f993",
+          "event_id": "c672b31906129c4115e8f2c161fae78b",
+          "event_type": "ENGINE_SKIPPED",
+          "payload_digest": "361ffacf64a7b5f8eb6d8c59b8c99e6e570b8d53aa476cfc089665a1e5a03d6a",
+          "previous_entry_hash": "03279b302876b7b1759989f6dc552755931a08956cefc526f783222977a1bd99",
+          "sequence": 22,
+          "source_engine": "B2_behavioral_fingerprint",
+          "timestamp": "2026-10-03T04:43:16.407712+00:00"
+        },
+        {
+          "affected_asset": "TRACER-2DA8FA9F6F9D",
+          "entry_hash": "880892bbf2a52c0db787ea0d0233c9bbff3d36afbbdcd9ce64ae6a5e8403dfc6",
+          "event_id": "cb59898edd3cd8f956bed0c4e85978dd",
+          "event_type": "ENGINE_SKIPPED",
+          "payload_digest": "361ffacf64a7b5f8eb6d8c59b8c99e6e570b8d53aa476cfc089665a1e5a03d6a",
+          "previous_entry_hash": "918927489728622fe186cea30ad22cf457ce0578ad1ea7828df50e346818f993",
+          "sequence": 23,
+          "source_engine": "B3_model_statistics",
+          "timestamp": "2026-10-03T04:43:16.410169+00:00"
+        },
+        {
+          "affected_asset": "TRACER-2DA8FA9F6F9D",
+          "entry_hash": "8b5faa02394b72af1ae945cbbb8f7c516b9137454e6c92c5e958fb241a9f7a3c",
+          "event_id": "7f92724366bba3fe2f306b6a79a4f61f",
+          "event_type": "ENGINE_SKIPPED",
+          "payload_digest": "361ffacf64a7b5f8eb6d8c59b8c99e6e570b8d53aa476cfc089665a1e5a03d6a",
+          "previous_entry_hash": "880892bbf2a52c0db787ea0d0233c9bbff3d36afbbdcd9ce64ae6a5e8403dfc6",
+          "sequence": 24,
+          "source_engine": "B4_trigger_search",
+          "timestamp": "2026-10-03T04:43:16.412678+00:00"
+        },
+        {
+          "affected_asset": "TRACER-2DA8FA9F6F9D",
+          "entry_hash": "b1b08e1b87fccda8730c0d5de1d2491221d56d10ccf9dd964bbe68242733da2e",
+          "event_id": "ff64700e2971a6524c76d384d2d20b68",
+          "event_type": "ENGINE_STARTED",
+          "payload_digest": "dfe2f7326c3d7641b6ebacf69ed671abdb153611299b4a407dc9a01b96545e55",
+          "previous_entry_hash": "8b5faa02394b72af1ae945cbbb8f7c516b9137454e6c92c5e958fb241a9f7a3c",
+          "sequence": 25,
+          "source_engine": "C1_provenance",
+          "timestamp": "2026-10-03T04:43:16.414929+00:00"
+        },
+        {
+          "affected_asset": "TRACER-2DA8FA9F6F9D",
+          "entry_hash": "a81413b2f69a8e8800fb94ae6bc125c6ccea89235314ffb83cb59e37167fd4cb",
+          "event_id": "0bfb35ddb9d4886cc58d4ce17384297a",
+          "event_type": "ENGINE_COMPLETED",
+          "payload_digest": "7324381ab11dd5697822ec7dd7e77a1f460382ef73d64aa8710165905c190011",
+          "previous_entry_hash": "b1b08e1b87fccda8730c0d5de1d2491221d56d10ccf9dd964bbe68242733da2e",
+          "sequence": 26,
+          "source_engine": "C1_provenance",
+          "timestamp": "2026-10-03T04:43:17.167902+00:00"
+        },
+        {
+          "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset/reference",
+          "entry_hash": "4ca9f8facf31c69f87bb1aff9dcb742a1f6c63e61e001b25fb968b6b66d7ccab",
+          "event_id": "d566d0d6a8f89749e672a1852581dff9",
+          "event_type": "ENGINE_STARTED",
+          "payload_digest": "dfe2f7326c3d7641b6ebacf69ed671abdb153611299b4a407dc9a01b96545e55",
+          "previous_entry_hash": "a81413b2f69a8e8800fb94ae6bc125c6ccea89235314ffb83cb59e37167fd4cb",
+          "sequence": 27,
+          "source_engine": "C2_distribution_shift",
+          "timestamp": "2026-10-03T04:43:17.173435+00:00"
+        },
+        {
+          "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset/reference",
+          "entry_hash": "f94b9ed94b123d9988667471895d464a9beee6b62ef9d40c656f55abaeccd475",
+          "event_id": "b61f1ea1b519b860f13657e679711618",
+          "event_type": "ENGINE_COMPLETED",
+          "payload_digest": "7324381ab11dd5697822ec7dd7e77a1f460382ef73d64aa8710165905c190011",
+          "previous_entry_hash": "4ca9f8facf31c69f87bb1aff9dcb742a1f6c63e61e001b25fb968b6b66d7ccab",
+          "sequence": 28,
+          "source_engine": "C2_distribution_shift",
+          "timestamp": "2026-10-03T04:43:17.212479+00:00"
+        },
+        {
+          "affected_asset": "TRACER-2DA8FA9F6F9D",
+          "entry_hash": "dfab50290355dbe156a5a82252f18016005ac73125e5ce8134d15cdd9132576f",
+          "event_id": "374d113be0ae026d9ff5bff3016b5536",
+          "event_type": "ENGINE_STARTED",
+          "payload_digest": "dfe2f7326c3d7641b6ebacf69ed671abdb153611299b4a407dc9a01b96545e55",
+          "previous_entry_hash": "f94b9ed94b123d9988667471895d464a9beee6b62ef9d40c656f55abaeccd475",
+          "sequence": 29,
+          "source_engine": "C3_findings",
+          "timestamp": "2026-10-03T04:43:17.219020+00:00"
+        },
+        {
+          "affected_asset": "TRACER-2DA8FA9F6F9D",
+          "entry_hash": "7368a4ff30f9924e1b727ca21cef7436b9733b55b3a2b555aa290db877ad90e6",
+          "event_id": "02d3a5923c825afaded7f2eed007584a",
+          "event_type": "ENGINE_COMPLETED",
+          "payload_digest": "7324381ab11dd5697822ec7dd7e77a1f460382ef73d64aa8710165905c190011",
+          "previous_entry_hash": "dfab50290355dbe156a5a82252f18016005ac73125e5ce8134d15cdd9132576f",
+          "sequence": 30,
+          "source_engine": "C3_findings",
+          "timestamp": "2026-10-03T04:43:17.221777+00:00"
+        },
+        {
+          "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset",
+          "entry_hash": "3d3f467d978c1787e9eb6ea22f9f1da03698b31da1e8239fd6944a03ec6234a6",
+          "event_id": "a0c2918a96c83a38b7f4c94f0f369f23",
+          "event_type": "FINDING_CREATED",
+          "payload_digest": "e45ce5a9a55c52ce23ab1726f993168067881d79adaa967d620a3e4ba945bfa8",
+          "previous_entry_hash": "7368a4ff30f9924e1b727ca21cef7436b9733b55b3a2b555aa290db877ad90e6",
+          "sequence": 31,
+          "source_engine": "C3",
+          "timestamp": "2026-10-03T04:43:17.225567+00:00"
+        },
+        {
+          "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate",
+          "entry_hash": "d5cc90f666a52149e3c8353558a37337da0102ea773dd609bd7cd7e9d225d70a",
+          "event_id": "7baf656012667ac9580faef37ff5bbe9",
+          "event_type": "FINDING_CREATED",
+          "payload_digest": "792e96455edc94d21d889b7ee08ebbf3b8083c10c5474758101cf24e4cf066c8",
+          "previous_entry_hash": "3d3f467d978c1787e9eb6ea22f9f1da03698b31da1e8239fd6944a03ec6234a6",
+          "sequence": 32,
+          "source_engine": "C3",
+          "timestamp": "2026-10-03T04:43:17.225574+00:00"
+        },
+        {
+          "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate",
+          "entry_hash": "2368ef121c94ffec2b0e30790c4770492f7a582af2b5708645280901aae56039",
+          "event_id": "07f6c4a8417cffdf7e7d712547e9b0ac",
+          "event_type": "FINDING_CREATED",
+          "payload_digest": "e45ce5a9a55c52ce23ab1726f993168067881d79adaa967d620a3e4ba945bfa8",
+          "previous_entry_hash": "d5cc90f666a52149e3c8353558a37337da0102ea773dd609bd7cd7e9d225d70a",
+          "sequence": 33,
+          "source_engine": "C3",
+          "timestamp": "2026-10-03T04:43:17.225577+00:00"
+        },
+        {
+          "affected_asset": "TRACER-2DA8FA9F6F9D",
+          "entry_hash": "db92401e437ec160775173d97a5c32605cd2318f1cfb9a83f6a5133b3d3ce985",
+          "event_id": "5bb578d4021e66b0512508af84848222",
+          "event_type": "ENGINE_STARTED",
+          "payload_digest": "dfe2f7326c3d7641b6ebacf69ed671abdb153611299b4a407dc9a01b96545e55",
+          "previous_entry_hash": "2368ef121c94ffec2b0e30790c4770492f7a582af2b5708645280901aae56039",
+          "sequence": 34,
+          "source_engine": "C4",
+          "timestamp": "2026-10-03T04:43:17.227289+00:00"
+        }
+      ],
+      "entry_count": 34,
+      "evidence": {
+        "serialization": "canonical-json",
+        "sha256": "2ae5475a6cf33f51cd152e7f0ac5d0211accf64f6feb234b7c61299471de9e92",
+        "size_bytes": 16635,
+        "uri": "/home/gauravkumar/tracer-cv/evidence_store/objects/2a/2ae5475a6cf33f51cd152e7f0ac5d0211accf64f6feb234b7c61299471de9e92.json"
+      },
+      "reason": null,
+      "status": "completed",
+      "valid": true
+    }
+  },
+  "dataset_integrity": {
+    "engine_result": {
+      "A1_manifest": {
+        "dataset_id": "79832f502f217f53a04b8d89cbe08301a454165ce1527428d2540be7e94e819f",
+        "dataset_sha256": "79832f502f217f53a04b8d89cbe08301a454165ce1527428d2540be7e94e819f",
+        "file_count": 62,
+        "files": [
+          {
+            "path": "candidate/candidate_000.png",
+            "sha256": "da8a9e8f0072deeb1c0285337855ff16e1abb0d326f1610b6fcffbcb116da845",
+            "size_bytes": 8901
+          },
+          {
+            "path": "candidate/candidate_001.png",
+            "sha256": "9bca7a9c4fc7ad05cb78fc0cf541dc43e4e440b9c9303ec0047de5cb38d080c2",
+            "size_bytes": 8872
+          },
+          {
+            "path": "candidate/candidate_002.png",
+            "sha256": "9231e10708dd5c3802ebc3a66df27106eaca94f09b61e4b1e6f0176aaacdf52b",
+            "size_bytes": 8889
+          },
+          {
+            "path": "candidate/candidate_003.png",
+            "sha256": "45bf83f07b6f8b23afe6794647f823906174a3028de891d415a24dfbdd867dbf",
+            "size_bytes": 8886
+          },
+          {
+            "path": "candidate/candidate_004.png",
+            "sha256": "b3d19cf05c4ce47345322c3ab7a237b3cbd1493bb201e284309bde88ebdaa1df",
+            "size_bytes": 8898
+          },
+          {
+            "path": "candidate/candidate_005.png",
+            "sha256": "cd17e395f651bfe08068f34b727fbe43e27b8061b034719499c90f6614027af6",
+            "size_bytes": 8899
+          },
+          {
+            "path": "candidate/candidate_006.png",
+            "sha256": "acd5c3e397dff2e872532c7fd634f9fd6e1e87a324bedbba67d63be7aa186d83",
+            "size_bytes": 9197
+          },
+          {
+            "path": "candidate/candidate_007.png",
+            "sha256": "48a0e340826bec4f77ff27607fdddf66e421be737845500cb41f1c1a76157ba7",
+            "size_bytes": 9179
+          },
+          {
+            "path": "candidate/candidate_008.png",
+            "sha256": "b98f6fdc234eefa354eac7a944bae0865063dcb9a841416e8ff7140a1edbda6b",
+            "size_bytes": 9190
+          },
+          {
+            "path": "candidate/candidate_009.png",
+            "sha256": "fa665bad01f8afd633268fd89c4a4f4f7eb83e4a9eb3477329731c990c59d8b1",
+            "size_bytes": 9154
+          },
+          {
+            "path": "candidate/candidate_010.png",
+            "sha256": "86bf8501a5a354fda5e9adbcd77da8192ab5e349978a479c7a7889397292ffe7",
+            "size_bytes": 9183
+          },
+          {
+            "path": "candidate/candidate_011.png",
+            "sha256": "81e05c5bb3af425c6ac3c308a5be641223edab7237b3c67d844c7d154f258926",
+            "size_bytes": 9192
+          },
+          {
+            "path": "candidate/candidate_012.png",
+            "sha256": "f3611da715ea13a44db1aa4f372483fb012be4505b4e812a38159eb4ed0dcc96",
+            "size_bytes": 9160
+          },
+          {
+            "path": "candidate/candidate_013.png",
+            "sha256": "5c731725ec298c898969889fb9d1d8a4c803a607de6dede65474ba1cdd0c67e7",
+            "size_bytes": 9176
+          },
+          {
+            "path": "candidate/candidate_014.png",
+            "sha256": "f7b2ac6830396a263b01eeff2e8d518b6fc081aa2bb885095f81f1aa4a227766",
+            "size_bytes": 9182
+          },
+          {
+            "path": "candidate/candidate_015.png",
+            "sha256": "94a29beddee53ae3f8ae719e303ad85bc6b3558c7d8f8afd524aa017fca58766",
+            "size_bytes": 9132
+          },
+          {
+            "path": "candidate/candidate_016.png",
+            "sha256": "997a069feb23d6a6a01f62d81e1ef62be00bde910703672958bc145058382fb2",
+            "size_bytes": 9169
+          },
+          {
+            "path": "candidate/candidate_017.png",
+            "sha256": "e59fff82c18fb90ac9290f37d00864f56c821ba70e72ee4f82815188ff74e8d6",
+            "size_bytes": 9146
+          },
+          {
+            "path": "candidate/candidate_018.png",
+            "sha256": "f3167f788fda99a80d3b79f279fc83e52cfd3b0ca8c710e0746a4b7cfbd584e7",
+            "size_bytes": 9183
+          },
+          {
+            "path": "candidate/candidate_019.png",
+            "sha256": "adf08f22bc7b031c27cadad5b8faeb84162b84ac21cfaaac0839f31b075bb1f1",
+            "size_bytes": 9150
+          },
+          {
+            "path": "candidate/candidate_duplicate.png",
+            "sha256": "da8a9e8f0072deeb1c0285337855ff16e1abb0d326f1610b6fcffbcb116da845",
+            "size_bytes": 8901
+          },
+          {
+            "path": "contributor_manifest.csv",
+            "sha256": "74919eb95017fb44d49632af12686d3a2845bb0c577c942d3edcd845d719f71d",
+            "size_bytes": 1426
+          },
+          {
+            "path": "labels/candidate_000.txt",
+            "sha256": "38f7b04d63fe2b8a657dd72b12f748935856bc34293059aa96f7f45dcdda1c86",
+            "size_bytes": 18
+          },
+          {
+            "path": "labels/candidate_001.txt",
+            "sha256": "38f7b04d63fe2b8a657dd72b12f748935856bc34293059aa96f7f45dcdda1c86",
+            "size_bytes": 18
+          },
+          {
+            "path": "labels/candidate_002.txt",
+            "sha256": "38f7b04d63fe2b8a657dd72b12f748935856bc34293059aa96f7f45dcdda1c86",
+            "size_bytes": 18
+          },
+          {
+            "path": "labels/candidate_003.txt",
+            "sha256": "9e3346476c8a5fa2c0e21d2e29b53f03dd50dfc1d9af6d2b7d43cca197268be8",
+            "size_bytes": 18
+          },
+          {
+            "path": "labels/candidate_004.txt",
+            "sha256": "38f7b04d63fe2b8a657dd72b12f748935856bc34293059aa96f7f45dcdda1c86",
+            "size_bytes": 18
+          },
+          {
+            "path": "labels/candidate_005.txt",
+            "sha256": "9e3346476c8a5fa2c0e21d2e29b53f03dd50dfc1d9af6d2b7d43cca197268be8",
+            "size_bytes": 18
+          },
+          {
+            "path": "labels/candidate_006.txt",
+            "sha256": "38f7b04d63fe2b8a657dd72b12f748935856bc34293059aa96f7f45dcdda1c86",
+            "size_bytes": 18
+          },
+          {
+            "path": "labels/candidate_007.txt",
+            "sha256": "9e3346476c8a5fa2c0e21d2e29b53f03dd50dfc1d9af6d2b7d43cca197268be8",
+            "size_bytes": 18
+          },
+          {
+            "path": "labels/candidate_008.txt",
+            "sha256": "38f7b04d63fe2b8a657dd72b12f748935856bc34293059aa96f7f45dcdda1c86",
+            "size_bytes": 18
+          },
+          {
+            "path": "labels/candidate_009.txt",
+            "sha256": "9e3346476c8a5fa2c0e21d2e29b53f03dd50dfc1d9af6d2b7d43cca197268be8",
+            "size_bytes": 18
+          },
+          {
+            "path": "labels/candidate_010.txt",
+            "sha256": "38f7b04d63fe2b8a657dd72b12f748935856bc34293059aa96f7f45dcdda1c86",
+            "size_bytes": 18
+          },
+          {
+            "path": "labels/candidate_011.txt",
+            "sha256": "9e3346476c8a5fa2c0e21d2e29b53f03dd50dfc1d9af6d2b7d43cca197268be8",
+            "size_bytes": 18
+          },
+          {
+            "path": "labels/candidate_012.txt",
+            "sha256": "38f7b04d63fe2b8a657dd72b12f748935856bc34293059aa96f7f45dcdda1c86",
+            "size_bytes": 18
+          },
+          {
+            "path": "labels/candidate_013.txt",
+            "sha256": "9e3346476c8a5fa2c0e21d2e29b53f03dd50dfc1d9af6d2b7d43cca197268be8",
+            "size_bytes": 18
+          },
+          {
+            "path": "labels/candidate_014.txt",
+            "sha256": "38f7b04d63fe2b8a657dd72b12f748935856bc34293059aa96f7f45dcdda1c86",
+            "size_bytes": 18
+          },
+          {
+            "path": "labels/candidate_015.txt",
+            "sha256": "9e3346476c8a5fa2c0e21d2e29b53f03dd50dfc1d9af6d2b7d43cca197268be8",
+            "size_bytes": 18
+          },
+          {
+            "path": "labels/candidate_016.txt",
+            "sha256": "38f7b04d63fe2b8a657dd72b12f748935856bc34293059aa96f7f45dcdda1c86",
+            "size_bytes": 18
+          },
+          {
+            "path": "labels/candidate_017.txt",
+            "sha256": "9e3346476c8a5fa2c0e21d2e29b53f03dd50dfc1d9af6d2b7d43cca197268be8",
+            "size_bytes": 18
+          },
+          {
+            "path": "labels/candidate_018.txt",
+            "sha256": "38f7b04d63fe2b8a657dd72b12f748935856bc34293059aa96f7f45dcdda1c86",
+            "size_bytes": 18
+          },
+          {
+            "path": "labels/candidate_019.txt",
+            "sha256": "9e3346476c8a5fa2c0e21d2e29b53f03dd50dfc1d9af6d2b7d43cca197268be8",
+            "size_bytes": 18
+          },
+          {
+            "path": "reference/reference_000.png",
+            "sha256": "a65413328cb9883e80d08876ac04e92aefb55240b2232ec8920eade641511d7d",
+            "size_bytes": 8095
+          },
+          {
+            "path": "reference/reference_001.png",
+            "sha256": "2c8e819382ed3b994e0af2cbf7d3f792cb55dad505e58cc681658d137cbc2135",
+            "size_bytes": 8119
+          },
+          {
+            "path": "reference/reference_002.png",
+            "sha256": "d3afbcf31ee05fdb93a595ce40920dc422b3371766322c2e49967cce8022aad6",
+            "size_bytes": 8090
+          },
+          {
+            "path": "reference/reference_003.png",
+            "sha256": "503ee477b9703c878822b67d61463bc787fa2e0eb8ed0b063db9def16e76c50d",
+            "size_bytes": 8099
+          },
+          {
+            "path": "reference/reference_004.png",
+            "sha256": "6b29047149eaaac4bf3619b983ecc989a85a329119bc88d399d4c71de8cfabdb",
+            "size_bytes": 8111
+          },
+          {
+            "path": "reference/reference_005.png",
+            "sha256": "2cd89fd882256a4f3af6bb49448e94dda0b5e59a8a02b013c1d61d1b5807bfe8",
+            "size_bytes": 8072
+          },
+          {
+            "path": "reference/reference_006.png",
+            "sha256": "63af2950ac13984e3ebb6fb2dc2a714184e31270404076efb3ad8faffada3b93",
+            "size_bytes": 8130
+          },
+          {
+            "path": "reference/reference_007.png",
+            "sha256": "d7c53f56f1d3aeff1285407c1ea7b0f3c44b33813600bd6e1d6d36aed19fa087",
+            "size_bytes": 8100
+          },
+          {
+            "path": "reference/reference_008.png",
+            "sha256": "1dca7d26f128c91df29366a2ddd52af8add376869a9930b01c41782e7cd97846",
+            "size_bytes": 8102
+          },
+          {
+            "path": "reference/reference_009.png",
+            "sha256": "4a3daf4387a8f87e0a117b0f483af02ff7551a21395a2b5861aa20aa56ae3593",
+            "size_bytes": 8110
+          },
+          {
+            "path": "reference/reference_010.png",
+            "sha256": "f073dd60d0b713718d698fdf1e89dd78aa991e3502ea12ef343f38fedc61552e",
+            "size_bytes": 8116
+          },
+          {
+            "path": "reference/reference_011.png",
+            "sha256": "a827e02ff7fefbc2485f9c2979e8b5ed7c2604d474bb9aa23c4b28bc0b288ef5",
+            "size_bytes": 8132
+          },
+          {
+            "path": "reference/reference_012.png",
+            "sha256": "b3518124d8bfb6f132048226edab34e2859b2e13f5d5b45a8d1111e4937afe8c",
+            "size_bytes": 8121
+          },
+          {
+            "path": "reference/reference_013.png",
+            "sha256": "bcdc1657283205e8e0d1c0daa6d104451b3da02af11718d70d5d171cf0e58e4f",
+            "size_bytes": 8086
+          },
+          {
+            "path": "reference/reference_014.png",
+            "sha256": "6cac3a9fcc4d20df41fb6afc377f6a5311b4fb2bc7bc9faa66905cca7ae7172e",
+            "size_bytes": 8084
+          },
+          {
+            "path": "reference/reference_015.png",
+            "sha256": "48d085a95d9e964c90bc038d992277f7d5a11dc583876cf1f8619f5e5c723a0b",
+            "size_bytes": 8126
+          },
+          {
+            "path": "reference/reference_016.png",
+            "sha256": "af56e4bb273abf1c5a163316c100ceaab17d6b5e06374737d21fcd0ee0a545c4",
+            "size_bytes": 8094
+          },
+          {
+            "path": "reference/reference_017.png",
+            "sha256": "86f44e1f5e9ed3d95c1056b5e23b9f18b2f53c0abcf9437d98f590925e31f012",
+            "size_bytes": 8085
+          },
+          {
+            "path": "reference/reference_018.png",
+            "sha256": "2cc5021a8be2df74439198dc7e062dc6cce62cf766f162415aa5ffff5c35533c",
+            "size_bytes": 8103
+          },
+          {
+            "path": "reference/reference_019.png",
+            "sha256": "9004e7eb54315041deb1bd5244885e3066cf77d255e224766d029055d5f070a5",
+            "size_bytes": 8139
+          }
+        ],
+        "merkle_root": "5124794cb35c94cd706f78dc7eee46b82e7b1d324b9eedbcde5c3dadd4928947"
+      },
+      "A2_exact_duplicates": {
+        "duplicate_file_count": 22,
+        "duplicate_group_count": 3,
+        "groups": [
+          {
+            "count": 11,
+            "files": [
+              "labels/candidate_000.txt",
+              "labels/candidate_001.txt",
+              "labels/candidate_002.txt",
+              "labels/candidate_004.txt",
+              "labels/candidate_006.txt",
+              "labels/candidate_008.txt",
+              "labels/candidate_010.txt",
+              "labels/candidate_012.txt",
+              "labels/candidate_014.txt",
+              "labels/candidate_016.txt",
+              "labels/candidate_018.txt"
+            ],
+            "sha256": "38f7b04d63fe2b8a657dd72b12f748935856bc34293059aa96f7f45dcdda1c86"
+          },
+          {
+            "count": 9,
+            "files": [
+              "labels/candidate_003.txt",
+              "labels/candidate_005.txt",
+              "labels/candidate_007.txt",
+              "labels/candidate_009.txt",
+              "labels/candidate_011.txt",
+              "labels/candidate_013.txt",
+              "labels/candidate_015.txt",
+              "labels/candidate_017.txt",
+              "labels/candidate_019.txt"
+            ],
+            "sha256": "9e3346476c8a5fa2c0e21d2e29b53f03dd50dfc1d9af6d2b7d43cca197268be8"
+          },
+          {
+            "count": 2,
+            "files": [
+              "candidate/candidate_000.png",
+              "candidate/candidate_duplicate.png"
+            ],
+            "sha256": "da8a9e8f0072deeb1c0285337855ff16e1abb0d326f1610b6fcffbcb116da845"
+          }
+        ],
+        "status": "completed"
+      },
+      "A3_near_duplicates": {
+        "images_discovered": 21,
+        "images_hashed": 21,
+        "method": "dHash",
+        "near_duplicate_pair_count": 1,
+        "pairs": [
+          {
+            "file_a": "candidate_000.png",
+            "file_b": "candidate_duplicate.png",
+            "hamming_distance": 0,
+            "threshold": 8
+          }
+        ],
+        "skipped_files": [],
+        "status": "completed",
+        "threshold": 8
+      },
+      "A4_ood": {
+        "candidate_image_count": 21,
+        "feature_dimension": 33,
+        "limitations": [
+          "Appearance-space detector only.",
+          "Does not establish semantic OOD.",
+          "Does not establish malicious intent.",
+          "Reference quality affects detection quality."
+        ],
+        "method": "appearance-space nearest-reference cosine distance",
+        "potential_ood_count": 21,
+        "reference_image_count": 20,
+        "results": [
+          {
+            "distance": 0.9778233915567398,
+            "file": "candidate_000.png",
+            "nearest_reference_index": 10,
+            "potential_ood": true,
+            "threshold": 4.220008850097656e-05
+          },
+          {
+            "distance": 0.975323099642992,
+            "file": "candidate_001.png",
+            "nearest_reference_index": 10,
+            "potential_ood": true,
+            "threshold": 4.220008850097656e-05
+          },
+          {
+            "distance": 0.9778471048921347,
+            "file": "candidate_002.png",
+            "nearest_reference_index": 10,
+            "potential_ood": true,
+            "threshold": 4.220008850097656e-05
+          },
+          {
+            "distance": 0.975567776709795,
+            "file": "candidate_003.png",
+            "nearest_reference_index": 10,
+            "potential_ood": true,
+            "threshold": 4.220008850097656e-05
+          },
+          {
+            "distance": 0.9778380282223225,
+            "file": "candidate_004.png",
+            "nearest_reference_index": 10,
+            "potential_ood": true,
+            "threshold": 4.220008850097656e-05
+          },
+          {
+            "distance": 0.9753987286239862,
+            "file": "candidate_005.png",
+            "nearest_reference_index": 10,
+            "potential_ood": true,
+            "threshold": 4.220008850097656e-05
+          },
+          {
+            "distance": 0.9777960013598204,
+            "file": "candidate_006.png",
+            "nearest_reference_index": 10,
+            "potential_ood": true,
+            "threshold": 4.220008850097656e-05
+          },
+          {
+            "distance": 0.9753470085561275,
+            "file": "candidate_007.png",
+            "nearest_reference_index": 10,
+            "potential_ood": true,
+            "threshold": 4.220008850097656e-05
+          },
+          {
+            "distance": 0.9778110515326262,
+            "file": "candidate_008.png",
+            "nearest_reference_index": 10,
+            "potential_ood": true,
+            "threshold": 4.220008850097656e-05
+          },
+          {
+            "distance": 0.9755055699497461,
+            "file": "candidate_009.png",
+            "nearest_reference_index": 10,
+            "potential_ood": true,
+            "threshold": 4.220008850097656e-05
+          },
+          {
+            "distance": 0.9777768570929766,
+            "file": "candidate_010.png",
+            "nearest_reference_index": 10,
+            "potential_ood": true,
+            "threshold": 4.220008850097656e-05
+          },
+          {
+            "distance": 0.9754692949354649,
+            "file": "candidate_011.png",
+            "nearest_reference_index": 10,
+            "potential_ood": true,
+            "threshold": 4.220008850097656e-05
+          },
+          {
+            "distance": 0.9777803514152765,
+            "file": "candidate_012.png",
+            "nearest_reference_index": 10,
+            "potential_ood": true,
+            "threshold": 4.220008850097656e-05
+          },
+          {
+            "distance": 0.9754545036703348,
+            "file": "candidate_013.png",
+            "nearest_reference_index": 10,
+            "potential_ood": true,
+            "threshold": 4.220008850097656e-05
+          },
+          {
+            "distance": 0.9778830613940954,
+            "file": "candidate_014.png",
+            "nearest_reference_index": 10,
+            "potential_ood": true,
+            "threshold": 4.220008850097656e-05
+          },
+          {
+            "distance": 0.9755029920488596,
+            "file": "candidate_015.png",
+            "nearest_reference_index": 10,
+            "potential_ood": true,
+            "threshold": 4.220008850097656e-05
+          },
+          {
+            "distance": 0.9777185134589672,
+            "file": "candidate_016.png",
+            "nearest_reference_index": 10,
+            "potential_ood": true,
+            "threshold": 4.220008850097656e-05
+          },
+          {
+            "distance": 0.9753572046756744,
+            "file": "candidate_017.png",
+            "nearest_reference_index": 10,
+            "potential_ood": true,
+            "threshold": 4.220008850097656e-05
+          },
+          {
+            "distance": 0.977845024317503,
+            "file": "candidate_018.png",
+            "nearest_reference_index": 10,
+            "potential_ood": true,
+            "threshold": 4.220008850097656e-05
+          },
+          {
+            "distance": 0.9755276180803776,
+            "file": "candidate_019.png",
+            "nearest_reference_index": 10,
+            "potential_ood": true,
+            "threshold": 4.220008850097656e-05
+          },
+          {
+            "distance": 0.9778233915567398,
+            "file": "candidate_duplicate.png",
+            "nearest_reference_index": 10,
+            "potential_ood": true,
+            "threshold": 4.220008850097656e-05
+          }
+        ],
+        "skipped_files": [],
+        "status": "completed",
+        "threshold": 4.220008850097656e-05
+      },
+      "A5_label_consistency": {
+        "conflicting_pair_count": 0,
+        "conflicting_pairs": [],
+        "empty_label_count": 0,
+        "empty_labels": [],
+        "finding_count": 1,
+        "images_discovered": 21,
+        "labels_directory": "/home/gauravkumar/tracer-cv/demos/assets/dataset/labels",
+        "limitations": [
+          "YOLO annotation format is assessed.",
+          "Near-duplicate similarity does not prove that a label is incorrect.",
+          "A conflict is reported as a potential label inconsistency requiring review.",
+          "Semantic correctness of an annotation is not established automatically."
+        ],
+        "malformed_label_count": 0,
+        "malformed_labels": [],
+        "method": "YOLO annotation validation + near-duplicate label conflict analysis",
+        "missing_label_count": 1,
+        "missing_labels": [
+          "candidate_duplicate.png"
+        ],
+        "near_duplicate_pair_count": 1,
+        "status": "completed"
+      },
+      "A6_contributor_risk": {
+        "contributor_count": 2,
+        "finding_count": 1,
+        "high_risk_contributors": 0,
+        "limitations": [
+          "Risk scores identify unusual contributor characteristics; they do not establish malicious intent.",
+          "The current engine uses manifest metadata and class distributions rather than image-content embeddings.",
+          "Source identity is assumed to be correctly represented in the manifest."
+        ],
+        "manifest": "/home/gauravkumar/tracer-cv/demos/assets/dataset/contributor_manifest.csv",
+        "medium_risk_contributors": 0,
+        "method": "Contributor-level statistical profiling and anomaly scoring",
+        "profiles": [
+          {
+            "class_count": 2,
+            "class_distribution": {
+              "0": 6,
+              "1": 5
+            },
+            "class_entropy": 0.99403,
+            "conflict_images": 0,
+            "contributor": "contributor_A",
+            "dominant_class_ratio": 0.545455,
+            "duplicate_groups": 1,
+            "duplicate_images": 2,
+            "duplicate_rate": 0.181818,
+            "findings": [
+              "cross_contributor_duplicate_detected"
+            ],
+            "image_count": 11,
+            "images_assessed": 11,
+            "images_hashed": 11,
+            "label_conflict_rate": 0.0,
+            "ood_images": 0,
+            "ood_rate": 0.0,
+            "risk_level": "LOW",
+            "risk_score": 5.0,
+            "timestamp_count": 11
+          },
+          {
+            "class_count": 2,
+            "class_distribution": {
+              "0": 5,
+              "1": 5
+            },
+            "class_entropy": 1.0,
+            "conflict_images": 0,
+            "contributor": "contributor_B",
+            "dominant_class_ratio": 0.5,
+            "duplicate_groups": 0,
+            "duplicate_images": 0,
+            "duplicate_rate": 0.0,
+            "findings": [],
+            "image_count": 10,
+            "images_assessed": 10,
+            "images_hashed": 10,
+            "label_conflict_rate": 0.0,
+            "ood_images": 0,
+            "ood_rate": 0.0,
+            "risk_level": "LOW",
+            "risk_score": 0.0,
+            "timestamp_count": 10
+          }
+        ],
+        "row_count": 21,
+        "status": "completed"
+      },
+      "A7_metadata_consistency": {
+        "contributor_count": 1,
+        "contributor_evidence": {
+          "unassigned": {
+            "divergent_attributes": [],
+            "images_assessed": 21,
+            "max_divergence": 0.0,
+            "metadata_anomaly_images": 0,
+            "metadata_anomaly_rate": 0.0
+          }
+        },
+        "contributor_findings": [],
+        "contributor_profiles": [
+          {
+            "contributor": "unassigned",
+            "distributions": {
+              "camera": {
+                "none": 1.0
+              },
+              "format": {
+                "PNG": 1.0
+              },
+              "has_exif": {
+                "no": 1.0
+              },
+              "mode": {
+                "RGB": 1.0
+              },
+              "quant_hash": {
+                "none": 1.0
+              },
+              "resolution": {
+                "64x64": 1.0
+              },
+              "software": {
+                "none": 1.0
+              }
+            },
+            "divergence": {},
+            "image_count": 21,
+            "profiled": false
+          }
+        ],
+        "dataset_profile": {
+          "camera": {
+            "none": 1.0
+          },
+          "format": {
+            "PNG": 1.0
+          },
+          "has_exif": {
+            "no": 1.0
+          },
+          "mode": {
+            "RGB": 1.0
+          },
+          "quant_hash": {
+            "none": 1.0
+          },
+          "resolution": {
+            "64x64": 1.0
+          },
+          "software": {
+            "none": 1.0
+          }
+        },
+        "image_count": 21,
+        "image_finding_count": 0,
+        "image_findings": [],
+        "image_findings_by_severity": {},
+        "limitations": [
+          "Metadata is trivially editable or strippable; consistent metadata does not establish authenticity.",
+          "Missing EXIF is common and benign; it is reported as divergence, not tampering.",
+          "Contributor divergence is a statistical heuristic; legitimate sensor or campaign differences can also be flagged.",
+          "Small contributors below min_contributor_images are not profiled.",
+          "Timestamp checks rely on camera clocks, which may be wrong or unset.",
+          "Findings are evidence for analyst review and do not establish malicious intent, poisoning, or confirmed integrity violation."
+        ],
+        "method": "categorical-distribution divergence (total variation) + per-image rule checks",
+        "skipped_files": [],
+        "status": "completed",
+        "thresholds": {
+          "elevated_divergence": 0.5,
+          "high_divergence": 0.8,
+          "min_contributor_images": 3,
+          "rare_resolution_fraction": 0.05,
+          "time_outlier_days": 365.0
+        }
+      },
+      "A8_poison_trigger_forensics": {
+        "candidate_trigger_count": 0,
+        "class_conditional_evidence": [],
+        "disclaimer": "This engine detects trigger-like or suspicious repeated visual evidence. It does NOT prove malicious poisoning, backdoor implantation, attacker identity, attacker intent, or any causal effect on model predictions; those require additional model-level analysis.",
+        "findings": [],
+        "image_count": 21,
+        "images_assessed": 21,
+        "images_with_localized_anomaly": 0,
+        "labels_supplied": false,
+        "limitations": [
+          "Cannot distinguish a trigger from legitimate repeated visual structure (watermarks, logos, borders, timestamps, sensor artefacts, repeated textures); such content can produce the same evidence.",
+          "Only compact, high-frequency localized patches are detected. Blended, low-contrast, very small, very large, semantic or frequency-domain triggers may be missed.",
+          "Repeat matching uses a 64-bit hash at reduced resolution; it is not robust to large shifts, rotation, scaling, inverted polarity or heavy recompression.",
+          "Images are converted to grayscale and resized to 128x128 before analysis; colour-only triggers and fine detail are not visible to this engine.",
+          "Class association is statistical association only and does not establish a backdoor.",
+          "Thresholds are heuristic defaults and have not been calibrated on real datasets; JPEG block artefacts may occasionally resemble patches.",
+          "No labels were supplied, so class-conditional analysis (A8.4) was not performed."
+        ],
+        "method": "deterministic_local_patch_forensics_v1",
+        "parameters": {
+          "class_max_p": 0.01,
+          "class_min_share": 0.8,
+          "hamming_tolerance": 6,
+          "max_flagged_fraction": 0.15,
+          "max_region_area_fraction": 0.25,
+          "max_regions_per_image": 3,
+          "min_abs_hf": 20.0,
+          "min_pattern_images": 3,
+          "min_ratio": 3.0,
+          "spatial_min_fraction": 0.75,
+          "spatial_tolerance": 0.08,
+          "stride": 8,
+          "window": 16,
+          "work_size": 128,
+          "z_threshold": 6.0
+        },
+        "pattern_evidence": [],
+        "repeated_pattern_count": 0,
+        "skipped_files": [],
+        "spatial_concentration": [],
+        "status": "completed",
+        "suppressed_high_texture_images": 0
+      }
+    },
+    "status": "assessed"
+  },
+  "distribution_shift": {
+    "engine_result": {
+      "anomalous_images": [
+        {
+          "features": {
+            "brightness": 281.35307495852834,
+            "contrast": 7.226792713313553,
+            "edge_density": 21.69822973545756,
+            "saturation": 2.6422892878906996
+          },
+          "file": "candidate_000.png",
+          "max_z_score": 281.35307495852834,
+          "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_000.png"
+        },
+        {
+          "features": {
+            "brightness": 281.9662344729554,
+            "contrast": 6.295079442415668,
+            "edge_density": 17.822309910304057,
+            "saturation": 2.779127979969468
+          },
+          "file": "candidate_001.png",
+          "max_z_score": 281.9662344729554,
+          "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_001.png"
+        },
+        {
+          "features": {
+            "brightness": 281.31266518168377,
+            "contrast": 7.185670279829954,
+            "edge_density": 22.528783983704738,
+            "saturation": 2.6571334135690976
+          },
+          "file": "candidate_002.png",
+          "max_z_score": 281.31266518168377,
+          "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_002.png"
+        },
+        {
+          "features": {
+            "brightness": 282.82543264081613,
+            "contrast": 6.273516939322046,
+            "edge_density": 16.43805282989209,
+            "saturation": 2.746983368904158
+          },
+          "file": "candidate_003.png",
+          "max_z_score": 282.82543264081613,
+          "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_003.png"
+        },
+        {
+          "features": {
+            "brightness": 281.15539072253256,
+            "contrast": 7.113037761840259,
+            "edge_density": 19.20656699071602,
+            "saturation": 2.523864607771091
+          },
+          "file": "candidate_004.png",
+          "max_z_score": 281.15539072253256,
+          "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_004.png"
+        },
+        {
+          "features": {
+            "brightness": 282.5155426166887,
+            "contrast": 6.242230931233009,
+            "edge_density": 20.313972655045593,
+            "saturation": 2.635703672858891
+          },
+          "file": "candidate_005.png",
+          "max_z_score": 282.5155426166887,
+          "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_005.png"
+        },
+        {
+          "features": {
+            "brightness": 272.12086313828786,
+            "contrast": 1.3000023587486325,
+            "edge_density": 17.68388420226286,
+            "saturation": 2.340370715769007
+          },
+          "file": "candidate_006.png",
+          "max_z_score": 272.12086313828786,
+          "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_006.png"
+        },
+        {
+          "features": {
+            "brightness": 273.13439330582077,
+            "contrast": 0.16409177774645906,
+            "edge_density": 16.991755662056875,
+            "saturation": 2.382894923198088
+          },
+          "file": "candidate_007.png",
+          "max_z_score": 273.13439330582077,
+          "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_007.png"
+        },
+        {
+          "features": {
+            "brightness": 271.99193437211744,
+            "contrast": 1.2935994192406743,
+            "edge_density": 20.729249779169184,
+            "saturation": 2.3667114387253023
+          },
+          "file": "candidate_008.png",
+          "max_z_score": 271.99193437211744,
+          "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_008.png"
+        },
+        {
+          "features": {
+            "brightness": 273.2000591931932,
+            "contrast": 0.3650450965089652,
+            "edge_density": 12.008430172573801,
+            "saturation": 2.3677155235283585
+          },
+          "file": "candidate_009.png",
+          "max_z_score": 273.2000591931932,
+          "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_009.png"
+        },
+        {
+          "features": {
+            "brightness": 272.4231027677699,
+            "contrast": 1.1971883353240707,
+            "edge_density": 19.483418406798414,
+            "saturation": 2.3093404998614138
+          },
+          "file": "candidate_010.png",
+          "max_z_score": 272.4231027677699,
+          "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_010.png"
+        },
+        {
+          "features": {
+            "brightness": 273.49494267397785,
+            "contrast": 0.3742878076173804,
+            "edge_density": 16.576478537933287,
+            "saturation": 2.264025527317956
+          },
+          "file": "candidate_011.png",
+          "max_z_score": 273.49494267397785,
+          "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_011.png"
+        },
+        {
+          "features": {
+            "brightness": 272.431488777285,
+            "contrast": 1.286706863939534,
+            "edge_density": 14.500092917315339,
+            "saturation": 2.3612410874366807
+          },
+          "file": "candidate_012.png",
+          "max_z_score": 272.431488777285,
+          "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_012.png"
+        },
+        {
+          "features": {
+            "brightness": 272.86314758285056,
+            "contrast": 0.11707542874168811,
+            "edge_density": 17.68388420226286,
+            "saturation": 2.22574088556683
+          },
+          "file": "candidate_013.png",
+          "max_z_score": 272.86314758285056,
+          "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_013.png"
+        },
+        {
+          "features": {
+            "brightness": 272.23140153271464,
+            "contrast": 1.154415323193546,
+            "edge_density": 18.51443845051004,
+            "saturation": 2.3182704270761363
+          },
+          "file": "candidate_014.png",
+          "max_z_score": 272.23140153271464,
+          "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_014.png"
+        },
+        {
+          "features": {
+            "brightness": 272.9894771764812,
+            "contrast": 0.22176587161147274,
+            "edge_density": 15.607498581644911,
+            "saturation": 2.5331289403916752
+          },
+          "file": "candidate_015.png",
+          "max_z_score": 272.9894771764812,
+          "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_015.png"
+        },
+        {
+          "features": {
+            "brightness": 272.0187597943674,
+            "contrast": 1.2709315313022638,
+            "edge_density": 15.469072873603714,
+            "saturation": 2.4250855938067772
+          },
+          "file": "candidate_016.png",
+          "max_z_score": 272.0187597943674,
+          "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_016.png"
+        },
+        {
+          "features": {
+            "brightness": 272.9379841355992,
+            "contrast": 0.2189393328702909,
+            "edge_density": 18.237587034427644,
+            "saturation": 2.3604610976848255
+          },
+          "file": "candidate_017.png",
+          "max_z_score": 272.9379841355992,
+          "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_017.png"
+        },
+        {
+          "features": {
+            "brightness": 272.3144279310131,
+            "contrast": 1.1312084167873258,
+            "edge_density": 19.62184411483961,
+            "saturation": 2.2723969540756155
+          },
+          "file": "candidate_018.png",
+          "max_z_score": 272.3144279310131,
+          "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_018.png"
+        },
+        {
+          "features": {
+            "brightness": 273.7034159280632,
+            "contrast": 0.3313798203222486,
+            "edge_density": 11.870004464532604,
+            "saturation": 2.4525433176771996
+          },
+          "file": "candidate_019.png",
+          "max_z_score": 273.7034159280632,
+          "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_019.png"
+        },
+        {
+          "features": {
+            "brightness": 281.35307495852834,
+            "contrast": 7.226792713313553,
+            "edge_density": 21.69822973545756,
+            "saturation": 2.6422892878906996
+          },
+          "file": "candidate_duplicate.png",
+          "max_z_score": 281.35307495852834,
+          "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_duplicate.png"
+        }
+      ],
+      "candidate": {
+        "error_count": 0,
+        "histograms": {
+          "blue_hist": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0008254278273809524,
+            0.059116908482142856,
+            0.4339192708333333,
+            0.39765857514880953,
+            0.05113002232142857,
+            0.0009765625,
+            2.3251488095238094e-05,
+            0.05634998139880952
+          ],
+          "gray_hist": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.010637555803571428,
+            0.4819219680059524,
+            0.39748418898809523,
+            0.04647972470238095,
+            0.05063011532738095,
+            0.0011276971726190475,
+            0.01171875
+          ],
+          "green_hist": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0009068080357142857,
+            0.05830310639880952,
+            0.4248628162202381,
+            0.3935663132440476,
+            0.08851841517857142,
+            0.02097284226190476,
+            0.0011509486607142857,
+            0.01171875
+          ],
+          "red_hist": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.1625744047619047e-05,
+            0.000720796130952381,
+            0.05912853422619048,
+            0.4329427083333333,
+            0.39577520461309523,
+            0.04970005580357143,
+            0.0008835565476190476,
+            0.00038364955357142856,
+            0.06045386904761905
+          ]
+        },
+        "image_count": 21,
+        "summary": {
+          "brightness": {
+            "count": 21,
+            "mean": 0.7020100298381987,
+            "std": 0.005246977912570622
+          },
+          "contrast": {
+            "count": 21,
+            "mean": 0.054917912043276285,
+            "std": 0.012864128526077922
+          },
+          "edge_density": {
+            "count": 21,
+            "mean": 0.057163783482142856,
+            "std": 0.005022805811215036
+          },
+          "saturation": {
+            "count": 21,
+            "mean": 0.08540868262449901,
+            "std": 0.0013999583682364996
+          }
+        }
+      },
+      "config": {
+        "brightness_threshold": 0.08,
+        "contrast_threshold": 0.08,
+        "edge_density_threshold": 0.08,
+        "histogram_bins": 16,
+        "image_anomaly_z": 3.0,
+        "max_images": 500,
+        "overall_shift_threshold": 0.2,
+        "saturation_threshold": 0.08,
+        "seed": 1337
+      },
+      "distances": {
+        "histogram": {
+          "blue_hist": 0.95634765625,
+          "gray_hist": 1.0,
+          "green_hist": 0.9990931919642857,
+          "red_hist": 0.953125
+        },
+        "scalar": {
+          "brightness": 0.33512389539253146,
+          "contrast": 0.010939914218726608,
+          "edge_density": 0.031467982700892856,
+          "saturation": 0.02107994904120762
+        }
+      },
+      "engine_version": "c2-1.0",
+      "errors": {
+        "candidate": [],
+        "reference": []
+      },
+      "findings": [
+        {
+          "message": "Candidate image population differs measurably from the reference population.",
+          "overall_shift": 0.4506483460244324,
+          "severity": "high",
+          "type": "distribution_shift"
+        },
+        {
+          "count": 21,
+          "message": "Some candidate images are statistical outliers relative to the reference feature distribution.",
+          "severity": "high",
+          "type": "candidate_image_anomalies"
+        }
+      ],
+      "limitations": [
+        "Distribution shift does not prove malicious manipulation.",
+        "Appearance features do not establish semantic correctness.",
+        "A stable distribution does not prove absence of attacks.",
+        "Thresholds are configurable heuristics and require validation against representative reference data.",
+        "This MVP analyzes image populations rather than proving causal source of a detected shift."
+      ],
+      "method": "multifeature image distribution shift analysis",
+      "overall_shift": 0.4506483460244324,
+      "reference": {
+        "error_count": 0,
+        "histograms": {
+          "blue_hist": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0003662109375,
+            0.22867431640625,
+            0.68638916015625,
+            0.03763427734375,
+            6.103515625e-05,
+            0.0,
+            0.0,
+            0.00487060546875,
+            0.03773193359375,
+            0.00426025390625,
+            1.220703125e-05,
+            0.0
+          ],
+          "gray_hist": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0219482421875,
+            0.86273193359375,
+            0.02257080078125,
+            0.06820068359375,
+            0.02454833984375,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "green_hist": [
+            0.0,
+            0.0,
+            0.0,
+            2.44140625e-05,
+            0.0442626953125,
+            0.71790771484375,
+            0.1771728515625,
+            0.056396484375,
+            0.00423583984375,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "red_hist": [
+            0.0,
+            0.0,
+            0.0,
+            0.003515625,
+            0.45147705078125,
+            0.4873046875,
+            0.01082763671875,
+            0.0,
+            0.0,
+            0.0022705078125,
+            0.0371826171875,
+            0.00740966796875,
+            1.220703125e-05,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "image_count": 20,
+        "summary": {
+          "brightness": {
+            "count": 20,
+            "mean": 0.36688613444566726,
+            "std": 0.0012154045661724037
+          },
+          "contrast": {
+            "count": 20,
+            "mean": 0.043977997824549676,
+            "std": 0.004222772517627457
+          },
+          "edge_density": {
+            "count": 20,
+            "mean": 0.02569580078125,
+            "std": 0.0017636942476562366
+          },
+          "saturation": {
+            "count": 20,
+            "mean": 0.10648863166570663,
+            "std": 0.008577832413985008
+          }
+        }
+      },
+      "result_digest": "3d5ccd105ee2478dc832658fc4387c57c475c5634d6d250986c66199f08b395f",
+      "severity": "high",
+      "shifted_features": [
+        {
+          "distance": 0.33512389539253146,
+          "feature": "brightness",
+          "shifted": true,
+          "threshold": 0.08
+        },
+        {
+          "distance": 0.010939914218726608,
+          "feature": "contrast",
+          "shifted": false,
+          "threshold": 0.08
+        },
+        {
+          "distance": 0.02107994904120762,
+          "feature": "saturation",
+          "shifted": false,
+          "threshold": 0.08
+        },
+        {
+          "distance": 0.031467982700892856,
+          "feature": "edge_density",
+          "shifted": false,
+          "threshold": 0.08
+        }
+      ],
+      "status": "completed",
+      "task": "distribution_shift"
+    },
+    "severity": "high",
+    "shift_detected": true,
+    "status": "assessed"
+  },
+  "executive_summary": {
+    "assessment_scope": "TRACER-CV evidence-oriented integrity and assurance assessment",
+    "audit_chain_valid": true,
+    "coverage": {
+      "audit_trail": {
+        "assessed": true,
+        "status": "available"
+      },
+      "dataset_integrity": {
+        "assessed": true,
+        "status": "available"
+      },
+      "distribution_shift": {
+        "assessed": true,
+        "status": "available"
+      },
+      "findings_and_evidence": {
+        "assessed": true,
+        "finding_count": 3,
+        "status": "available"
+      },
+      "inference_provenance": {
+        "assessed": true,
+        "status": "available"
+      },
+      "model_integrity": {
+        "assessed": true,
+        "status": "available"
+      }
+    },
+    "distribution_shift_detected": true,
+    "finding_count": 3,
+    "highest_observed_severity": "high",
+    "interpretation": "Results represent observed evidence from the configured assessment methods. A clean result does not establish the absence of all attack classes.",
+    "provenance_chain_valid": true,
+    "severity_counts": {
+      "critical": 0,
+      "high": 1,
+      "low": 0,
+      "medium": 2,
+      "none": 0
+    }
+  },
+  "findings_and_evidence": {
+    "count": 3,
+    "findings": [
+      {
+        "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset",
+        "category": "dataset_integrity",
+        "confidence": 0.9,
+        "evidence": [
+          {
+            "groups": [
+              {
+                "count": 11,
+                "files": [
+                  "labels/candidate_000.txt",
+                  "labels/candidate_001.txt",
+                  "labels/candidate_002.txt",
+                  "labels/candidate_004.txt",
+                  "labels/candidate_006.txt",
+                  "labels/candidate_008.txt",
+                  "labels/candidate_010.txt",
+                  "labels/candidate_012.txt",
+                  "labels/candidate_014.txt",
+                  "labels/candidate_016.txt",
+                  "labels/candidate_018.txt"
+                ],
+                "sha256": "38f7b04d63fe2b8a657dd72b12f748935856bc34293059aa96f7f45dcdda1c86"
+              },
+              {
+                "count": 9,
+                "files": [
+                  "labels/candidate_003.txt",
+                  "labels/candidate_005.txt",
+                  "labels/candidate_007.txt",
+                  "labels/candidate_009.txt",
+                  "labels/candidate_011.txt",
+                  "labels/candidate_013.txt",
+                  "labels/candidate_015.txt",
+                  "labels/candidate_017.txt",
+                  "labels/candidate_019.txt"
+                ],
+                "sha256": "9e3346476c8a5fa2c0e21d2e29b53f03dd50dfc1d9af6d2b7d43cca197268be8"
+              },
+              {
+                "count": 2,
+                "files": [
+                  "candidate/candidate_000.png",
+                  "candidate/candidate_duplicate.png"
+                ],
+                "sha256": "da8a9e8f0072deeb1c0285337855ff16e1abb0d326f1610b6fcffbcb116da845"
+              }
+            ],
+            "type": "exact_duplicate_groups"
+          }
+        ],
+        "explanation": "The dataset contains one or more groups of files with identical content hashes.",
+        "finding_id": "C3-e98e4c50bfc1",
+        "limitations": [
+          "Duplicates may be legitimate and do not prove poisoning."
+        ],
+        "recommended_action": "Review duplicate groups and determine whether duplication is expected.",
+        "severity": "medium",
+        "source_engine": "A2",
+        "title": "Exact duplicate samples detected"
+      },
+      {
+        "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate",
+        "category": "distribution_shift",
+        "confidence": 0.9506483460244324,
+        "evidence": [
+          {
+            "type": "overall_shift",
+            "value": 0.4506483460244324
+          },
+          {
+            "type": "shifted_features",
+            "value": [
+              {
+                "distance": 0.33512389539253146,
+                "feature": "brightness",
+                "shifted": true,
+                "threshold": 0.08
+              },
+              {
+                "distance": 0.010939914218726608,
+                "feature": "contrast",
+                "shifted": false,
+                "threshold": 0.08
+              },
+              {
+                "distance": 0.02107994904120762,
+                "feature": "saturation",
+                "shifted": false,
+                "threshold": 0.08
+              },
+              {
+                "distance": 0.031467982700892856,
+                "feature": "edge_density",
+                "shifted": false,
+                "threshold": 0.08
+              }
+            ]
+          },
+          {
+            "type": "distances",
+            "value": {
+              "histogram": {
+                "blue_hist": 0.95634765625,
+                "gray_hist": 1.0,
+                "green_hist": 0.9990931919642857,
+                "red_hist": 0.953125
+              },
+              "scalar": {
+                "brightness": 0.33512389539253146,
+                "contrast": 0.010939914218726608,
+                "edge_density": 0.031467982700892856,
+                "saturation": 0.02107994904120762
+              }
+            }
+          }
+        ],
+        "explanation": "The candidate image population differs measurably from the configured reference population.",
+        "finding_id": "C3-06142070868e",
+        "limitations": [
+          "Distribution shift does not prove malicious manipulation.",
+          "Environmental or sensor changes can produce legitimate shift.",
+          "Appearance features do not establish semantic correctness."
+        ],
+        "recommended_action": "Review affected samples, acquisition conditions, and trusted reference data before relying on the candidate population.",
+        "severity": "high",
+        "source_engine": "C2",
+        "title": "Distribution shift detected"
+      },
+      {
+        "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate",
+        "category": "distribution_shift",
+        "confidence": 0.85,
+        "evidence": [
+          {
+            "count": 21,
+            "images": [
+              {
+                "features": {
+                  "brightness": 281.35307495852834,
+                  "contrast": 7.226792713313553,
+                  "edge_density": 21.69822973545756,
+                  "saturation": 2.6422892878906996
+                },
+                "file": "candidate_000.png",
+                "max_z_score": 281.35307495852834,
+                "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_000.png"
+              },
+              {
+                "features": {
+                  "brightness": 281.9662344729554,
+                  "contrast": 6.295079442415668,
+                  "edge_density": 17.822309910304057,
+                  "saturation": 2.779127979969468
+                },
+                "file": "candidate_001.png",
+                "max_z_score": 281.9662344729554,
+                "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_001.png"
+              },
+              {
+                "features": {
+                  "brightness": 281.31266518168377,
+                  "contrast": 7.185670279829954,
+                  "edge_density": 22.528783983704738,
+                  "saturation": 2.6571334135690976
+                },
+                "file": "candidate_002.png",
+                "max_z_score": 281.31266518168377,
+                "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_002.png"
+              },
+              {
+                "features": {
+                  "brightness": 282.82543264081613,
+                  "contrast": 6.273516939322046,
+                  "edge_density": 16.43805282989209,
+                  "saturation": 2.746983368904158
+                },
+                "file": "candidate_003.png",
+                "max_z_score": 282.82543264081613,
+                "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_003.png"
+              },
+              {
+                "features": {
+                  "brightness": 281.15539072253256,
+                  "contrast": 7.113037761840259,
+                  "edge_density": 19.20656699071602,
+                  "saturation": 2.523864607771091
+                },
+                "file": "candidate_004.png",
+                "max_z_score": 281.15539072253256,
+                "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_004.png"
+              },
+              {
+                "features": {
+                  "brightness": 282.5155426166887,
+                  "contrast": 6.242230931233009,
+                  "edge_density": 20.313972655045593,
+                  "saturation": 2.635703672858891
+                },
+                "file": "candidate_005.png",
+                "max_z_score": 282.5155426166887,
+                "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_005.png"
+              },
+              {
+                "features": {
+                  "brightness": 272.12086313828786,
+                  "contrast": 1.3000023587486325,
+                  "edge_density": 17.68388420226286,
+                  "saturation": 2.340370715769007
+                },
+                "file": "candidate_006.png",
+                "max_z_score": 272.12086313828786,
+                "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_006.png"
+              },
+              {
+                "features": {
+                  "brightness": 273.13439330582077,
+                  "contrast": 0.16409177774645906,
+                  "edge_density": 16.991755662056875,
+                  "saturation": 2.382894923198088
+                },
+                "file": "candidate_007.png",
+                "max_z_score": 273.13439330582077,
+                "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_007.png"
+              },
+              {
+                "features": {
+                  "brightness": 271.99193437211744,
+                  "contrast": 1.2935994192406743,
+                  "edge_density": 20.729249779169184,
+                  "saturation": 2.3667114387253023
+                },
+                "file": "candidate_008.png",
+                "max_z_score": 271.99193437211744,
+                "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_008.png"
+              },
+              {
+                "features": {
+                  "brightness": 273.2000591931932,
+                  "contrast": 0.3650450965089652,
+                  "edge_density": 12.008430172573801,
+                  "saturation": 2.3677155235283585
+                },
+                "file": "candidate_009.png",
+                "max_z_score": 273.2000591931932,
+                "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_009.png"
+              },
+              {
+                "features": {
+                  "brightness": 272.4231027677699,
+                  "contrast": 1.1971883353240707,
+                  "edge_density": 19.483418406798414,
+                  "saturation": 2.3093404998614138
+                },
+                "file": "candidate_010.png",
+                "max_z_score": 272.4231027677699,
+                "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_010.png"
+              },
+              {
+                "features": {
+                  "brightness": 273.49494267397785,
+                  "contrast": 0.3742878076173804,
+                  "edge_density": 16.576478537933287,
+                  "saturation": 2.264025527317956
+                },
+                "file": "candidate_011.png",
+                "max_z_score": 273.49494267397785,
+                "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_011.png"
+              },
+              {
+                "features": {
+                  "brightness": 272.431488777285,
+                  "contrast": 1.286706863939534,
+                  "edge_density": 14.500092917315339,
+                  "saturation": 2.3612410874366807
+                },
+                "file": "candidate_012.png",
+                "max_z_score": 272.431488777285,
+                "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_012.png"
+              },
+              {
+                "features": {
+                  "brightness": 272.86314758285056,
+                  "contrast": 0.11707542874168811,
+                  "edge_density": 17.68388420226286,
+                  "saturation": 2.22574088556683
+                },
+                "file": "candidate_013.png",
+                "max_z_score": 272.86314758285056,
+                "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_013.png"
+              },
+              {
+                "features": {
+                  "brightness": 272.23140153271464,
+                  "contrast": 1.154415323193546,
+                  "edge_density": 18.51443845051004,
+                  "saturation": 2.3182704270761363
+                },
+                "file": "candidate_014.png",
+                "max_z_score": 272.23140153271464,
+                "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_014.png"
+              },
+              {
+                "features": {
+                  "brightness": 272.9894771764812,
+                  "contrast": 0.22176587161147274,
+                  "edge_density": 15.607498581644911,
+                  "saturation": 2.5331289403916752
+                },
+                "file": "candidate_015.png",
+                "max_z_score": 272.9894771764812,
+                "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_015.png"
+              },
+              {
+                "features": {
+                  "brightness": 272.0187597943674,
+                  "contrast": 1.2709315313022638,
+                  "edge_density": 15.469072873603714,
+                  "saturation": 2.4250855938067772
+                },
+                "file": "candidate_016.png",
+                "max_z_score": 272.0187597943674,
+                "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_016.png"
+              },
+              {
+                "features": {
+                  "brightness": 272.9379841355992,
+                  "contrast": 0.2189393328702909,
+                  "edge_density": 18.237587034427644,
+                  "saturation": 2.3604610976848255
+                },
+                "file": "candidate_017.png",
+                "max_z_score": 272.9379841355992,
+                "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_017.png"
+              },
+              {
+                "features": {
+                  "brightness": 272.3144279310131,
+                  "contrast": 1.1312084167873258,
+                  "edge_density": 19.62184411483961,
+                  "saturation": 2.2723969540756155
+                },
+                "file": "candidate_018.png",
+                "max_z_score": 272.3144279310131,
+                "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_018.png"
+              },
+              {
+                "features": {
+                  "brightness": 273.7034159280632,
+                  "contrast": 0.3313798203222486,
+                  "edge_density": 11.870004464532604,
+                  "saturation": 2.4525433176771996
+                },
+                "file": "candidate_019.png",
+                "max_z_score": 273.7034159280632,
+                "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_019.png"
+              },
+              {
+                "features": {
+                  "brightness": 281.35307495852834,
+                  "contrast": 7.226792713313553,
+                  "edge_density": 21.69822973545756,
+                  "saturation": 2.6422892878906996
+                },
+                "file": "candidate_duplicate.png",
+                "max_z_score": 281.35307495852834,
+                "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_duplicate.png"
+              }
+            ],
+            "type": "anomalous_images"
+          }
+        ],
+        "explanation": "One or more candidate images are statistical outliers relative to the reference feature distribution.",
+        "finding_id": "C3-2f1f58dbbd35",
+        "limitations": [
+          "Statistical outliers may be legitimate observations.",
+          "Outlier detection does not establish malicious intent."
+        ],
+        "recommended_action": "Inspect the listed images for acquisition, format, sensor, illumination, or processing differences.",
+        "severity": "medium",
+        "source_engine": "C2",
+        "title": "Statistical image outliers detected"
+      }
+    ],
+    "highest_severity": "high",
+    "severity_counts": {
+      "critical": 0,
+      "high": 1,
+      "low": 0,
+      "medium": 2,
+      "none": 0
+    }
+  },
+  "inference_provenance": {
+    "engine_result": {
+      "adapter_warnings": [
+        "torch.jit.load deserializes model content; load only trusted models"
+      ],
+      "limitations": [
+        "Provenance binds the selected source image bytes and this local inference output; it does not establish that the model is safe or benign."
+      ],
+      "model_id": "sha256:f00ace700c3610b5bfbd1a2ac819a472497af7e8c4117fb04a3e4420265ffa43",
+      "record_count": 2,
+      "records": [
+        {
+          "input_digest": "da8a9e8f0072deeb1c0285337855ff16e1abb0d326f1610b6fcffbcb116da845",
+          "model_id": "sha256:f00ace700c3610b5bfbd1a2ac819a472497af7e8c4117fb04a3e4420265ffa43",
+          "nonce": "a73d2d17815be09e52f474db94efe8f0",
+          "output_digest": "5776ff1ceb1c059bddfa36d7d46752d716117221583c453fc304d6d3709c04d8",
+          "preprocessing_digest": "6a0bc450b8d652ed47996521552c4e2320ebaf5b88eac64f9b21786b9376604b",
+          "previous_record_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+          "record_hash": "d4dade0fd4f65117f72d62a5e84805477fd43417f697cb78700f7dbe611db4fe",
+          "sequence": 1,
+          "signature": null,
+          "timestamp": "2026-10-03T04:43:17.164291+00:00"
+        },
+        {
+          "input_digest": "9bca7a9c4fc7ad05cb78fc0cf541dc43e4e440b9c9303ec0047de5cb38d080c2",
+          "model_id": "sha256:f00ace700c3610b5bfbd1a2ac819a472497af7e8c4117fb04a3e4420265ffa43",
+          "nonce": "55c7b6ec0d75eb87873e8ebfb22e0410",
+          "output_digest": "5cc25f204ccf3f058f5023b3c5cc72be5d3824da169184c4987cc83f0ce671f5",
+          "preprocessing_digest": "6a0bc450b8d652ed47996521552c4e2320ebaf5b88eac64f9b21786b9376604b",
+          "previous_record_hash": "d4dade0fd4f65117f72d62a5e84805477fd43417f697cb78700f7dbe611db4fe",
+          "record_hash": "ce65776d7cc7c89a2418c564b47b4fd091894705557c60bc2a38aab22a630684",
+          "sequence": 2,
+          "signature": null,
+          "timestamp": "2026-10-03T04:43:17.167465+00:00"
+        }
+      ],
+      "status": "completed",
+      "verification": {
+        "findings": [],
+        "record_count": 2,
+        "valid": true
+      }
+    },
+    "status": "assessed",
+    "valid": true
+  },
+  "limitations": [
+    "TRACER-CV reports evidence observed by configured checks; it does not prove absence of every possible attack.",
+    "Distribution shift can have benign operational causes and does not by itself establish malicious manipulation.",
+    "Behavioral and trigger-like model findings are indicators for analyst review, not proof of a backdoor.",
+    "Parameter and activation anomalies can arise from legitimate model differences.",
+    "Appearance-based dataset checks do not establish semantic correctness for every image.",
+    "White-box model methods depend on access to the model structure and supported execution format.",
+    "Unsupported attack classes are outside the evidence presented by this assessment."
+  ],
+  "method": "evidence-oriented assurance report",
+  "model_integrity": {
+    "engine_result": {
+      "B1_identity": {
+        "absolute_path": "/home/gauravkumar/tracer-cv/demos/assets/model/demo_model.pt",
+        "bytes_hashed": 33018,
+        "content_signature": {
+          "basis": "leading bytes only; heuristic; model internals not parsed",
+          "description": "ZIP local-file header (used by PyTorch >= 1.6 checkpoints and TorchScript archives, among others; archive is not opened)",
+          "detected": "zip_container"
+        },
+        "error": null,
+        "extension": ".pt",
+        "file_name": "demo_model.pt",
+        "file_size_bytes": 33018,
+        "format": "PyTorch checkpoint",
+        "format_basis": "format inferred from filename extension",
+        "format_confidence": "extension_inferred",
+        "hash_algorithm": "SHA-256",
+        "limitations": [
+          "Format is inferred from the filename extension only; it is not a confirmed internal format.",
+          "The content signature is a heuristic check of the first bytes; model internals are never parsed or validated. ONNX, TensorFlow protobuf and TensorRT engine files have no reliable universal magic header.",
+          "The SHA-256 digest proves byte identity only; it says nothing about model safety, correctness or provenance, and a verification result is only as trustworthy as the source of the expected digest.",
+          "Pickle-based formats (.pkl, .joblib, and often .pt/.pth/.ckpt/.bin) can execute code when loaded; B1 never loads models and does not assess them for malicious content.",
+          "Functionally equivalent models with different bytes (re-exports, re-serialisation) have different identities; sharded or multi-file models must be fingerprinted file by file.",
+          "file_name, path and absolute_path are observation metadata and are not part of the model identity."
+        ],
+        "method": "SHA-256 streaming model fingerprint",
+        "model_id": "sha256:f00ace700c3610b5bfbd1a2ac819a472497af7e8c4117fb04a3e4420265ffa43",
+        "path": "/home/gauravkumar/tracer-cv/demos/assets/model/demo_model.pt",
+        "sha256": "f00ace700c3610b5bfbd1a2ac819a472497af7e8c4117fb04a3e4420265ffa43",
+        "status": "completed",
+        "verification": {
+          "expected_sha256": null,
+          "match": null,
+          "requested": false
+        }
+      },
+      "B2_behavioral_fingerprint": {
+        "reason": "Disabled in assessment configuration.",
+        "status": "not_assessed"
+      },
+      "B3_model_statistics": {
+        "reason": "Disabled in assessment configuration.",
+        "status": "not_assessed"
+      },
+      "B4_trigger_search": {
+        "reason": "Disabled in assessment configuration.",
+        "status": "not_assessed"
+      }
+    },
+    "status": "assessed"
+  },
+  "recommended_actions": [
+    "Review high-severity findings and verify the affected dataset, model, or inference artifact against a trusted source.",
+    "Investigate the broken or invalid inference provenance chain before relying on affected inference records."
+  ],
+  "report_digest": "9ce8fb712b5586a8bf5619a46022c1e91e3e79dc520bb1906fdfb9aca7002819",
+  "report_version": "c5-1.0",
+  "task": "assurance_reporting"
+}

@@ -1,0 +1,389 @@
+{
+  "errors": [],
+  "findings": [
+    {
+      "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset",
+      "category": "dataset_integrity",
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "groups": [
+            {
+              "count": 11,
+              "files": [
+                "labels/candidate_000.txt",
+                "labels/candidate_001.txt",
+                "labels/candidate_002.txt",
+                "labels/candidate_004.txt",
+                "labels/candidate_006.txt",
+                "labels/candidate_008.txt",
+                "labels/candidate_010.txt",
+                "labels/candidate_012.txt",
+                "labels/candidate_014.txt",
+                "labels/candidate_016.txt",
+                "labels/candidate_018.txt"
+              ],
+              "sha256": "38f7b04d63fe2b8a657dd72b12f748935856bc34293059aa96f7f45dcdda1c86"
+            },
+            {
+              "count": 9,
+              "files": [
+                "labels/candidate_003.txt",
+                "labels/candidate_005.txt",
+                "labels/candidate_007.txt",
+                "labels/candidate_009.txt",
+                "labels/candidate_011.txt",
+                "labels/candidate_013.txt",
+                "labels/candidate_015.txt",
+                "labels/candidate_017.txt",
+                "labels/candidate_019.txt"
+              ],
+              "sha256": "9e3346476c8a5fa2c0e21d2e29b53f03dd50dfc1d9af6d2b7d43cca197268be8"
+            },
+            {
+              "count": 2,
+              "files": [
+                "candidate/candidate_000.png",
+                "candidate/candidate_duplicate.png"
+              ],
+              "sha256": "da8a9e8f0072deeb1c0285337855ff16e1abb0d326f1610b6fcffbcb116da845"
+            }
+          ],
+          "type": "exact_duplicate_groups"
+        }
+      ],
+      "explanation": "The dataset contains one or more groups of files with identical content hashes.",
+      "finding_id": "C3-e98e4c50bfc1",
+      "limitations": [
+        "Duplicates may be legitimate and do not prove poisoning."
+      ],
+      "recommended_action": "Review duplicate groups and determine whether duplication is expected.",
+      "severity": "medium",
+      "source_engine": "A2",
+      "title": "Exact duplicate samples detected"
+    },
+    {
+      "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate",
+      "category": "distribution_shift",
+      "confidence": 0.9506483460244324,
+      "evidence": [
+        {
+          "type": "overall_shift",
+          "value": 0.4506483460244324
+        },
+        {
+          "type": "shifted_features",
+          "value": [
+            {
+              "distance": 0.33512389539253146,
+              "feature": "brightness",
+              "shifted": true,
+              "threshold": 0.08
+            },
+            {
+              "distance": 0.010939914218726608,
+              "feature": "contrast",
+              "shifted": false,
+              "threshold": 0.08
+            },
+            {
+              "distance": 0.02107994904120762,
+              "feature": "saturation",
+              "shifted": false,
+              "threshold": 0.08
+            },
+            {
+              "distance": 0.031467982700892856,
+              "feature": "edge_density",
+              "shifted": false,
+              "threshold": 0.08
+            }
+          ]
+        },
+        {
+          "type": "distances",
+          "value": {
+            "histogram": {
+              "blue_hist": 0.95634765625,
+              "gray_hist": 1.0,
+              "green_hist": 0.9990931919642857,
+              "red_hist": 0.953125
+            },
+            "scalar": {
+              "brightness": 0.33512389539253146,
+              "contrast": 0.010939914218726608,
+              "edge_density": 0.031467982700892856,
+              "saturation": 0.02107994904120762
+            }
+          }
+        }
+      ],
+      "explanation": "The candidate image population differs measurably from the configured reference population.",
+      "finding_id": "C3-06142070868e",
+      "limitations": [
+        "Distribution shift does not prove malicious manipulation.",
+        "Environmental or sensor changes can produce legitimate shift.",
+        "Appearance features do not establish semantic correctness."
+      ],
+      "recommended_action": "Review affected samples, acquisition conditions, and trusted reference data before relying on the candidate population.",
+      "severity": "high",
+      "source_engine": "C2",
+      "title": "Distribution shift detected"
+    },
+    {
+      "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate",
+      "category": "distribution_shift",
+      "confidence": 0.85,
+      "evidence": [
+        {
+          "count": 21,
+          "images": [
+            {
+              "features": {
+                "brightness": 281.35307495852834,
+                "contrast": 7.226792713313553,
+                "edge_density": 21.69822973545756,
+                "saturation": 2.6422892878906996
+              },
+              "file": "candidate_000.png",
+              "max_z_score": 281.35307495852834,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_000.png"
+            },
+            {
+              "features": {
+                "brightness": 281.9662344729554,
+                "contrast": 6.295079442415668,
+                "edge_density": 17.822309910304057,
+                "saturation": 2.779127979969468
+              },
+              "file": "candidate_001.png",
+              "max_z_score": 281.9662344729554,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_001.png"
+            },
+            {
+              "features": {
+                "brightness": 281.31266518168377,
+                "contrast": 7.185670279829954,
+                "edge_density": 22.528783983704738,
+                "saturation": 2.6571334135690976
+              },
+              "file": "candidate_002.png",
+              "max_z_score": 281.31266518168377,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_002.png"
+            },
+            {
+              "features": {
+                "brightness": 282.82543264081613,
+                "contrast": 6.273516939322046,
+                "edge_density": 16.43805282989209,
+                "saturation": 2.746983368904158
+              },
+              "file": "candidate_003.png",
+              "max_z_score": 282.82543264081613,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_003.png"
+            },
+            {
+              "features": {
+                "brightness": 281.15539072253256,
+                "contrast": 7.113037761840259,
+                "edge_density": 19.20656699071602,
+                "saturation": 2.523864607771091
+              },
+              "file": "candidate_004.png",
+              "max_z_score": 281.15539072253256,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_004.png"
+            },
+            {
+              "features": {
+                "brightness": 282.5155426166887,
+                "contrast": 6.242230931233009,
+                "edge_density": 20.313972655045593,
+                "saturation": 2.635703672858891
+              },
+              "file": "candidate_005.png",
+              "max_z_score": 282.5155426166887,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_005.png"
+            },
+            {
+              "features": {
+                "brightness": 272.12086313828786,
+                "contrast": 1.3000023587486325,
+                "edge_density": 17.68388420226286,
+                "saturation": 2.340370715769007
+              },
+              "file": "candidate_006.png",
+              "max_z_score": 272.12086313828786,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_006.png"
+            },
+            {
+              "features": {
+                "brightness": 273.13439330582077,
+                "contrast": 0.16409177774645906,
+                "edge_density": 16.991755662056875,
+                "saturation": 2.382894923198088
+              },
+              "file": "candidate_007.png",
+              "max_z_score": 273.13439330582077,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_007.png"
+            },
+            {
+              "features": {
+                "brightness": 271.99193437211744,
+                "contrast": 1.2935994192406743,
+                "edge_density": 20.729249779169184,
+                "saturation": 2.3667114387253023
+              },
+              "file": "candidate_008.png",
+              "max_z_score": 271.99193437211744,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_008.png"
+            },
+            {
+              "features": {
+                "brightness": 273.2000591931932,
+                "contrast": 0.3650450965089652,
+                "edge_density": 12.008430172573801,
+                "saturation": 2.3677155235283585
+              },
+              "file": "candidate_009.png",
+              "max_z_score": 273.2000591931932,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_009.png"
+            },
+            {
+              "features": {
+                "brightness": 272.4231027677699,
+                "contrast": 1.1971883353240707,
+                "edge_density": 19.483418406798414,
+                "saturation": 2.3093404998614138
+              },
+              "file": "candidate_010.png",
+              "max_z_score": 272.4231027677699,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_010.png"
+            },
+            {
+              "features": {
+                "brightness": 273.49494267397785,
+                "contrast": 0.3742878076173804,
+                "edge_density": 16.576478537933287,
+                "saturation": 2.264025527317956
+              },
+              "file": "candidate_011.png",
+              "max_z_score": 273.49494267397785,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_011.png"
+            },
+            {
+              "features": {
+                "brightness": 272.431488777285,
+                "contrast": 1.286706863939534,
+                "edge_density": 14.500092917315339,
+                "saturation": 2.3612410874366807
+              },
+              "file": "candidate_012.png",
+              "max_z_score": 272.431488777285,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_012.png"
+            },
+            {
+              "features": {
+                "brightness": 272.86314758285056,
+                "contrast": 0.11707542874168811,
+                "edge_density": 17.68388420226286,
+                "saturation": 2.22574088556683
+              },
+              "file": "candidate_013.png",
+              "max_z_score": 272.86314758285056,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_013.png"
+            },
+            {
+              "features": {
+                "brightness": 272.23140153271464,
+                "contrast": 1.154415323193546,
+                "edge_density": 18.51443845051004,
+                "saturation": 2.3182704270761363
+              },
+              "file": "candidate_014.png",
+              "max_z_score": 272.23140153271464,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_014.png"
+            },
+            {
+              "features": {
+                "brightness": 272.9894771764812,
+                "contrast": 0.22176587161147274,
+                "edge_density": 15.607498581644911,
+                "saturation": 2.5331289403916752
+              },
+              "file": "candidate_015.png",
+              "max_z_score": 272.9894771764812,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_015.png"
+            },
+            {
+              "features": {
+                "brightness": 272.0187597943674,
+                "contrast": 1.2709315313022638,
+                "edge_density": 15.469072873603714,
+                "saturation": 2.4250855938067772
+              },
+              "file": "candidate_016.png",
+              "max_z_score": 272.0187597943674,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_016.png"
+            },
+            {
+              "features": {
+                "brightness": 272.9379841355992,
+                "contrast": 0.2189393328702909,
+                "edge_density": 18.237587034427644,
+                "saturation": 2.3604610976848255
+              },
+              "file": "candidate_017.png",
+              "max_z_score": 272.9379841355992,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_017.png"
+            },
+            {
+              "features": {
+                "brightness": 272.3144279310131,
+                "contrast": 1.1312084167873258,
+                "edge_density": 19.62184411483961,
+                "saturation": 2.2723969540756155
+              },
+              "file": "candidate_018.png",
+              "max_z_score": 272.3144279310131,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_018.png"
+            },
+            {
+              "features": {
+                "brightness": 273.7034159280632,
+                "contrast": 0.3313798203222486,
+                "edge_density": 11.870004464532604,
+                "saturation": 2.4525433176771996
+              },
+              "file": "candidate_019.png",
+              "max_z_score": 273.7034159280632,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_019.png"
+            },
+            {
+              "features": {
+                "brightness": 281.35307495852834,
+                "contrast": 7.226792713313553,
+                "edge_density": 21.69822973545756,
+                "saturation": 2.6422892878906996
+              },
+              "file": "candidate_duplicate.png",
+              "max_z_score": 281.35307495852834,
+              "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_duplicate.png"
+            }
+          ],
+          "type": "anomalous_images"
+        }
+      ],
+      "explanation": "One or more candidate images are statistical outliers relative to the reference feature distribution.",
+      "finding_id": "C3-2f1f58dbbd35",
+      "limitations": [
+        "Statistical outliers may be legitimate observations.",
+        "Outlier detection does not establish malicious intent."
+      ],
+      "recommended_action": "Inspect the listed images for acquisition, format, sensor, illumination, or processing differences.",
+      "severity": "medium",
+      "source_engine": "C2",
+      "title": "Statistical image outliers detected"
+    }
+  ],
+  "status": "completed"
+}

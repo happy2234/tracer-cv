@@ -1,0 +1,62 @@
+{
+  "entries": [
+    {
+      "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset",
+      "entry_hash": "6057fca271a776acd7a33012d811fa5a5741e587b5464d7a24a1426ab2467548",
+      "event_id": "206a6fb123ffb416851e33ae80a52779",
+      "event_type": "dataset.integrity.completed",
+      "payload_digest": "c8e3335984d5d6d0888dd53237b0ed9240db2ec9b186a38f1fdb66ec41ed407c",
+      "previous_entry_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "sequence": 1,
+      "source_engine": "dataset",
+      "timestamp": "2026-09-29T12:01:00+00:00"
+    },
+    {
+      "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/model/demo_model.pt",
+      "entry_hash": "e5b2f2398228ea3457bba73dfaa41b9b1ac31ccb5aada57bf2d25dbf38576e62",
+      "event_id": "f6d6a7d938044137e7332f81f59707a7",
+      "event_type": "model.assurance.completed",
+      "payload_digest": "c8e3335984d5d6d0888dd53237b0ed9240db2ec9b186a38f1fdb66ec41ed407c",
+      "previous_entry_hash": "6057fca271a776acd7a33012d811fa5a5741e587b5464d7a24a1426ab2467548",
+      "sequence": 2,
+      "source_engine": "model",
+      "timestamp": "2026-09-29T12:02:00+00:00"
+    },
+    {
+      "affected_asset": "inference-demo-001",
+      "entry_hash": "a331e8cd097898b115731f171a77032e321dd86f6a0aa69e11e0b44309da8180",
+      "event_id": "027c28f330592598fb87180c2ce76cf6",
+      "event_type": "inference.provenance.completed",
+      "payload_digest": "c8e3335984d5d6d0888dd53237b0ed9240db2ec9b186a38f1fdb66ec41ed407c",
+      "previous_entry_hash": "e5b2f2398228ea3457bba73dfaa41b9b1ac31ccb5aada57bf2d25dbf38576e62",
+      "sequence": 3,
+      "source_engine": "provenance",
+      "timestamp": "2026-09-29T12:03:00+00:00"
+    },
+    {
+      "affected_asset": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate",
+      "entry_hash": "b195cea97f3d336488221b7f7a81805c81a2603c9b8a8b943df64d848a85bee5",
+      "event_id": "9f2ba159dcc04e66817a28a384737a6e",
+      "event_type": "distribution.shift.completed",
+      "payload_digest": "c8e3335984d5d6d0888dd53237b0ed9240db2ec9b186a38f1fdb66ec41ed407c",
+      "previous_entry_hash": "a331e8cd097898b115731f171a77032e321dd86f6a0aa69e11e0b44309da8180",
+      "sequence": 4,
+      "source_engine": "shift",
+      "timestamp": "2026-09-29T12:04:00+00:00"
+    },
+    {
+      "affected_asset": "TRACER-CV",
+      "entry_hash": "6347157db847f3808a6add021c9b9475ec870f9c55087dd51befb0053b3f3277",
+      "event_id": "19747e2155cd362a7820b01f89cd7f9c",
+      "event_type": "assurance.findings.completed",
+      "payload_digest": "c8e3335984d5d6d0888dd53237b0ed9240db2ec9b186a38f1fdb66ec41ed407c",
+      "previous_entry_hash": "b195cea97f3d336488221b7f7a81805c81a2603c9b8a8b943df64d848a85bee5",
+      "sequence": 5,
+      "source_engine": "risk",
+      "timestamp": "2026-09-29T12:05:00+00:00"
+    }
+  ],
+  "entry_count": 5,
+  "status": "completed",
+  "valid": true
+}

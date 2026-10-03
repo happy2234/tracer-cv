@@ -1,0 +1,18 @@
+{
+  "records": [
+    {
+      "input_digest": "0a77cd13197bb41d812948523a83e16c6769d3bc8f50797eec8f54de97ee549a",
+      "model_id": "sha256:f00ace700c3610b5bfbd1a2ac819a472497af7e8c4117fb04a3e4420265ffa43",
+      "nonce": "tracer-demo-nonce-001",
+      "output_digest": "c169670bcc7c579554e9f44daccf6ea2e078ca2686332f6a82aa07a2850d0d82",
+      "preprocessing_digest": "9cf5849b99e7efadac1dd9bddc5c29b3713b01c1008bb36814d40554ba9cfeeb",
+      "previous_record_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "record_hash": "183d7f55095dfa30e9e7460ca97ecb6593459b63e3909feab8246a40afaa5d4e",
+      "sequence": 1,
+      "signature": null,
+      "timestamp": "2026-09-29T12:00:00+00:00"
+    }
+  ],
+  "status": "completed",
+  "valid": true
+}

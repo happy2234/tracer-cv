@@ -1,0 +1,43 @@
+{
+  "candidate_trigger_count": 0,
+  "class_conditional_evidence": [],
+  "disclaimer": "This engine detects trigger-like or suspicious repeated visual evidence. It does NOT prove malicious poisoning, backdoor implantation, attacker identity, attacker intent, or any causal effect on model predictions; those require additional model-level analysis.",
+  "findings": [],
+  "image_count": 21,
+  "images_assessed": 21,
+  "images_with_localized_anomaly": 0,
+  "labels_supplied": false,
+  "limitations": [
+    "Cannot distinguish a trigger from legitimate repeated visual structure (watermarks, logos, borders, timestamps, sensor artefacts, repeated textures); such content can produce the same evidence.",
+    "Only compact, high-frequency localized patches are detected. Blended, low-contrast, very small, very large, semantic or frequency-domain triggers may be missed.",
+    "Repeat matching uses a 64-bit hash at reduced resolution; it is not robust to large shifts, rotation, scaling, inverted polarity or heavy recompression.",
+    "Images are converted to grayscale and resized to 128x128 before analysis; colour-only triggers and fine detail are not visible to this engine.",
+    "Class association is statistical association only and does not establish a backdoor.",
+    "Thresholds are heuristic defaults and have not been calibrated on real datasets; JPEG block artefacts may occasionally resemble patches.",
+    "No labels were supplied, so class-conditional analysis (A8.4) was not performed."
+  ],
+  "method": "deterministic_local_patch_forensics_v1",
+  "parameters": {
+    "class_max_p": 0.01,
+    "class_min_share": 0.8,
+    "hamming_tolerance": 6,
+    "max_flagged_fraction": 0.15,
+    "max_region_area_fraction": 0.25,
+    "max_regions_per_image": 3,
+    "min_abs_hf": 20.0,
+    "min_pattern_images": 3,
+    "min_ratio": 3.0,
+    "spatial_min_fraction": 0.75,
+    "spatial_tolerance": 0.08,
+    "stride": 8,
+    "window": 16,
+    "work_size": 128,
+    "z_threshold": 6.0
+  },
+  "pattern_evidence": [],
+  "repeated_pattern_count": 0,
+  "skipped_files": [],
+  "spatial_concentration": [],
+  "status": "completed",
+  "suppressed_high_texture_images": 0
+}

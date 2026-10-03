@@ -1,0 +1,42 @@
+{
+  "adapter_warnings": [
+    "torch.jit.load deserializes model content; load only trusted models"
+  ],
+  "limitations": [
+    "Provenance binds the selected source image bytes and this local inference output; it does not establish that the model is safe or benign."
+  ],
+  "model_id": "sha256:f00ace700c3610b5bfbd1a2ac819a472497af7e8c4117fb04a3e4420265ffa43",
+  "record_count": 2,
+  "records": [
+    {
+      "input_digest": "da8a9e8f0072deeb1c0285337855ff16e1abb0d326f1610b6fcffbcb116da845",
+      "model_id": "sha256:f00ace700c3610b5bfbd1a2ac819a472497af7e8c4117fb04a3e4420265ffa43",
+      "nonce": "a73d2d17815be09e52f474db94efe8f0",
+      "output_digest": "5776ff1ceb1c059bddfa36d7d46752d716117221583c453fc304d6d3709c04d8",
+      "preprocessing_digest": "6a0bc450b8d652ed47996521552c4e2320ebaf5b88eac64f9b21786b9376604b",
+      "previous_record_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "record_hash": "d4dade0fd4f65117f72d62a5e84805477fd43417f697cb78700f7dbe611db4fe",
+      "sequence": 1,
+      "signature": null,
+      "timestamp": "2026-10-03T04:43:17.164291+00:00"
+    },
+    {
+      "input_digest": "9bca7a9c4fc7ad05cb78fc0cf541dc43e4e440b9c9303ec0047de5cb38d080c2",
+      "model_id": "sha256:f00ace700c3610b5bfbd1a2ac819a472497af7e8c4117fb04a3e4420265ffa43",
+      "nonce": "55c7b6ec0d75eb87873e8ebfb22e0410",
+      "output_digest": "5cc25f204ccf3f058f5023b3c5cc72be5d3824da169184c4987cc83f0ce671f5",
+      "preprocessing_digest": "6a0bc450b8d652ed47996521552c4e2320ebaf5b88eac64f9b21786b9376604b",
+      "previous_record_hash": "d4dade0fd4f65117f72d62a5e84805477fd43417f697cb78700f7dbe611db4fe",
+      "record_hash": "ce65776d7cc7c89a2418c564b47b4fd091894705557c60bc2a38aab22a630684",
+      "sequence": 2,
+      "signature": null,
+      "timestamp": "2026-10-03T04:43:17.167465+00:00"
+    }
+  ],
+  "status": "completed",
+  "verification": {
+    "findings": [],
+    "record_count": 2,
+    "valid": true
+  }
+}

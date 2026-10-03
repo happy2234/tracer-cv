@@ -1,0 +1,17 @@
+{
+  "images_discovered": 21,
+  "images_hashed": 21,
+  "method": "dHash",
+  "near_duplicate_pair_count": 1,
+  "pairs": [
+    {
+      "file_a": "candidate_000.png",
+      "file_b": "candidate_duplicate.png",
+      "hamming_distance": 0,
+      "threshold": 8
+    }
+  ],
+  "skipped_files": [],
+  "status": "completed",
+  "threshold": 8
+}

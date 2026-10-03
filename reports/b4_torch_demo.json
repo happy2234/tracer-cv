@@ -1,0 +1,1288 @@
+{
+  "status": "completed",
+  "engine": {
+    "name": "B4",
+    "version": "b4-1.0",
+    "method": "deterministic localized trigger search",
+    "task": "image_classification"
+  },
+  "model": {
+    "model_id": "sha256:28b910a641f6718686109c08ad709f1c31ddd759277e16eb7a9839e75c03ef2d",
+    "model_id_source": "caller_supplied_B1_identity"
+  },
+  "search": {
+    "configuration": {
+      "patch_sizes": [
+        8
+      ],
+      "grid_fractions": [
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "patterns": [
+        "white",
+        "black"
+      ],
+      "min_prediction_change_rate": 0.6,
+      "min_confidence_gain": 0.05,
+      "min_probability_l1_change": 1.0,
+      "min_samples": 3,
+      "max_images": 6,
+      "seed": 1337
+    },
+    "candidate_count": 32,
+    "images_requested": 6,
+    "images_assessed": 6,
+    "target_class_requested": null,
+    "target_class_resolved": 1
+  },
+  "clean_baseline": {
+    "sample_count": 6,
+    "class_distribution": {
+      "0": 6
+    },
+    "mean_confidence": 0.9999999173244535,
+    "min_confidence": 0.9999998856108789,
+    "max_confidence": 0.9999999352741038
+  },
+  "candidate_evidence": [
+    {
+      "candidate_id": "3284494e5004b78b",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 1.0,
+        "y_fraction": 1.0,
+        "pattern": "white"
+      },
+      "sample_count": 6,
+      "class_change_count": 6,
+      "class_change_rate": 1.0,
+      "target_class": 1,
+      "target_hit_count": 6,
+      "target_hit_rate": 1.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999998874647308,
+      "mean_confidence_gain": -2.9859722786943856e-08,
+      "max_confidence_gain": 1.853851738786716e-09,
+      "mean_probability_l1_change": 1.999999609578368,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "candidate_trigger_like": true
+    }
+  ],
+  "candidate_trigger_count": 1,
+  "all_candidates": [
+    {
+      "candidate_id": "c4b46cb25819b833",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 0.25,
+        "y_fraction": 0.25,
+        "pattern": "white"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999999173244535,
+      "mean_confidence_gain": 0.0,
+      "max_confidence_gain": 0.0,
+      "mean_probability_l1_change": 0.0,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "8eeb5478b1aa873c",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 0.25,
+        "y_fraction": 0.25,
+        "pattern": "black"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999999173244535,
+      "mean_confidence_gain": 0.0,
+      "max_confidence_gain": 0.0,
+      "mean_probability_l1_change": 0.0,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "a81a4ecfbd5471a0",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 0.5,
+        "y_fraction": 0.25,
+        "pattern": "white"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999999173244535,
+      "mean_confidence_gain": 0.0,
+      "max_confidence_gain": 0.0,
+      "mean_probability_l1_change": 0.0,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "f99f779a8f009d6f",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 0.5,
+        "y_fraction": 0.25,
+        "pattern": "black"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999999173244535,
+      "mean_confidence_gain": 0.0,
+      "max_confidence_gain": 0.0,
+      "mean_probability_l1_change": 0.0,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "c8dc3982799c8a06",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 0.75,
+        "y_fraction": 0.25,
+        "pattern": "white"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999999173244535,
+      "mean_confidence_gain": 0.0,
+      "max_confidence_gain": 0.0,
+      "mean_probability_l1_change": 0.0,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "0356cfb80da2c66f",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 0.75,
+        "y_fraction": 0.25,
+        "pattern": "black"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999999173244535,
+      "mean_confidence_gain": 0.0,
+      "max_confidence_gain": 0.0,
+      "mean_probability_l1_change": 0.0,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "70a0894036a414df",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 1.0,
+        "y_fraction": 0.25,
+        "pattern": "white"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999999173244535,
+      "mean_confidence_gain": 0.0,
+      "max_confidence_gain": 0.0,
+      "mean_probability_l1_change": 0.0,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "ad4078c3d600ef95",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 1.0,
+        "y_fraction": 0.25,
+        "pattern": "black"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999999173244535,
+      "mean_confidence_gain": 0.0,
+      "max_confidence_gain": 0.0,
+      "mean_probability_l1_change": 0.0,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "4abe66ac49e2cc19",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 0.25,
+        "y_fraction": 0.5,
+        "pattern": "white"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999999173244535,
+      "mean_confidence_gain": 0.0,
+      "max_confidence_gain": 0.0,
+      "mean_probability_l1_change": 0.0,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "de8745db53d575cb",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 0.25,
+        "y_fraction": 0.5,
+        "pattern": "black"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999999173244535,
+      "mean_confidence_gain": 0.0,
+      "max_confidence_gain": 0.0,
+      "mean_probability_l1_change": 0.0,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "d06c43b411e9ef7f",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 0.5,
+        "y_fraction": 0.5,
+        "pattern": "white"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999999173244535,
+      "mean_confidence_gain": 0.0,
+      "max_confidence_gain": 0.0,
+      "mean_probability_l1_change": 0.0,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "44164b584053853a",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 0.5,
+        "y_fraction": 0.5,
+        "pattern": "black"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999999173244535,
+      "mean_confidence_gain": 0.0,
+      "max_confidence_gain": 0.0,
+      "mean_probability_l1_change": 0.0,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "3177a39cb82ef0a1",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 0.75,
+        "y_fraction": 0.5,
+        "pattern": "white"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999999173244535,
+      "mean_confidence_gain": 0.0,
+      "max_confidence_gain": 0.0,
+      "mean_probability_l1_change": 0.0,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "68e0aae1dd2be192",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 0.75,
+        "y_fraction": 0.5,
+        "pattern": "black"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999999173244535,
+      "mean_confidence_gain": 0.0,
+      "max_confidence_gain": 0.0,
+      "mean_probability_l1_change": 0.0,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "4d5a2387c17c16c4",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 1.0,
+        "y_fraction": 0.5,
+        "pattern": "white"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999999173244535,
+      "mean_confidence_gain": 0.0,
+      "max_confidence_gain": 0.0,
+      "mean_probability_l1_change": 0.0,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "606edcae6203309b",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 1.0,
+        "y_fraction": 0.5,
+        "pattern": "black"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999999173244535,
+      "mean_confidence_gain": 0.0,
+      "max_confidence_gain": 0.0,
+      "mean_probability_l1_change": 0.0,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "d79cd0aad0f83a4f",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 0.25,
+        "y_fraction": 0.75,
+        "pattern": "white"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999999173244535,
+      "mean_confidence_gain": 0.0,
+      "max_confidence_gain": 0.0,
+      "mean_probability_l1_change": 0.0,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "155f9111c260b0d3",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 0.25,
+        "y_fraction": 0.75,
+        "pattern": "black"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999999173244535,
+      "mean_confidence_gain": 0.0,
+      "max_confidence_gain": 0.0,
+      "mean_probability_l1_change": 0.0,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "6d10101114e3f367",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 0.5,
+        "y_fraction": 0.75,
+        "pattern": "white"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999999173244535,
+      "mean_confidence_gain": 0.0,
+      "max_confidence_gain": 0.0,
+      "mean_probability_l1_change": 0.0,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "cb74db5166a065a2",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 0.5,
+        "y_fraction": 0.75,
+        "pattern": "black"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999999173244535,
+      "mean_confidence_gain": 0.0,
+      "max_confidence_gain": 0.0,
+      "mean_probability_l1_change": 0.0,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "21322eac0c2cd023",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 0.75,
+        "y_fraction": 0.75,
+        "pattern": "white"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999993999235585,
+      "mean_confidence_gain": -5.174008950725728e-07,
+      "max_confidence_gain": -4.206223218616856e-07,
+      "mean_probability_l1_change": 1.0348017901718615e-06,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "b20d67c16efe7cf2",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 0.75,
+        "y_fraction": 0.75,
+        "pattern": "black"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999999507426832,
+      "mean_confidence_gain": 3.341822972050915e-08,
+      "max_confidence_gain": 4.9979727356763703e-08,
+      "mean_probability_l1_change": 6.68364594287538e-08,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "8d1f6bdfc173fb9b",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 1.0,
+        "y_fraction": 0.75,
+        "pattern": "white"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9997437106615505,
+      "mean_confidence_gain": -0.00025620666290304683,
+      "max_confidence_gain": -0.00020926217173611317,
+      "mean_probability_l1_change": 0.0005124133258060821,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "2395b81bf3f653b9",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 1.0,
+        "y_fraction": 0.75,
+        "pattern": "black"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999999883614571,
+      "mean_confidence_gain": 7.103700366828392e-08,
+      "max_confidence_gain": 1.0073846179459167e-07,
+      "mean_probability_l1_change": 1.4207400736495183e-07,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "34d4c65da72fd59c",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 0.25,
+        "y_fraction": 1.0,
+        "pattern": "white"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999999173244535,
+      "mean_confidence_gain": 0.0,
+      "max_confidence_gain": 0.0,
+      "mean_probability_l1_change": 0.0,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "c6a5efdfb4592c21",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 0.25,
+        "y_fraction": 1.0,
+        "pattern": "black"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999999173244535,
+      "mean_confidence_gain": 0.0,
+      "max_confidence_gain": 0.0,
+      "mean_probability_l1_change": 0.0,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "72450320fbc78e14",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 0.5,
+        "y_fraction": 1.0,
+        "pattern": "white"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999999173244535,
+      "mean_confidence_gain": 0.0,
+      "max_confidence_gain": 0.0,
+      "mean_probability_l1_change": 0.0,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "61021e239bda92ef",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 0.5,
+        "y_fraction": 1.0,
+        "pattern": "black"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999999173244535,
+      "mean_confidence_gain": 0.0,
+      "max_confidence_gain": 0.0,
+      "mean_probability_l1_change": 0.0,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "b778729e20ba0694",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 0.75,
+        "y_fraction": 1.0,
+        "pattern": "white"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.999751138687302,
+      "mean_confidence_gain": -0.00024877863715141074,
+      "max_confidence_gain": -0.00021097884107446063,
+      "mean_probability_l1_change": 0.0004975572743028361,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "c1a7a93a35fa1de1",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 0.75,
+        "y_fraction": 1.0,
+        "pattern": "black"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999999886988244,
+      "mean_confidence_gain": 7.137437091353505e-08,
+      "max_confidence_gain": 9.981643667167361e-08,
+      "mean_probability_l1_change": 1.4274874181460685e-07,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    },
+    {
+      "candidate_id": "3284494e5004b78b",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 1.0,
+        "y_fraction": 1.0,
+        "pattern": "white"
+      },
+      "sample_count": 6,
+      "class_change_count": 6,
+      "class_change_rate": 1.0,
+      "target_class": 1,
+      "target_hit_count": 6,
+      "target_hit_rate": 1.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999998874647308,
+      "mean_confidence_gain": -2.9859722786943856e-08,
+      "max_confidence_gain": 1.853851738786716e-09,
+      "mean_probability_l1_change": 1.999999609578368,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "candidate_trigger_like": true
+    },
+    {
+      "candidate_id": "ad2675e1cff33d50",
+      "candidate": {
+        "patch_size": 8,
+        "x_fraction": 1.0,
+        "y_fraction": 1.0,
+        "pattern": "black"
+      },
+      "sample_count": 6,
+      "class_change_count": 0,
+      "class_change_rate": 0.0,
+      "target_class": 1,
+      "target_hit_count": 0,
+      "target_hit_rate": 0.0,
+      "mean_clean_confidence": 0.9999999173244535,
+      "mean_patched_confidence": 0.9999999999622488,
+      "mean_confidence_gain": 8.263779518088062e-08,
+      "max_confidence_gain": 1.143513697066112e-07,
+      "mean_probability_l1_change": 1.6527559037163983e-07,
+      "clean_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "patched_classes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_trigger_like": false
+    }
+  ],
+  "assessment": {
+    "status": "candidate_trigger_like_behavior",
+    "interpretation": "One or more localized perturbations produced repeated prediction changes meeting the configured evidence thresholds. This requires analyst review and does not prove a backdoor."
+  },
+  "limitations": [
+    "B4 identifies trigger-like behavioural changes for analyst review; it does not prove a backdoor or malicious modification.",
+    "Prediction changes may result from ordinary model sensitivity, distribution shift, preprocessing effects, or meaningful image features.",
+    "The search covers only the configured patch sizes, positions and patterns.",
+    "Results depend on the supplied input images and model preprocessing.",
+    "B4 currently targets image classification and does not assess detection or segmentation models.",
+    "Black-box models can be assessed only through their prediction interface; parameter and activation evidence requires separate white-box engines."
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "B1_identity": {
+    "absolute_path": "/home/gauravkumar/tracer-cv/demos/assets/model/demo_model.pt",
+    "bytes_hashed": 33018,
+    "content_signature": {
+      "basis": "leading bytes only; heuristic; model internals not parsed",
+      "description": "ZIP local-file header (used by PyTorch >= 1.6 checkpoints and TorchScript archives, among others; archive is not opened)",
+      "detected": "zip_container"
+    },
+    "error": null,
+    "extension": ".pt",
+    "file_name": "demo_model.pt",
+    "file_size_bytes": 33018,
+    "format": "PyTorch checkpoint",
+    "format_basis": "format inferred from filename extension",
+    "format_confidence": "extension_inferred",
+    "hash_algorithm": "SHA-256",
+    "limitations": [
+      "Format is inferred from the filename extension only; it is not a confirmed internal format.",
+      "The content signature is a heuristic check of the first bytes; model internals are never parsed or validated. ONNX, TensorFlow protobuf and TensorRT engine files have no reliable universal magic header.",
+      "The SHA-256 digest proves byte identity only; it says nothing about model safety, correctness or provenance, and a verification result is only as trustworthy as the source of the expected digest.",
+      "Pickle-based formats (.pkl, .joblib, and often .pt/.pth/.ckpt/.bin) can execute code when loaded; B1 never loads models and does not assess them for malicious content.",
+      "Functionally equivalent models with different bytes (re-exports, re-serialisation) have different identities; sharded or multi-file models must be fingerprinted file by file.",
+      "file_name, path and absolute_path are observation metadata and are not part of the model identity."
+    ],
+    "method": "SHA-256 streaming model fingerprint",
+    "model_id": "sha256:f00ace700c3610b5bfbd1a2ac819a472497af7e8c4117fb04a3e4420265ffa43",
+    "path": "/home/gauravkumar/tracer-cv/demos/assets/model/demo_model.pt",
+    "sha256": "f00ace700c3610b5bfbd1a2ac819a472497af7e8c4117fb04a3e4420265ffa43",
+    "status": "completed",
+    "verification": {
+      "expected_sha256": null,
+      "match": null,
+      "requested": false
+    }
+  },
+  "B2_behavioral_fingerprint": {
+    "reason": "Disabled in assessment configuration.",
+    "status": "not_assessed"
+  },
+  "B3_model_statistics": {
+    "reason": "Disabled in assessment configuration.",
+    "status": "not_assessed"
+  },
+  "B4_trigger_search": {
+    "reason": "Disabled in assessment configuration.",
+    "status": "not_assessed"
+  }
+}

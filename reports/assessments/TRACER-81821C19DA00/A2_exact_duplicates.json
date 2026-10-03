@@ -1,0 +1,47 @@
+{
+  "duplicate_file_count": 22,
+  "duplicate_group_count": 3,
+  "groups": [
+    {
+      "count": 11,
+      "files": [
+        "labels/candidate_000.txt",
+        "labels/candidate_001.txt",
+        "labels/candidate_002.txt",
+        "labels/candidate_004.txt",
+        "labels/candidate_006.txt",
+        "labels/candidate_008.txt",
+        "labels/candidate_010.txt",
+        "labels/candidate_012.txt",
+        "labels/candidate_014.txt",
+        "labels/candidate_016.txt",
+        "labels/candidate_018.txt"
+      ],
+      "sha256": "38f7b04d63fe2b8a657dd72b12f748935856bc34293059aa96f7f45dcdda1c86"
+    },
+    {
+      "count": 9,
+      "files": [
+        "labels/candidate_003.txt",
+        "labels/candidate_005.txt",
+        "labels/candidate_007.txt",
+        "labels/candidate_009.txt",
+        "labels/candidate_011.txt",
+        "labels/candidate_013.txt",
+        "labels/candidate_015.txt",
+        "labels/candidate_017.txt",
+        "labels/candidate_019.txt"
+      ],
+      "sha256": "9e3346476c8a5fa2c0e21d2e29b53f03dd50dfc1d9af6d2b7d43cca197268be8"
+    },
+    {
+      "count": 2,
+      "files": [
+        "candidate/candidate_000.png",
+        "candidate/candidate_duplicate.png"
+      ],
+      "sha256": "da8a9e8f0072deeb1c0285337855ff16e1abb0d326f1610b6fcffbcb116da845"
+    }
+  ],
+  "status": "completed"
+}

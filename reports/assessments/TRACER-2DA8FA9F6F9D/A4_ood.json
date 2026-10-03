@@ -1,0 +1,165 @@
+{
+  "candidate_image_count": 21,
+  "feature_dimension": 33,
+  "limitations": [
+    "Appearance-space detector only.",
+    "Does not establish semantic OOD.",
+    "Does not establish malicious intent.",
+    "Reference quality affects detection quality."
+  ],
+  "method": "appearance-space nearest-reference cosine distance",
+  "potential_ood_count": 21,
+  "reference_image_count": 20,
+  "results": [
+    {
+      "distance": 0.9778233915567398,
+      "file": "candidate_000.png",
+      "nearest_reference_index": 10,
+      "potential_ood": true,
+      "threshold": 4.220008850097656e-05
+    },
+    {
+      "distance": 0.975323099642992,
+      "file": "candidate_001.png",
+      "nearest_reference_index": 10,
+      "potential_ood": true,
+      "threshold": 4.220008850097656e-05
+    },
+    {
+      "distance": 0.9778471048921347,
+      "file": "candidate_002.png",
+      "nearest_reference_index": 10,
+      "potential_ood": true,
+      "threshold": 4.220008850097656e-05
+    },
+    {
+      "distance": 0.975567776709795,
+      "file": "candidate_003.png",
+      "nearest_reference_index": 10,
+      "potential_ood": true,
+      "threshold": 4.220008850097656e-05
+    },
+    {
+      "distance": 0.9778380282223225,
+      "file": "candidate_004.png",
+      "nearest_reference_index": 10,
+      "potential_ood": true,
+      "threshold": 4.220008850097656e-05
+    },
+    {
+      "distance": 0.9753987286239862,
+      "file": "candidate_005.png",
+      "nearest_reference_index": 10,
+      "potential_ood": true,
+      "threshold": 4.220008850097656e-05
+    },
+    {
+      "distance": 0.9777960013598204,
+      "file": "candidate_006.png",
+      "nearest_reference_index": 10,
+      "potential_ood": true,
+      "threshold": 4.220008850097656e-05
+    },
+    {
+      "distance": 0.9753470085561275,
+      "file": "candidate_007.png",
+      "nearest_reference_index": 10,
+      "potential_ood": true,
+      "threshold": 4.220008850097656e-05
+    },
+    {
+      "distance": 0.9778110515326262,
+      "file": "candidate_008.png",
+      "nearest_reference_index": 10,
+      "potential_ood": true,
+      "threshold": 4.220008850097656e-05
+    },
+    {
+      "distance": 0.9755055699497461,
+      "file": "candidate_009.png",
+      "nearest_reference_index": 10,
+      "potential_ood": true,
+      "threshold": 4.220008850097656e-05
+    },
+    {
+      "distance": 0.9777768570929766,
+      "file": "candidate_010.png",
+      "nearest_reference_index": 10,
+      "potential_ood": true,
+      "threshold": 4.220008850097656e-05
+    },
+    {
+      "distance": 0.9754692949354649,
+      "file": "candidate_011.png",
+      "nearest_reference_index": 10,
+      "potential_ood": true,
+      "threshold": 4.220008850097656e-05
+    },
+    {
+      "distance": 0.9777803514152765,
+      "file": "candidate_012.png",
+      "nearest_reference_index": 10,
+      "potential_ood": true,
+      "threshold": 4.220008850097656e-05
+    },
+    {
+      "distance": 0.9754545036703348,
+      "file": "candidate_013.png",
+      "nearest_reference_index": 10,
+      "potential_ood": true,
+      "threshold": 4.220008850097656e-05
+    },
+    {
+      "distance": 0.9778830613940954,
+      "file": "candidate_014.png",
+      "nearest_reference_index": 10,
+      "potential_ood": true,
+      "threshold": 4.220008850097656e-05
+    },
+    {
+      "distance": 0.9755029920488596,
+      "file": "candidate_015.png",
+      "nearest_reference_index": 10,
+      "potential_ood": true,
+      "threshold": 4.220008850097656e-05
+    },
+    {
+      "distance": 0.9777185134589672,
+      "file": "candidate_016.png",
+      "nearest_reference_index": 10,
+      "potential_ood": true,
+      "threshold": 4.220008850097656e-05
+    },
+    {
+      "distance": 0.9753572046756744,
+      "file": "candidate_017.png",
+      "nearest_reference_index": 10,
+      "potential_ood": true,
+      "threshold": 4.220008850097656e-05
+    },
+    {
+      "distance": 0.977845024317503,
+      "file": "candidate_018.png",
+      "nearest_reference_index": 10,
+      "potential_ood": true,
+      "threshold": 4.220008850097656e-05
+    },
+    {
+      "distance": 0.9755276180803776,
+      "file": "candidate_019.png",
+      "nearest_reference_index": 10,
+      "potential_ood": true,
+      "threshold": 4.220008850097656e-05
+    },
+    {
+      "distance": 0.9778233915567398,
+      "file": "candidate_duplicate.png",
+      "nearest_reference_index": 10,
+      "potential_ood": true,
+      "threshold": 4.220008850097656e-05
+    }
+  ],
+  "skipped_files": [],
+  "status": "completed",
+  "threshold": 4.220008850097656e-05
+}

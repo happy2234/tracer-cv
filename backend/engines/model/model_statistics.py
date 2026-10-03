@@ -1038,7 +1038,7 @@ def analyze_torch_model(
     )
 
 
-def load_torchscript_model(path: Any, *, trusted: bool = False) -> Any:
+def load_torchscript_model(path: Any, *, trusted: bool = False, device: str = "cpu") -> Any:
     """Explicit, opt-in TorchScript loader.
 
     WARNING: TorchScript deserialization must only be performed on trusted
@@ -1055,7 +1055,11 @@ def load_torchscript_model(path: Any, *, trusted: bool = False) -> Any:
     torch = _import_torch()
     if torch is None:
         raise RuntimeError("PyTorch is not available")
-    return torch.jit.load(str(path), map_location="cpu")
+    if device not in {"cpu", "cuda"}:
+        raise ValueError("device must be cpu or cuda")
+    if device == "cuda" and not torch.cuda.is_available():
+        raise RuntimeError("CUDA was requested but is unavailable")
+    return torch.jit.load(str(path), map_location=device)
 
 
 def analyze_model(

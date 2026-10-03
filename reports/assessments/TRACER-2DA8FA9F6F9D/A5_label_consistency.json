@@ -1,0 +1,24 @@
+{
+  "conflicting_pair_count": 0,
+  "conflicting_pairs": [],
+  "empty_label_count": 0,
+  "empty_labels": [],
+  "finding_count": 1,
+  "images_discovered": 21,
+  "labels_directory": "/home/gauravkumar/tracer-cv/demos/assets/dataset/labels",
+  "limitations": [
+    "YOLO annotation format is assessed.",
+    "Near-duplicate similarity does not prove that a label is incorrect.",
+    "A conflict is reported as a potential label inconsistency requiring review.",
+    "Semantic correctness of an annotation is not established automatically."
+  ],
+  "malformed_label_count": 0,
+  "malformed_labels": [],
+  "method": "YOLO annotation validation + near-duplicate label conflict analysis",
+  "missing_label_count": 1,
+  "missing_labels": [
+    "candidate_duplicate.png"
+  ],
+  "near_duplicate_pair_count": 1,
+  "status": "completed"
+}

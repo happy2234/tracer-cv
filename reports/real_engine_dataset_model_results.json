@@ -1,0 +1,570 @@
+{
+  "A1": {
+    "dataset_id": "612ce3d6c8ec956e5b224525f687507c5d392dd74b7b353f529a782c3407f243",
+    "dataset_sha256": "612ce3d6c8ec956e5b224525f687507c5d392dd74b7b353f529a782c3407f243",
+    "file_count": 21,
+    "files": [
+      {
+        "path": "candidate_000.png",
+        "sha256": "da8a9e8f0072deeb1c0285337855ff16e1abb0d326f1610b6fcffbcb116da845",
+        "size_bytes": 8901
+      },
+      {
+        "path": "candidate_001.png",
+        "sha256": "9bca7a9c4fc7ad05cb78fc0cf541dc43e4e440b9c9303ec0047de5cb38d080c2",
+        "size_bytes": 8872
+      },
+      {
+        "path": "candidate_002.png",
+        "sha256": "9231e10708dd5c3802ebc3a66df27106eaca94f09b61e4b1e6f0176aaacdf52b",
+        "size_bytes": 8889
+      },
+      {
+        "path": "candidate_003.png",
+        "sha256": "45bf83f07b6f8b23afe6794647f823906174a3028de891d415a24dfbdd867dbf",
+        "size_bytes": 8886
+      },
+      {
+        "path": "candidate_004.png",
+        "sha256": "b3d19cf05c4ce47345322c3ab7a237b3cbd1493bb201e284309bde88ebdaa1df",
+        "size_bytes": 8898
+      },
+      {
+        "path": "candidate_005.png",
+        "sha256": "cd17e395f651bfe08068f34b727fbe43e27b8061b034719499c90f6614027af6",
+        "size_bytes": 8899
+      },
+      {
+        "path": "candidate_006.png",
+        "sha256": "acd5c3e397dff2e872532c7fd634f9fd6e1e87a324bedbba67d63be7aa186d83",
+        "size_bytes": 9197
+      },
+      {
+        "path": "candidate_007.png",
+        "sha256": "48a0e340826bec4f77ff27607fdddf66e421be737845500cb41f1c1a76157ba7",
+        "size_bytes": 9179
+      },
+      {
+        "path": "candidate_008.png",
+        "sha256": "b98f6fdc234eefa354eac7a944bae0865063dcb9a841416e8ff7140a1edbda6b",
+        "size_bytes": 9190
+      },
+      {
+        "path": "candidate_009.png",
+        "sha256": "fa665bad01f8afd633268fd89c4a4f4f7eb83e4a9eb3477329731c990c59d8b1",
+        "size_bytes": 9154
+      },
+      {
+        "path": "candidate_010.png",
+        "sha256": "86bf8501a5a354fda5e9adbcd77da8192ab5e349978a479c7a7889397292ffe7",
+        "size_bytes": 9183
+      },
+      {
+        "path": "candidate_011.png",
+        "sha256": "81e05c5bb3af425c6ac3c308a5be641223edab7237b3c67d844c7d154f258926",
+        "size_bytes": 9192
+      },
+      {
+        "path": "candidate_012.png",
+        "sha256": "f3611da715ea13a44db1aa4f372483fb012be4505b4e812a38159eb4ed0dcc96",
+        "size_bytes": 9160
+      },
+      {
+        "path": "candidate_013.png",
+        "sha256": "5c731725ec298c898969889fb9d1d8a4c803a607de6dede65474ba1cdd0c67e7",
+        "size_bytes": 9176
+      },
+      {
+        "path": "candidate_014.png",
+        "sha256": "f7b2ac6830396a263b01eeff2e8d518b6fc081aa2bb885095f81f1aa4a227766",
+        "size_bytes": 9182
+      },
+      {
+        "path": "candidate_015.png",
+        "sha256": "94a29beddee53ae3f8ae719e303ad85bc6b3558c7d8f8afd524aa017fca58766",
+        "size_bytes": 9132
+      },
+      {
+        "path": "candidate_016.png",
+        "sha256": "997a069feb23d6a6a01f62d81e1ef62be00bde910703672958bc145058382fb2",
+        "size_bytes": 9169
+      },
+      {
+        "path": "candidate_017.png",
+        "sha256": "e59fff82c18fb90ac9290f37d00864f56c821ba70e72ee4f82815188ff74e8d6",
+        "size_bytes": 9146
+      },
+      {
+        "path": "candidate_018.png",
+        "sha256": "f3167f788fda99a80d3b79f279fc83e52cfd3b0ca8c710e0746a4b7cfbd584e7",
+        "size_bytes": 9183
+      },
+      {
+        "path": "candidate_019.png",
+        "sha256": "adf08f22bc7b031c27cadad5b8faeb84162b84ac21cfaaac0839f31b075bb1f1",
+        "size_bytes": 9150
+      },
+      {
+        "path": "candidate_duplicate.png",
+        "sha256": "da8a9e8f0072deeb1c0285337855ff16e1abb0d326f1610b6fcffbcb116da845",
+        "size_bytes": 8901
+      }
+    ],
+    "merkle_root": "ecf4fea06e26670f415a3d25920a03de107fec0a28a3b96e27fbe10bc01d8c38"
+  },
+  "A2": {
+    "duplicate_file_count": 2,
+    "duplicate_group_count": 1,
+    "groups": [
+      {
+        "count": 2,
+        "files": [
+          "candidate_000.png",
+          "candidate_duplicate.png"
+        ],
+        "sha256": "da8a9e8f0072deeb1c0285337855ff16e1abb0d326f1610b6fcffbcb116da845"
+      }
+    ],
+    "status": "completed"
+  },
+  "A3": {
+    "images_discovered": 21,
+    "images_hashed": 21,
+    "method": "dHash",
+    "near_duplicate_pair_count": 1,
+    "pairs": [
+      {
+        "file_a": "candidate_000.png",
+        "file_b": "candidate_duplicate.png",
+        "hamming_distance": 0,
+        "threshold": 8
+      }
+    ],
+    "skipped_files": [],
+    "status": "completed",
+    "threshold": 8
+  },
+  "A4": {
+    "candidate_image_count": 21,
+    "feature_dimension": 33,
+    "limitations": [
+      "Appearance-space detector only.",
+      "Does not establish semantic OOD.",
+      "Does not establish malicious intent.",
+      "Reference quality affects detection quality."
+    ],
+    "method": "appearance-space nearest-reference cosine distance",
+    "potential_ood_count": 21,
+    "reference_image_count": 20,
+    "results": [
+      {
+        "distance": 0.9778233915567398,
+        "file": "candidate_000.png",
+        "nearest_reference_index": 10,
+        "potential_ood": true,
+        "threshold": 4.220008850097656e-05
+      },
+      {
+        "distance": 0.975323099642992,
+        "file": "candidate_001.png",
+        "nearest_reference_index": 10,
+        "potential_ood": true,
+        "threshold": 4.220008850097656e-05
+      },
+      {
+        "distance": 0.9778471048921347,
+        "file": "candidate_002.png",
+        "nearest_reference_index": 10,
+        "potential_ood": true,
+        "threshold": 4.220008850097656e-05
+      },
+      {
+        "distance": 0.975567776709795,
+        "file": "candidate_003.png",
+        "nearest_reference_index": 10,
+        "potential_ood": true,
+        "threshold": 4.220008850097656e-05
+      },
+      {
+        "distance": 0.9778380282223225,
+        "file": "candidate_004.png",
+        "nearest_reference_index": 10,
+        "potential_ood": true,
+        "threshold": 4.220008850097656e-05
+      },
+      {
+        "distance": 0.9753987286239862,
+        "file": "candidate_005.png",
+        "nearest_reference_index": 10,
+        "potential_ood": true,
+        "threshold": 4.220008850097656e-05
+      },
+      {
+        "distance": 0.9777960013598204,
+        "file": "candidate_006.png",
+        "nearest_reference_index": 10,
+        "potential_ood": true,
+        "threshold": 4.220008850097656e-05
+      },
+      {
+        "distance": 0.9753470085561275,
+        "file": "candidate_007.png",
+        "nearest_reference_index": 10,
+        "potential_ood": true,
+        "threshold": 4.220008850097656e-05
+      },
+      {
+        "distance": 0.9778110515326262,
+        "file": "candidate_008.png",
+        "nearest_reference_index": 10,
+        "potential_ood": true,
+        "threshold": 4.220008850097656e-05
+      },
+      {
+        "distance": 0.9755055699497461,
+        "file": "candidate_009.png",
+        "nearest_reference_index": 10,
+        "potential_ood": true,
+        "threshold": 4.220008850097656e-05
+      },
+      {
+        "distance": 0.9777768570929766,
+        "file": "candidate_010.png",
+        "nearest_reference_index": 10,
+        "potential_ood": true,
+        "threshold": 4.220008850097656e-05
+      },
+      {
+        "distance": 0.9754692949354649,
+        "file": "candidate_011.png",
+        "nearest_reference_index": 10,
+        "potential_ood": true,
+        "threshold": 4.220008850097656e-05
+      },
+      {
+        "distance": 0.9777803514152765,
+        "file": "candidate_012.png",
+        "nearest_reference_index": 10,
+        "potential_ood": true,
+        "threshold": 4.220008850097656e-05
+      },
+      {
+        "distance": 0.9754545036703348,
+        "file": "candidate_013.png",
+        "nearest_reference_index": 10,
+        "potential_ood": true,
+        "threshold": 4.220008850097656e-05
+      },
+      {
+        "distance": 0.9778830613940954,
+        "file": "candidate_014.png",
+        "nearest_reference_index": 10,
+        "potential_ood": true,
+        "threshold": 4.220008850097656e-05
+      },
+      {
+        "distance": 0.9755029920488596,
+        "file": "candidate_015.png",
+        "nearest_reference_index": 10,
+        "potential_ood": true,
+        "threshold": 4.220008850097656e-05
+      },
+      {
+        "distance": 0.9777185134589672,
+        "file": "candidate_016.png",
+        "nearest_reference_index": 10,
+        "potential_ood": true,
+        "threshold": 4.220008850097656e-05
+      },
+      {
+        "distance": 0.9753572046756744,
+        "file": "candidate_017.png",
+        "nearest_reference_index": 10,
+        "potential_ood": true,
+        "threshold": 4.220008850097656e-05
+      },
+      {
+        "distance": 0.977845024317503,
+        "file": "candidate_018.png",
+        "nearest_reference_index": 10,
+        "potential_ood": true,
+        "threshold": 4.220008850097656e-05
+      },
+      {
+        "distance": 0.9755276180803776,
+        "file": "candidate_019.png",
+        "nearest_reference_index": 10,
+        "potential_ood": true,
+        "threshold": 4.220008850097656e-05
+      },
+      {
+        "distance": 0.9778233915567398,
+        "file": "candidate_duplicate.png",
+        "nearest_reference_index": 10,
+        "potential_ood": true,
+        "threshold": 4.220008850097656e-05
+      }
+    ],
+    "skipped_files": [],
+    "status": "completed",
+    "threshold": 4.220008850097656e-05
+  },
+  "A5": {
+    "conflicting_pair_count": 0,
+    "conflicting_pairs": [],
+    "empty_label_count": 0,
+    "empty_labels": [],
+    "finding_count": 1,
+    "images_discovered": 21,
+    "labels_directory": "/home/gauravkumar/tracer-cv/demos/assets/dataset/labels",
+    "limitations": [
+      "YOLO annotation format is assessed.",
+      "Near-duplicate similarity does not prove that a label is incorrect.",
+      "A conflict is reported as a potential label inconsistency requiring review.",
+      "Semantic correctness of an annotation is not established automatically."
+    ],
+    "malformed_label_count": 0,
+    "malformed_labels": [],
+    "method": "YOLO annotation validation + near-duplicate label conflict analysis",
+    "missing_label_count": 1,
+    "missing_labels": [
+      "candidate_duplicate.png"
+    ],
+    "near_duplicate_pair_count": 1,
+    "status": "completed"
+  },
+  "A6": {
+    "contributor_count": 2,
+    "finding_count": 1,
+    "high_risk_contributors": 0,
+    "limitations": [
+      "Risk scores identify unusual contributor characteristics; they do not establish malicious intent.",
+      "The current engine uses manifest metadata and class distributions rather than image-content embeddings.",
+      "Source identity is assumed to be correctly represented in the manifest."
+    ],
+    "manifest": "/home/gauravkumar/tracer-cv/demos/assets/dataset/contributor_manifest.csv",
+    "medium_risk_contributors": 0,
+    "method": "Contributor-level statistical profiling and anomaly scoring",
+    "profiles": [
+      {
+        "class_count": 2,
+        "class_distribution": {
+          "0": 6,
+          "1": 5
+        },
+        "class_entropy": 0.99403,
+        "conflict_images": 0,
+        "contributor": "contributor_A",
+        "dominant_class_ratio": 0.545455,
+        "duplicate_groups": 1,
+        "duplicate_images": 2,
+        "duplicate_rate": 0.181818,
+        "findings": [
+          "cross_contributor_duplicate_detected"
+        ],
+        "image_count": 11,
+        "images_assessed": 11,
+        "images_hashed": 11,
+        "label_conflict_rate": 0.0,
+        "ood_images": 0,
+        "ood_rate": 0.0,
+        "risk_level": "LOW",
+        "risk_score": 5.0,
+        "timestamp_count": 11
+      },
+      {
+        "class_count": 2,
+        "class_distribution": {
+          "0": 5,
+          "1": 5
+        },
+        "class_entropy": 1.0,
+        "conflict_images": 0,
+        "contributor": "contributor_B",
+        "dominant_class_ratio": 0.5,
+        "duplicate_groups": 0,
+        "duplicate_images": 0,
+        "duplicate_rate": 0.0,
+        "findings": [],
+        "image_count": 10,
+        "images_assessed": 10,
+        "images_hashed": 10,
+        "label_conflict_rate": 0.0,
+        "ood_images": 0,
+        "ood_rate": 0.0,
+        "risk_level": "LOW",
+        "risk_score": 0.0,
+        "timestamp_count": 10
+      }
+    ],
+    "row_count": 21,
+    "status": "completed"
+  },
+  "A7": {
+    "contributor_count": 1,
+    "contributor_evidence": {
+      "unassigned": {
+        "divergent_attributes": [],
+        "images_assessed": 21,
+        "max_divergence": 0.0,
+        "metadata_anomaly_images": 0,
+        "metadata_anomaly_rate": 0.0
+      }
+    },
+    "contributor_findings": [],
+    "contributor_profiles": [
+      {
+        "contributor": "unassigned",
+        "distributions": {
+          "camera": {
+            "none": 1.0
+          },
+          "format": {
+            "PNG": 1.0
+          },
+          "has_exif": {
+            "no": 1.0
+          },
+          "mode": {
+            "RGB": 1.0
+          },
+          "quant_hash": {
+            "none": 1.0
+          },
+          "resolution": {
+            "64x64": 1.0
+          },
+          "software": {
+            "none": 1.0
+          }
+        },
+        "divergence": {},
+        "image_count": 21,
+        "profiled": false
+      }
+    ],
+    "dataset_profile": {
+      "camera": {
+        "none": 1.0
+      },
+      "format": {
+        "PNG": 1.0
+      },
+      "has_exif": {
+        "no": 1.0
+      },
+      "mode": {
+        "RGB": 1.0
+      },
+      "quant_hash": {
+        "none": 1.0
+      },
+      "resolution": {
+        "64x64": 1.0
+      },
+      "software": {
+        "none": 1.0
+      }
+    },
+    "image_count": 21,
+    "image_finding_count": 0,
+    "image_findings": [],
+    "image_findings_by_severity": {},
+    "limitations": [
+      "Metadata is trivially editable or strippable; consistent metadata does not establish authenticity.",
+      "Missing EXIF is common and benign; it is reported as divergence, not tampering.",
+      "Contributor divergence is a statistical heuristic; legitimate sensor or campaign differences can also be flagged.",
+      "Small contributors below min_contributor_images are not profiled.",
+      "Timestamp checks rely on camera clocks, which may be wrong or unset.",
+      "Findings are evidence for analyst review and do not establish malicious intent, poisoning, or confirmed integrity violation."
+    ],
+    "method": "categorical-distribution divergence (total variation) + per-image rule checks",
+    "skipped_files": [],
+    "status": "completed",
+    "thresholds": {
+      "elevated_divergence": 0.5,
+      "high_divergence": 0.8,
+      "min_contributor_images": 3,
+      "rare_resolution_fraction": 0.05,
+      "time_outlier_days": 365.0
+    }
+  },
+  "A8": {
+    "candidate_trigger_count": 0,
+    "class_conditional_evidence": [],
+    "disclaimer": "This engine detects trigger-like or suspicious repeated visual evidence. It does NOT prove malicious poisoning, backdoor implantation, attacker identity, attacker intent, or any causal effect on model predictions; those require additional model-level analysis.",
+    "findings": [],
+    "image_count": 21,
+    "images_assessed": 21,
+    "images_with_localized_anomaly": 0,
+    "labels_supplied": false,
+    "limitations": [
+      "Cannot distinguish a trigger from legitimate repeated visual structure (watermarks, logos, borders, timestamps, sensor artefacts, repeated textures); such content can produce the same evidence.",
+      "Only compact, high-frequency localized patches are detected. Blended, low-contrast, very small, very large, semantic or frequency-domain triggers may be missed.",
+      "Repeat matching uses a 64-bit hash at reduced resolution; it is not robust to large shifts, rotation, scaling, inverted polarity or heavy recompression.",
+      "Images are converted to grayscale and resized to 128x128 before analysis; colour-only triggers and fine detail are not visible to this engine.",
+      "Class association is statistical association only and does not establish a backdoor.",
+      "Thresholds are heuristic defaults and have not been calibrated on real datasets; JPEG block artefacts may occasionally resemble patches.",
+      "No labels were supplied, so class-conditional analysis (A8.4) was not performed."
+    ],
+    "method": "deterministic_local_patch_forensics_v1",
+    "parameters": {
+      "class_max_p": 0.01,
+      "class_min_share": 0.8,
+      "hamming_tolerance": 6,
+      "max_flagged_fraction": 0.15,
+      "max_region_area_fraction": 0.25,
+      "max_regions_per_image": 3,
+      "min_abs_hf": 20.0,
+      "min_pattern_images": 3,
+      "min_ratio": 3.0,
+      "spatial_min_fraction": 0.75,
+      "spatial_tolerance": 0.08,
+      "stride": 8,
+      "window": 16,
+      "work_size": 128,
+      "z_threshold": 6.0
+    },
+    "pattern_evidence": [],
+    "repeated_pattern_count": 0,
+    "skipped_files": [],
+    "spatial_concentration": [],
+    "status": "completed",
+    "suppressed_high_texture_images": 0
+  },
+  "B1": {
+    "absolute_path": "/home/gauravkumar/tracer-cv/demos/assets/model/demo_model.pt",
+    "bytes_hashed": 33018,
+    "content_signature": {
+      "basis": "leading bytes only; heuristic; model internals not parsed",
+      "description": "ZIP local-file header (used by PyTorch >= 1.6 checkpoints and TorchScript archives, among others; archive is not opened)",
+      "detected": "zip_container"
+    },
+    "error": null,
+    "extension": ".pt",
+    "file_name": "demo_model.pt",
+    "file_size_bytes": 33018,
+    "format": "PyTorch checkpoint",
+    "format_basis": "format inferred from filename extension",
+    "format_confidence": "extension_inferred",
+    "hash_algorithm": "SHA-256",
+    "limitations": [
+      "Format is inferred from the filename extension only; it is not a confirmed internal format.",
+      "The content signature is a heuristic check of the first bytes; model internals are never parsed or validated. ONNX, TensorFlow protobuf and TensorRT engine files have no reliable universal magic header.",
+      "The SHA-256 digest proves byte identity only; it says nothing about model safety, correctness or provenance, and a verification result is only as trustworthy as the source of the expected digest.",
+      "Pickle-based formats (.pkl, .joblib, and often .pt/.pth/.ckpt/.bin) can execute code when loaded; B1 never loads models and does not assess them for malicious content.",
+      "Functionally equivalent models with different bytes (re-exports, re-serialisation) have different identities; sharded or multi-file models must be fingerprinted file by file.",
+      "file_name, path and absolute_path are observation metadata and are not part of the model identity."
+    ],
+    "method": "SHA-256 streaming model fingerprint",
+    "model_id": "sha256:f00ace700c3610b5bfbd1a2ac819a472497af7e8c4117fb04a3e4420265ffa43",
+    "path": "/home/gauravkumar/tracer-cv/demos/assets/model/demo_model.pt",
+    "sha256": "f00ace700c3610b5bfbd1a2ac819a472497af7e8c4117fb04a3e4420265ffa43",
+    "status": "completed",
+    "verification": {
+      "expected_sha256": null,
+      "match": null,
+      "requested": false
+    }
+  }
+}

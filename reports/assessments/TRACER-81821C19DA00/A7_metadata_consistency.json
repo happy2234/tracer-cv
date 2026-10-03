@@ -1,0 +1,89 @@
+{
+  "contributor_count": 1,
+  "contributor_evidence": {
+    "unassigned": {
+      "divergent_attributes": [],
+      "images_assessed": 21,
+      "max_divergence": 0.0,
+      "metadata_anomaly_images": 0,
+      "metadata_anomaly_rate": 0.0
+    }
+  },
+  "contributor_findings": [],
+  "contributor_profiles": [
+    {
+      "contributor": "unassigned",
+      "distributions": {
+        "camera": {
+          "none": 1.0
+        },
+        "format": {
+          "PNG": 1.0
+        },
+        "has_exif": {
+          "no": 1.0
+        },
+        "mode": {
+          "RGB": 1.0
+        },
+        "quant_hash": {
+          "none": 1.0
+        },
+        "resolution": {
+          "64x64": 1.0
+        },
+        "software": {
+          "none": 1.0
+        }
+      },
+      "divergence": {},
+      "image_count": 21,
+      "profiled": false
+    }
+  ],
+  "dataset_profile": {
+    "camera": {
+      "none": 1.0
+    },
+    "format": {
+      "PNG": 1.0
+    },
+    "has_exif": {
+      "no": 1.0
+    },
+    "mode": {
+      "RGB": 1.0
+    },
+    "quant_hash": {
+      "none": 1.0
+    },
+    "resolution": {
+      "64x64": 1.0
+    },
+    "software": {
+      "none": 1.0
+    }
+  },
+  "image_count": 21,
+  "image_finding_count": 0,
+  "image_findings": [],
+  "image_findings_by_severity": {},
+  "limitations": [
+    "Metadata is trivially editable or strippable; consistent metadata does not establish authenticity.",
+    "Missing EXIF is common and benign; it is reported as divergence, not tampering.",
+    "Contributor divergence is a statistical heuristic; legitimate sensor or campaign differences can also be flagged.",
+    "Small contributors below min_contributor_images are not profiled.",
+    "Timestamp checks rely on camera clocks, which may be wrong or unset.",
+    "Findings are evidence for analyst review and do not establish malicious intent, poisoning, or confirmed integrity violation."
+  ],
+  "method": "categorical-distribution divergence (total variation) + per-image rule checks",
+  "skipped_files": [],
+  "status": "completed",
+  "thresholds": {
+    "elevated_divergence": 0.5,
+    "high_divergence": 0.8,
+    "min_contributor_images": 3,
+    "rare_resolution_fraction": 0.05,
+    "time_outlier_days": 365.0
+  }
+}

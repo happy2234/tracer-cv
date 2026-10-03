@@ -1,0 +1,67 @@
+{
+  "contributor_count": 2,
+  "finding_count": 1,
+  "high_risk_contributors": 0,
+  "limitations": [
+    "Risk scores identify unusual contributor characteristics; they do not establish malicious intent.",
+    "The current engine uses manifest metadata and class distributions rather than image-content embeddings.",
+    "Source identity is assumed to be correctly represented in the manifest."
+  ],
+  "manifest": "/home/gauravkumar/tracer-cv/demos/assets/dataset/contributor_manifest.csv",
+  "medium_risk_contributors": 0,
+  "method": "Contributor-level statistical profiling and anomaly scoring",
+  "profiles": [
+    {
+      "class_count": 2,
+      "class_distribution": {
+        "0": 6,
+        "1": 5
+      },
+      "class_entropy": 0.99403,
+      "conflict_images": 0,
+      "contributor": "contributor_A",
+      "dominant_class_ratio": 0.545455,
+      "duplicate_groups": 1,
+      "duplicate_images": 2,
+      "duplicate_rate": 0.181818,
+      "findings": [
+        "cross_contributor_duplicate_detected"
+      ],
+      "image_count": 11,
+      "images_assessed": 11,
+      "images_hashed": 11,
+      "label_conflict_rate": 0.0,
+      "ood_images": 0,
+      "ood_rate": 0.0,
+      "risk_level": "LOW",
+      "risk_score": 5.0,
+      "timestamp_count": 11
+    },
+    {
+      "class_count": 2,
+      "class_distribution": {
+        "0": 5,
+        "1": 5
+      },
+      "class_entropy": 1.0,
+      "conflict_images": 0,
+      "contributor": "contributor_B",
+      "dominant_class_ratio": 0.5,
+      "duplicate_groups": 0,
+      "duplicate_images": 0,
+      "duplicate_rate": 0.0,
+      "findings": [],
+      "image_count": 10,
+      "images_assessed": 10,
+      "images_hashed": 10,
+      "label_conflict_rate": 0.0,
+      "ood_images": 0,
+      "ood_rate": 0.0,
+      "risk_level": "LOW",
+      "risk_score": 0.0,
+      "timestamp_count": 10
+    }
+  ],
+  "row_count": 21,
+  "status": "completed"
+}

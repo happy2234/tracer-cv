@@ -1,0 +1,49 @@
+========================================================================
+TRACER-CV ASSURANCE REPORT
+========================================================================
+Assessment ID: TRACER-FULL-DEMO-001
+Report Version: c5-1.0
+
+EXECUTIVE SUMMARY
+------------------------------------------------------------------------
+Findings: 2
+Highest Severity: high
+Provenance Chain: True
+Audit Chain: True
+Distribution Shift: True
+
+FINDINGS
+------------------------------------------------------------------------
+[HIGH] C3-06142070868e
+  Category: distribution_shift
+  Asset: /home/gauravkumar/tracer-cv/demos/assets/dataset/candidate
+  Title: Distribution shift detected
+  Explanation: The candidate image population differs measurably from the configured reference population.
+  Recommended Action: Review affected samples, acquisition conditions, and trusted reference data before relying on the candidate population.
+
+[MEDIUM] C3-2f1f58dbbd35
+  Category: distribution_shift
+  Asset: /home/gauravkumar/tracer-cv/demos/assets/dataset/candidate
+  Title: Statistical image outliers detected
+  Explanation: One or more candidate images are statistical outliers relative to the reference feature distribution.
+  Recommended Action: Inspect the listed images for acquisition, format, sensor, illumination, or processing differences.
+
+RECOMMENDED ACTIONS
+------------------------------------------------------------------------
+- Review high-severity findings and verify the affected dataset, model, or inference artifact against a trusted source.
+- Investigate the broken or invalid inference provenance chain before relying on affected inference records.
+
+LIMITATIONS
+------------------------------------------------------------------------
+- TRACER-CV reports evidence observed by configured checks; it does not prove absence of every possible attack.
+- Distribution shift can have benign operational causes and does not by itself establish malicious manipulation.
+- Behavioral and trigger-like model findings are indicators for analyst review, not proof of a backdoor.
+- Parameter and activation anomalies can arise from legitimate model differences.
+- Appearance-based dataset checks do not establish semantic correctness for every image.
+- White-box model methods depend on access to the model structure and supported execution format.
+- Unsupported attack classes are outside the evidence presented by this assessment.
+
+REPORT DIGEST
+------------------------------------------------------------------------
+93b74c3818299267b7df67121dc75d5df433f11aedca5bd17803d1661b1fd52c
+========================================================================

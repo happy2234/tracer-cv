@@ -1,0 +1,518 @@
+{
+  "anomalous_images": [
+    {
+      "features": {
+        "brightness": 281.35307495852834,
+        "contrast": 7.226792713313553,
+        "edge_density": 21.69822973545756,
+        "saturation": 2.6422892878906996
+      },
+      "file": "candidate_000.png",
+      "max_z_score": 281.35307495852834,
+      "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_000.png"
+    },
+    {
+      "features": {
+        "brightness": 281.9662344729554,
+        "contrast": 6.295079442415668,
+        "edge_density": 17.822309910304057,
+        "saturation": 2.779127979969468
+      },
+      "file": "candidate_001.png",
+      "max_z_score": 281.9662344729554,
+      "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_001.png"
+    },
+    {
+      "features": {
+        "brightness": 281.31266518168377,
+        "contrast": 7.185670279829954,
+        "edge_density": 22.528783983704738,
+        "saturation": 2.6571334135690976
+      },
+      "file": "candidate_002.png",
+      "max_z_score": 281.31266518168377,
+      "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_002.png"
+    },
+    {
+      "features": {
+        "brightness": 282.82543264081613,
+        "contrast": 6.273516939322046,
+        "edge_density": 16.43805282989209,
+        "saturation": 2.746983368904158
+      },
+      "file": "candidate_003.png",
+      "max_z_score": 282.82543264081613,
+      "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_003.png"
+    },
+    {
+      "features": {
+        "brightness": 281.15539072253256,
+        "contrast": 7.113037761840259,
+        "edge_density": 19.20656699071602,
+        "saturation": 2.523864607771091
+      },
+      "file": "candidate_004.png",
+      "max_z_score": 281.15539072253256,
+      "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_004.png"
+    },
+    {
+      "features": {
+        "brightness": 282.5155426166887,
+        "contrast": 6.242230931233009,
+        "edge_density": 20.313972655045593,
+        "saturation": 2.635703672858891
+      },
+      "file": "candidate_005.png",
+      "max_z_score": 282.5155426166887,
+      "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_005.png"
+    },
+    {
+      "features": {
+        "brightness": 272.12086313828786,
+        "contrast": 1.3000023587486325,
+        "edge_density": 17.68388420226286,
+        "saturation": 2.340370715769007
+      },
+      "file": "candidate_006.png",
+      "max_z_score": 272.12086313828786,
+      "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_006.png"
+    },
+    {
+      "features": {
+        "brightness": 273.13439330582077,
+        "contrast": 0.16409177774645906,
+        "edge_density": 16.991755662056875,
+        "saturation": 2.382894923198088
+      },
+      "file": "candidate_007.png",
+      "max_z_score": 273.13439330582077,
+      "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_007.png"
+    },
+    {
+      "features": {
+        "brightness": 271.99193437211744,
+        "contrast": 1.2935994192406743,
+        "edge_density": 20.729249779169184,
+        "saturation": 2.3667114387253023
+      },
+      "file": "candidate_008.png",
+      "max_z_score": 271.99193437211744,
+      "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_008.png"
+    },
+    {
+      "features": {
+        "brightness": 273.2000591931932,
+        "contrast": 0.3650450965089652,
+        "edge_density": 12.008430172573801,
+        "saturation": 2.3677155235283585
+      },
+      "file": "candidate_009.png",
+      "max_z_score": 273.2000591931932,
+      "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_009.png"
+    },
+    {
+      "features": {
+        "brightness": 272.4231027677699,
+        "contrast": 1.1971883353240707,
+        "edge_density": 19.483418406798414,
+        "saturation": 2.3093404998614138
+      },
+      "file": "candidate_010.png",
+      "max_z_score": 272.4231027677699,
+      "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_010.png"
+    },
+    {
+      "features": {
+        "brightness": 273.49494267397785,
+        "contrast": 0.3742878076173804,
+        "edge_density": 16.576478537933287,
+        "saturation": 2.264025527317956
+      },
+      "file": "candidate_011.png",
+      "max_z_score": 273.49494267397785,
+      "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_011.png"
+    },
+    {
+      "features": {
+        "brightness": 272.431488777285,
+        "contrast": 1.286706863939534,
+        "edge_density": 14.500092917315339,
+        "saturation": 2.3612410874366807
+      },
+      "file": "candidate_012.png",
+      "max_z_score": 272.431488777285,
+      "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_012.png"
+    },
+    {
+      "features": {
+        "brightness": 272.86314758285056,
+        "contrast": 0.11707542874168811,
+        "edge_density": 17.68388420226286,
+        "saturation": 2.22574088556683
+      },
+      "file": "candidate_013.png",
+      "max_z_score": 272.86314758285056,
+      "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_013.png"
+    },
+    {
+      "features": {
+        "brightness": 272.23140153271464,
+        "contrast": 1.154415323193546,
+        "edge_density": 18.51443845051004,
+        "saturation": 2.3182704270761363
+      },
+      "file": "candidate_014.png",
+      "max_z_score": 272.23140153271464,
+      "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_014.png"
+    },
+    {
+      "features": {
+        "brightness": 272.9894771764812,
+        "contrast": 0.22176587161147274,
+        "edge_density": 15.607498581644911,
+        "saturation": 2.5331289403916752
+      },
+      "file": "candidate_015.png",
+      "max_z_score": 272.9894771764812,
+      "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_015.png"
+    },
+    {
+      "features": {
+        "brightness": 272.0187597943674,
+        "contrast": 1.2709315313022638,
+        "edge_density": 15.469072873603714,
+        "saturation": 2.4250855938067772
+      },
+      "file": "candidate_016.png",
+      "max_z_score": 272.0187597943674,
+      "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_016.png"
+    },
+    {
+      "features": {
+        "brightness": 272.9379841355992,
+        "contrast": 0.2189393328702909,
+        "edge_density": 18.237587034427644,
+        "saturation": 2.3604610976848255
+      },
+      "file": "candidate_017.png",
+      "max_z_score": 272.9379841355992,
+      "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_017.png"
+    },
+    {
+      "features": {
+        "brightness": 272.3144279310131,
+        "contrast": 1.1312084167873258,
+        "edge_density": 19.62184411483961,
+        "saturation": 2.2723969540756155
+      },
+      "file": "candidate_018.png",
+      "max_z_score": 272.3144279310131,
+      "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_018.png"
+    },
+    {
+      "features": {
+        "brightness": 273.7034159280632,
+        "contrast": 0.3313798203222486,
+        "edge_density": 11.870004464532604,
+        "saturation": 2.4525433176771996
+      },
+      "file": "candidate_019.png",
+      "max_z_score": 273.7034159280632,
+      "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_019.png"
+    },
+    {
+      "features": {
+        "brightness": 281.35307495852834,
+        "contrast": 7.226792713313553,
+        "edge_density": 21.69822973545756,
+        "saturation": 2.6422892878906996
+      },
+      "file": "candidate_duplicate.png",
+      "max_z_score": 281.35307495852834,
+      "path": "/home/gauravkumar/tracer-cv/demos/assets/dataset/candidate/candidate_duplicate.png"
+    }
+  ],
+  "candidate": {
+    "error_count": 0,
+    "histograms": {
+      "blue_hist": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0008254278273809524,
+        0.059116908482142856,
+        0.4339192708333333,
+        0.39765857514880953,
+        0.05113002232142857,
+        0.0009765625,
+        2.3251488095238094e-05,
+        0.05634998139880952
+      ],
+      "gray_hist": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.010637555803571428,
+        0.4819219680059524,
+        0.39748418898809523,
+        0.04647972470238095,
+        0.05063011532738095,
+        0.0011276971726190475,
+        0.01171875
+      ],
+      "green_hist": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0009068080357142857,
+        0.05830310639880952,
+        0.4248628162202381,
+        0.3935663132440476,
+        0.08851841517857142,
+        0.02097284226190476,
+        0.0011509486607142857,
+        0.01171875
+      ],
+      "red_hist": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.1625744047619047e-05,
+        0.000720796130952381,
+        0.05912853422619048,
+        0.4329427083333333,
+        0.39577520461309523,
+        0.04970005580357143,
+        0.0008835565476190476,
+        0.00038364955357142856,
+        0.06045386904761905
+      ]
+    },
+    "image_count": 21,
+    "summary": {
+      "brightness": {
+        "count": 21,
+        "mean": 0.7020100298381987,
+        "std": 0.005246977912570622
+      },
+      "contrast": {
+        "count": 21,
+        "mean": 0.054917912043276285,
+        "std": 0.012864128526077922
+      },
+      "edge_density": {
+        "count": 21,
+        "mean": 0.057163783482142856,
+        "std": 0.005022805811215036
+      },
+      "saturation": {
+        "count": 21,
+        "mean": 0.08540868262449901,
+        "std": 0.0013999583682364996
+      }
+    }
+  },
+  "config": {
+    "brightness_threshold": 0.08,
+    "contrast_threshold": 0.08,
+    "edge_density_threshold": 0.08,
+    "histogram_bins": 16,
+    "image_anomaly_z": 3.0,
+    "max_images": 500,
+    "overall_shift_threshold": 0.2,
+    "saturation_threshold": 0.08,
+    "seed": 1337
+  },
+  "distances": {
+    "histogram": {
+      "blue_hist": 0.95634765625,
+      "gray_hist": 1.0,
+      "green_hist": 0.9990931919642857,
+      "red_hist": 0.953125
+    },
+    "scalar": {
+      "brightness": 0.33512389539253146,
+      "contrast": 0.010939914218726608,
+      "edge_density": 0.031467982700892856,
+      "saturation": 0.02107994904120762
+    }
+  },
+  "engine_version": "c2-1.0",
+  "errors": {
+    "candidate": [],
+    "reference": []
+  },
+  "findings": [
+    {
+      "message": "Candidate image population differs measurably from the reference population.",
+      "overall_shift": 0.4506483460244324,
+      "severity": "high",
+      "type": "distribution_shift"
+    },
+    {
+      "count": 21,
+      "message": "Some candidate images are statistical outliers relative to the reference feature distribution.",
+      "severity": "high",
+      "type": "candidate_image_anomalies"
+    }
+  ],
+  "limitations": [
+    "Distribution shift does not prove malicious manipulation.",
+    "Appearance features do not establish semantic correctness.",
+    "A stable distribution does not prove absence of attacks.",
+    "Thresholds are configurable heuristics and require validation against representative reference data.",
+    "This MVP analyzes image populations rather than proving causal source of a detected shift."
+  ],
+  "method": "multifeature image distribution shift analysis",
+  "overall_shift": 0.4506483460244324,
+  "reference": {
+    "error_count": 0,
+    "histograms": {
+      "blue_hist": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0003662109375,
+        0.22867431640625,
+        0.68638916015625,
+        0.03763427734375,
+        6.103515625e-05,
+        0.0,
+        0.0,
+        0.00487060546875,
+        0.03773193359375,
+        0.00426025390625,
+        1.220703125e-05,
+        0.0
+      ],
+      "gray_hist": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0219482421875,
+        0.86273193359375,
+        0.02257080078125,
+        0.06820068359375,
+        0.02454833984375,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "green_hist": [
+        0.0,
+        0.0,
+        0.0,
+        2.44140625e-05,
+        0.0442626953125,
+        0.71790771484375,
+        0.1771728515625,
+        0.056396484375,
+        0.00423583984375,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "red_hist": [
+        0.0,
+        0.0,
+        0.0,
+        0.003515625,
+        0.45147705078125,
+        0.4873046875,
+        0.01082763671875,
+        0.0,
+        0.0,
+        0.0022705078125,
+        0.0371826171875,
+        0.00740966796875,
+        1.220703125e-05,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "image_count": 20,
+    "summary": {
+      "brightness": {
+        "count": 20,
+        "mean": 0.36688613444566726,
+        "std": 0.0012154045661724037
+      },
+      "contrast": {
+        "count": 20,
+        "mean": 0.043977997824549676,
+        "std": 0.004222772517627457
+      },
+      "edge_density": {
+        "count": 20,
+        "mean": 0.02569580078125,
+        "std": 0.0017636942476562366
+      },
+      "saturation": {
+        "count": 20,
+        "mean": 0.10648863166570663,
+        "std": 0.008577832413985008
+      }
+    }
+  },
+  "result_digest": "3d5ccd105ee2478dc832658fc4387c57c475c5634d6d250986c66199f08b395f",
+  "severity": "high",
+  "shifted_features": [
+    {
+      "distance": 0.33512389539253146,
+      "feature": "brightness",
+      "shifted": true,
+      "threshold": 0.08
+    },
+    {
+      "distance": 0.010939914218726608,
+      "feature": "contrast",
+      "shifted": false,
+      "threshold": 0.08
+    },
+    {
+      "distance": 0.02107994904120762,
+      "feature": "saturation",
+      "shifted": false,
+      "threshold": 0.08
+    },
+    {
+      "distance": 0.031467982700892856,
+      "feature": "edge_density",
+      "shifted": false,
+      "threshold": 0.08
+    }
+  ],
+  "status": "completed",
+  "task": "distribution_shift"
+}
