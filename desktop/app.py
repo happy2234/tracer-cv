@@ -34,6 +34,7 @@ from desktop.pages.findings_workspace import FindingsWorkspace
 from desktop.pages.audit_workspace import AuditWorkspace
 from desktop.pages.evidence_workspace import EvidenceWorkspace, load_engine_evidence
 from desktop.pages.settings_workspace import SettingsWorkspace
+from desktop.pages.report_workspace import ReportWorkspace
 
 CONFIG = LocalConfig.load()
 APP_VERSION = "0.1.0"
@@ -774,6 +775,48 @@ class MainWindow(QMainWindow):
             self.assessment_label.setText(f"Assessment  ·  {field(assessment,'assessment_id',default='No assessment loaded')}")
             self.activity.setText(f"Activity · {self._activity_count()}")
             return
+        if index == 7:
+            assessment = read_current_assessment()
+            report = read_result(7)
+            assessment_id = str(assessment.get("assessment_id") or "")
+            if assessment_id and Path(assessment_id).name == assessment_id:
+                assessment_root = (REPORTS / "assessments" / assessment_id).resolve()
+                report_path = (assessment_root / "tracer_cv_assurance_report.json").resolve()
+                text_report_path = (assessment_root / "tracer_cv_assurance_report.txt").resolve()
+                if not report_path.is_relative_to((REPORTS / "assessments").resolve()):
+                    report_path = None
+                if not text_report_path.is_relative_to((REPORTS / "assessments").resolve()):
+                    text_report_path = None
+                protected = [assessment_root / "assessment.json", report_path, text_report_path, REPORTS / "active_assessment.json"]
+                engine_records = assessment.get("engines", {})
+                if isinstance(engine_records, dict):
+                    for record in engine_records.values():
+                        if not isinstance(record, dict) or not record.get("result_path"):
+                            continue
+                        try:
+                            candidate = Path(str(record["result_path"])).resolve()
+                            if candidate.is_relative_to(assessment_root):
+                                protected.append(candidate)
+                        except (OSError, RuntimeError, ValueError):
+                            pass
+            else:
+                report_path = (REPORTS / "tracer_cv_assurance_report.json").resolve()
+                text_report_path = (REPORTS / "tracer_cv_assurance_report.txt").resolve()
+                protected = [report_path, text_report_path, REPORTS / "active_assessment.json"]
+            workspace = ReportWorkspace(
+                assessment if assessment else None,
+                report,
+                report_path=report_path,
+                text_report_path=text_report_path,
+                protected_paths=protected,
+                on_navigate=self.open_report_related,
+                on_open_finding=self.open_report_finding,
+                parent=self,
+            )
+            self._replace_view(workspace)
+            self.assessment_label.setText(f"Assessment  ·  {field(assessment, 'assessment_id', default=field(report, 'assessment_id', default='No assessment loaded'))}")
+            self.activity.setText(f"Activity · {self._activity_count()}")
+            return
         self._replace_view(Page(NAMES[index],read_result(index),self.navigate,index))
         self.assessment_label.setText(f"Assessment  ·  {field(read_result(0),'assessment_id',default='No assessment loaded')}")
         self.activity.setText(f"Activity · {self._activity_count()}")
@@ -872,6 +915,25 @@ class MainWindow(QMainWindow):
             self.navigate(6)
         elif route == "reports":
             self.navigate(7)
+
+    def open_report_related(self, route):
+        routes = {"findings": 5, "evidence": "evidence", "audit": 6}
+        target = routes.get(route)
+        if target == "evidence":
+            self.show_utility("evidence")
+        elif isinstance(target, int):
+            self.navigate(target)
+
+    def open_report_finding(self, finding_id):
+        self.navigate(5)
+        workspace = self.stack.currentWidget()
+        if not isinstance(workspace, FindingsWorkspace):
+            return
+        workspace.search.setEditText(str(finding_id))
+        for row in range(workspace.finding_table.rowCount()):
+            if not workspace.finding_table.isRowHidden(row):
+                workspace.open_finding_row(row, 0)
+                break
 
     def build_assessment_view(self, key, layout):
         """Show an operator summary based on the local report and engine files."""
